@@ -5,7 +5,7 @@
     <section id="main">
       <AsideMenu ref="menu"></AsideMenu>
 
-      <AsideChat ref="chat"></AsideChat>
+      <!--<AsideChat ref="chat"></AsideChat>-->
 
       <section id="content">
         <div class="container">
@@ -48,5 +48,28 @@
 </script>
 
 <style>
-  @import './styles/css/demo.css'
+  @import './styles/css/demo.css';
+  #main {
+    padding-bottom: 110px;
+    padding-top: 110px
+  }
+
+  @media (min-width:1280px) {
+    #content:not(.content-alt) {
+      padding-left: 283px;
+      padding-right: 15px
+    }
+  }
+
+  @media (min-width:768px) and (max-width:1279px) {
+    #content {
+      padding-left: 15px;
+      padding-right: 15px
+    }
+  }
+
+  #content.content-alt {
+    max-width: 1200px;
+    margin: 0 auto
+  }
 </style>

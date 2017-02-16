@@ -21,7 +21,7 @@
       },
       defaultOpeneds: Array,
       uniqueOpened: Boolean,
-      router: Boolean,
+      hasRouter: String,
       menuTrigger: {
         type: String,
         default: 'hover'
@@ -95,7 +95,7 @@
         this.activedIndex = item.index;
         this.$emit('select', index, indexPath, item);
 
-        if (this.router) {
+        if (this.hasRouter) {
           this.routeToItem(item);
         }
       },
@@ -131,3 +131,48 @@
   }
 
 </script>
+
+<style>
+  .main-menu {
+    list-style: none;
+    padding-left: 0;
+    margin: 20px 0 0
+  }
+
+  .main-menu a {
+    -webkit-transition: color;
+    -o-transition: color;
+    transition: color;
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s;
+  }
+
+  .main-menu .active>a,
+  .main-menu a.active,
+  .main-menu a:hover {
+    color: #262626
+  }
+
+  .main-menu>li>a {
+    padding: 14px 20px 14px 65px;
+    display: block;
+    font-weight: 500;
+    position: relative;
+    color: #4C4C4C
+  }
+
+  .main-menu>li>a>i {
+    position: absolute;
+    left: 25px;
+    font-size: 18px;
+    top: 2px;
+    width: 25px;
+    text-align: center;
+    padding: 13px 0
+  }
+
+  .main-menu>li.active>a,
+  .main-menu>li>a:hover {
+    background-color: #f7f7f7
+  }
+</style>

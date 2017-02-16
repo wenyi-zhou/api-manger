@@ -1,25 +1,9 @@
 <template>
   <aside id="sidebar" class="sidebar c-overflow" v-bind:class="{toggled:hasOpend}">
-    <div class="s-profile" :class="{toggled:hasProfileMenuOpend}">
-      <a @click="toggleProfileMenu">
-        <div class="sp-pic">
-          <img src="../../assets/demo/profile-pics/1.jpg" alt="">
-        </div>
-        <div class="sp-info">{{admin.name}}<i class="zmdi zmdi-caret-down"></i>
-        </div>
-      </a>
-      <ul :style="{display:'inline'}" class="main-menu" v-show="hasProfileMenuOpend">
-        <li>
-          <a @click="goRouter"><i class="zmdi zmdi-settings"></i>个人中心</a>
-        </li>
-        <li>
-          <a><i class="zmdi zmdi-time-restore"></i>退出</a>
-        </li>
-      </ul>
-    </div>
-    <wy-menu router = true>
-      <wy-menu-item index="/index"><i class="zmdi zmdi-home"></i>主页</wy-menu-item>
+    <profile />
 
+    <wy-menu hasRouter="true">
+      <wy-menu-item index="/index"><i class="zmdi zmdi-home"></i>主页</wy-menu-item>
       <wy-menu-sub index="/user">
         <template slot="title"><i class="zmdi zmdi-accounts"></i>用户管理</template>
         <wy-menu-item index="/user/teacher">教师管理</wy-menu-item>
@@ -28,7 +12,7 @@
       </wy-menu-sub>
 
       <wy-menu-item index="/subject"><i class="zmdi zmdi-book"></i>课程管理</wy-menu-item>
-      <wy-menu-item index="/acitvity"><i class="zmdi zmdi-flag"></i>活动管理</wy-menu-item>
+      <wy-menu-item index="/activity"><i class="zmdi zmdi-flag"></i>活动管理</wy-menu-item>
 
       <wy-menu-sub index="/order">
         <template slot="title"><i class="zmdi zmdi-assignment"></i>订单管理</template>
@@ -42,13 +26,14 @@
 
 <script>
   import { WyMenu, WyMenuItem, WyMenuSub } from '../../components/menu'
-  // import router from '../../router'
+  import profile from './profile'
 
   export default {
     components: {
       'wy-menu': WyMenu,
       'wy-menu-item': WyMenuItem,
-      'wy-menu-sub': WyMenuSub
+      'wy-menu-sub': WyMenuSub,
+      profile
     },
 
     data: function () {
@@ -87,3 +72,40 @@
   }
 
 </script>
+
+<style scoped>
+  #sidebar {
+    width: 268px
+  }
+
+  .sidebar {
+    position: fixed;
+    background: #fff;
+    height: calc(100% - 70px);
+    top: 70px;
+    transition: all;
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s;
+    z-index: 10;
+    overflow-y: auto;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .1)
+  }
+
+  @media (max-width:1279px) {
+    #sidebar {
+      -webkit-transform: translate3d(-288px, 0, 0);
+      transform: translate3d(-288px, 0, 0);
+      box-shadow: 0 0 20px rgba(14, 18, 21, .38)
+    }
+    #sidebar.toggled {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0)
+    }
+  }
+
+  @media print {
+    #sidebar {
+      display: none!important
+    }
+  }
+</style>

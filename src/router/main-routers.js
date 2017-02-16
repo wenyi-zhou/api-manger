@@ -9,6 +9,7 @@ var routers = [
     name: 'index',
     component: resolve => require(['../view/index.vue'], resolve)
   },
+  // 用户管理
   {
     path: '/user/teacher',
     name: 'user:teacher',
@@ -23,6 +24,18 @@ var routers = [
     path: '/user/student',
     name: 'user:student',
     component: resolve => require(['../view/user/student-index.vue'], resolve)
+  },
+  // 课程管理
+  {
+    path: '/subject',
+    name: 'subject',
+    component: resolve => require(['../view/subject/subject-index.vue'], resolve)
+  },
+  // 活动管理
+  {
+    path: '/activity',
+    name: 'activity',
+    component: resolve => require(['../view/activity/activity-index.vue'], resolve)
   }
 ]
 

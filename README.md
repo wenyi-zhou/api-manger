@@ -27,4 +27,12 @@ npm run e2e
 npm test
 ```
 
+``` bash
+# 可能在npm install 时总是报phantomjs-prebuilt@2.1.14安装失败,最后可以尝试通过以下命令安装成功：
+npm install phantomjs-prebuilt@2.1.14 --ignore-scripts
+```
+
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+
+

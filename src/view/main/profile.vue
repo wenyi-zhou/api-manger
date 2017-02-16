@@ -35,13 +35,12 @@
       }
     }
   }
+
 </script>
 
-
-<style scoped>
+<style>
   .s-profile>a {
     display: block;
-    height: 129px;
     margin-bottom: 5px;
     width: 100%;
     background: url(./profile-menu.png) left top no-repeat;

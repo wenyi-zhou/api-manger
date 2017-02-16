@@ -1343,15 +1343,6 @@ html:not(.ismobile) .page-loader .preloader p {
 	.invoice .card-header,.invoice .highlight {
 		background: #eee!important
 	}
-  page {
-		margin: 0;
-		size: auto
-	}
-
-	body {
-		margin: 0!important;
-		padding: 0!important
-	}
 
 	#chat,.growl-animated,.m-btn {
 		display: none!important

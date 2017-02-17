@@ -3,6 +3,10 @@
     <BarHeader v-on:openMenu="openMenu" v-on:closeAside="closeAside"></BarHeader>
     <section id="main">
       <AsideMenu ref="menu"></AsideMenu>
+      <wy-breadcrumb>
+        <wy-breadcrumb-item :to="{path:'/'}">主页</wy-breadcrumb-item>
+        <wy-breadcrumb-item >教师管理</wy-breadcrumb-item>
+      </wy-breadcrumb>
       <section id="content">
         <div class="container">
           <router-view></router-view>
@@ -13,6 +17,8 @@
 </template>
 
 <script>
+  import { WyBreadcrumb, WyBreadcrumbItem } from './components/breadcrumb'
+
   import AsideChat from './view/main/aside-chat'
   import AsideMenu from './view/main/aside-menu'
   import BarFooter from './view/main/bar-footer'
@@ -24,7 +30,9 @@
       AsideChat,
       AsideMenu,
       BarFooter,
-      BarHeader
+      BarHeader,
+      'wy-breadcrumb': WyBreadcrumb,
+      'wy-breadcrumb-item': WyBreadcrumbItem
     },
     methods: {
       openMenu: function () {
@@ -39,10 +47,16 @@
 </script>
 
 <style>
-  @import './styles/css/base.css';
   #main {
     padding-bottom: 110px;
-    padding-top: 110px
+    padding-top: 83px;
+    position: relative;
+    min-height: 100vh
+  }
+
+  #content.content-alt {
+    max-width: 1200px;
+    margin: 0 auto
   }
 
   @media (min-width:1280px) {
@@ -57,10 +71,5 @@
       padding-left: 15px;
       padding-right: 15px
     }
-  }
-
-  #content.content-alt {
-    max-width: 1200px;
-    margin: 0 auto
   }
 </style>

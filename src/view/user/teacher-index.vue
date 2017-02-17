@@ -1,38 +1,39 @@
 <template>
-  <div class="card">
-    <div class="card-header">
-      <h2>全部教师
-        <small>全部的老师数据</small>
-      </h2>
-    </div>
-    <div class="card-body table-responsive">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Username</th>
-            <th>Nickname</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Alexandra</td>
-            <td>Christopher</td>
-            <td>@makinton</td>
-            <td>Ducky</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Madeleine</td>
-            <td>Hollaway</td>
-            <td>@hollway</td>
-            <td>Cheese</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  <div>
+    <el-table :data="tableData" style="width: 100%">
+      <el-table-column prop="date" label="日期" width="180">
+      </el-table-column>
+      <el-table-column prop="name" label="姓名" width="180">
+      </el-table-column>
+      <el-table-column prop="address" label="地址">
+      </el-table-column>
+    </el-table>
   </div>
 </template>
+
+<script>
+  export default {
+    data: function () {
+      return {
+        tableData: [{
+          date: '2016-05-02',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1518 弄'
+        }, {
+          date: '2016-05-04',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1517 弄'
+        }, {
+          date: '2016-05-01',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1519 弄'
+        }, {
+          date: '2016-05-03',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1516 弄'
+        }]
+      }
+    }
+  }
+
+</script>

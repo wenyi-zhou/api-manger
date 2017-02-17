@@ -2,6 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import './vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css'
 import 'element-ui/lib/theme-default/index.css'
+import './styles/css/base.css'
 
 import Vue from 'vue'
 import router from './router'
@@ -15,5 +16,5 @@ new Vue({
   el: '#app',
   router, // （缩写）相当于 routes: routes
   template: '<App/>',
-  components: { App}
+  components: { App }
 })

@@ -1,72 +1,148 @@
 html {
-	font-family: sans-serif;
-	-ms-text-size-adjust: 100%;
-	-webkit-text-size-adjust: 100%
-}
-
-html {
-	font-size: 10px
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-overflow-style: none;
+  overflow-x: hidden\0/;
+  font-size: 10px
 }
 
 body {
-	font-family: roboto;
-	font-size: 13px;
-	line-height: 1.42857143;
-	color: #5E5E5E;
-	background-color: #f3f3f3;
-  position: relative
+  font-family: roboto;
+  font-size: 13px;
+  line-height: 1.42857143;
+  color: #5E5E5E;
+  background-color: #f3f3f3;
+  position: relative;
+  overflow-x: hidden
 }
 
-body,figure {
-	margin: 0
+body, figure {
+  margin: 0
 }
 
-html {
-	overflow-x: hidden\0/;
-	-ms-overflow-style: none
+body, html {
+  min-height: 100vh
 }
 
 html:not(.ie9) body {
-	overflow-y: scroll
+  overflow-y: scroll
 }
 
 html.ismobile * {
-	cursor: pointer
+  cursor: pointer
 }
 
-body {
-	overflow-x: hidden
+*, :after, :before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box
 }
 
-dl,ol,ul {
-	margin-top: 0
+*, a, button, i, input {
+  -webkit-font-smoothing: antialiased
+}
+
+*, :active, :focus, :hover {
+  outline: 0!important;
+  -webkit-tap-highlight-color: transparent!important
+}
+
+dl, ol, ul {
+  margin-top: 0
 }
 
 a {
-	background-color: transparent;
-  cursor:pointer;
+  background-color: transparent;
+  cursor: pointer;
   color: #2196F3;
-	text-decoration: none
+  text-decoration: none
 }
 
-a:active,a:hover {
-	outline: 0
+a:active, a:hover {
+  outline: 0
 }
 
-a:focus,a:hover {
-	color: #0a6ebd;
-	text-decoration: none
+a:focus, a:hover {
+  color: #0a6ebd;
+  text-decoration: none
 }
 
 a:focus {
-	outline-offset: -2px;
-	outline: 0!important
+  outline-offset: -2px;
+  outline: 0!important
 }
 
-#main,body,html {
-	min-height: 100vh
+input,button,span,textarea{
+  border-radius:0px!important
 }
 
-#main {
-	position: relative
+/** .card **/
+.card {
+  position: relative;
+  background: #fff;
+  margin-bottom: 30px;
+  border-radius: 2px
+}
+
+.card .card-header {
+  position: relative;
+  display: block;
+  padding: 26px 30px;
+  border-radius: 2px 2px 0 0
+}
+
+.card .card-header h2 {
+  margin: 0;
+  line-height: 100%;
+  font-size: 16px;
+  font-weight: 400
+}
+
+.card .card-header h2 small {
+  display: block;
+  margin-top: 8px;
+  color: #AEAEAE;
+  line-height: 160%
+}
+
+.card .card-header.ch-alt:not([class*=bgm-]) {
+  background-color: #f7f7f7
+}
+
+.card .card-header .actions {
+  position: absolute;
+  right: 10px;
+  z-index: 2;
+  top: 15px
+}
+
+.card .card-header .btn-float {
+  right: 25px;
+  bottom: -23px;
+  z-index: 1
+}
+
+.card .card-header[class*=bgm-] h2 {
+  color: #fff
+}
+
+.card .card-header[class*=bgm-] h2 small {
+  color: rgba(255, 255, 255, .7)
+}
+
+.card .card-body.card-padding {
+  padding: 26px 30px
+}
+
+.card .card-body.card-padding-sm {
+  padding: 15px
+}
+
+.card-header:not(.ch-alt):not([class*=bgm-])+.card-padding {
+  padding-top: 0
+}
+
+.card-light .card-header h2, .card-light .card-header h2 small {
+  color: #fff
 }

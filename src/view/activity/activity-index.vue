@@ -6,7 +6,7 @@
           <el-input placeholder="活动名称" icon="search" v-model="searchKey" :on-icon-click="enterSearch"></el-input>
         </el-col>
         <el-col :lg="18" :sm="14" :xs="14">
-          <el-button type="primary" icon="plus" @click="fetchData">新增</el-button>
+          <el-button type="primary" icon="plus" @click="hasShowEdit = true">新增</el-button>
         </el-col>
       </el-row>
     </div>
@@ -15,7 +15,7 @@
         <el-table-column prop="login_name" label="登录名" width="150"></el-table-column>
         <el-table-column prop="nickname" label="昵称" width="150"></el-table-column>
         <el-table-column prop="gender" label="性别" width="80"></el-table-column>
-        <el-table-column prop="type" label="注册类型" width="100"></el-table-column>
+        <el-table-column prop="type" :formatter="typeFormatter" label="注册类型" width="100"></el-table-column>
         <el-table-column prop="create_time" label="注册时间" width="250"></el-table-column>
         <el-table-column prop="area" label="地区" width="100"></el-table-column>
         <el-table-column label="操作">
@@ -47,7 +47,6 @@
         <el-button type="primary" @click="hasShowEdit = false">确 定</el-button>
       </div>
     </el-dialog>
-
   </div>
 </template>
 
@@ -116,6 +115,14 @@
             this.isLoading = false
           }
         )
+      },
+      typeFormatter (row, column) {
+        switch (row.type) {
+          case 1: return '学生'
+          case 2: return '家长'
+          case 3: return '老师'
+          default: return '机构'
+        }
       }
     }
   }

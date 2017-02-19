@@ -3,8 +3,16 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -ms-overflow-style: none;
-  overflow-x: hidden\0/;
+  overflow-x: hidden;
   font-size: 10px
+}
+
+html:not(.ie9) body {
+  overflow-y: scroll
+}
+
+html.ismobile * {
+  cursor: pointer
 }
 
 body {
@@ -23,14 +31,6 @@ body, figure {
 
 body, html {
   min-height: 100vh
-}
-
-html:not(.ie9) body {
-  overflow-y: scroll
-}
-
-html.ismobile * {
-  cursor: pointer
 }
 
 *, :after, :before {
@@ -73,11 +73,13 @@ a:focus {
   outline: 0!important
 }
 
-input,button,span,textarea{
-  border-radius:0px!important
+input, button, span, textarea {
+  border-radius: 0px!important
 }
 
+
 /** .card **/
+
 .card {
   position: relative;
   background: #fff;

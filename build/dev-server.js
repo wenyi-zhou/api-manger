@@ -1,4 +1,6 @@
 require('./check-versions')()
+var bodyParser = require('body-parser')
+var agent = require('../server/agent')
 
 var config = require('../config')
 if (!process.env.NODE_ENV) {
@@ -31,7 +33,7 @@ var devMiddleware = require('webpack-dev-middleware')(compiler, {
 })
 
 var hotMiddleware = require('webpack-hot-middleware')(compiler, {
-  log: () => {}
+  log: () => { }
 })
 // force page reload when html-webpack-plugin template changes
 compiler.plugin('compilation', function (compilation) {
@@ -40,6 +42,10 @@ compiler.plugin('compilation', function (compilation) {
     cb()
   })
 })
+
+// 通用的中间件
+app.use(bodyParser.json({limit: '1mb'}))
+app.use(bodyParser.urlencoded({ extended: true, limit: '1mb' }))
 
 // proxy api requests
 Object.keys(proxyTable).forEach(function (context) {
@@ -63,6 +69,9 @@ app.use(hotMiddleware)
 // serve pure static assets
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
 app.use(staticPath, express.static('./static'))
+// 作用代理，解决不能跨域
+
+app.use('/wkjy_core', agent)
 
 var uri = 'http://localhost:' + port
 

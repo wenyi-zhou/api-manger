@@ -2,22 +2,22 @@
   <aside id="sidebar" class="sidebar c-overflow" v-bind:class="{toggled:hasOpend}">
     <profile />
 
-    <wy-menu hasRouter="true">
-      <wy-menu-item index="/index"><i class="zmdi zmdi-home"></i>主页</wy-menu-item>
-      <wy-menu-sub index="/user">
-        <template slot="title"><i class="zmdi zmdi-accounts"></i>用户管理</template>
-        <wy-menu-item index="/user/teacher">教师管理</wy-menu-item>
-        <wy-menu-item index="/user/organization">机构管理</wy-menu-item>
-        <wy-menu-item index="/user/student">家长学生</wy-menu-item>
+    <wy-menu hasRouter="true" @select="menuSelected">
+      <wy-menu-item index="/index" name="主页"><i class="zmdi zmdi-home"></i></wy-menu-item>
+      <wy-menu-sub index="/user" name="用户管理">
+        <template slot="title"><i class="zmdi zmdi-accounts"></i></template>
+        <wy-menu-item index="/user/teacher" name="教师管理"></wy-menu-item>
+        <wy-menu-item index="/user/organization" name="机构管理"></wy-menu-item>
+        <wy-menu-item index="/user/student" name="家长学生"></wy-menu-item>
       </wy-menu-sub>
 
-      <wy-menu-item index="/subject"><i class="zmdi zmdi-book"></i>课程管理</wy-menu-item>
-      <wy-menu-item index="/activity"><i class="zmdi zmdi-flag"></i>活动管理</wy-menu-item>
+      <wy-menu-item index="/course" name="课程管理"><i class="zmdi zmdi-book"></i></wy-menu-item>
+      <wy-menu-item index="/activity" name="活动管理"><i class="zmdi zmdi-flag"></i></wy-menu-item>
 
-      <wy-menu-sub index="/order">
-        <template slot="title"><i class="zmdi zmdi-assignment"></i>订单管理</template>
-        <wy-menu-item index="/order/activity">活动订单</wy-menu-item>
-        <wy-menu-item index="/order/subject">课程订单</wy-menu-item>
+      <wy-menu-sub index="/order" name="订单管理">
+        <template slot="title"><i class="zmdi zmdi-assignment"></i></template>
+        <wy-menu-item index="/order/activity" name="活动订单"></wy-menu-item>
+        <wy-menu-item index="/order/subject" name="课程订单"></wy-menu-item>
       </wy-menu-sub>
 
     </wy-menu>
@@ -65,8 +65,8 @@
       toggleProfileMenu: function () {
         this.hasProfileMenuOpend = !this.hasProfileMenuOpend
       },
-      goRouter: function () {
-        this.$router.push('bbs')
+      menuSelected: function (index, indexPath, item) {
+        this.$emit('menuSelected', indexPath)
       }
     }
   }

@@ -73,6 +73,15 @@ app.use(staticPath, express.static('./static'))
 
 app.use('/wkjy_core', agent)
 
+// 错误中间件
+// app.use(errorHandler)
+
+// function errorHandler (err, req, res, next) {
+//   console.error(err.stack)
+//   res.status(500)
+//   res.render('error', { error: err })
+// }
+
 var uri = 'http://localhost:' + port
 
 devMiddleware.waitUntilValid(function () {

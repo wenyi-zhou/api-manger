@@ -52,6 +52,10 @@ dl, ol, ul {
   margin-top: 0
 }
 
+h1 {
+	margin: .67em 0
+}
+
 a {
   background-color: transparent;
   cursor: pointer;

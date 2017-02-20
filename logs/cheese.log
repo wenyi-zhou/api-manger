@@ -1,3 +1,2 @@
-[2017-02-20 00:15:16.153] [INFO] cheese - /wkjy_core/public/index.php/admin/user/lists params:[object Object]
-[2017-02-20 00:20:01.172] [INFO] cheese - /wkjy_core/public/index.php/admin/user/lists params:{"pnum":"1","records":"10"}
-[2017-02-20 00:22:19.674] [INFO] cheese - /wkjy_core/public/index.php/admin/user/lists params:{"pnum":"1","records":"10"}
+[2017-02-20 16:43:25.458] [ERROR] cheese - null
+[2017-02-20 16:43:32.815] [ERROR] cheese - null

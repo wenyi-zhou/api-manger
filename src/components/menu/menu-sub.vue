@@ -1,7 +1,7 @@
 <template>
   <li class="sub-menu" v-bind:class="{toggled:opened,active:isActive}">
     <a ref="menu-sub-title">
-      <slot name="title"></slot>
+      <slot name="title"></slot>{{name}}
     </a>
     <!--<collapse-transition>-->
     <ul :style="{display:'inline'}" v-show="opened">
@@ -25,6 +25,9 @@
       index: {
         type: String,
         required: true
+      },
+      name: {
+        type: String
       }
     },
 

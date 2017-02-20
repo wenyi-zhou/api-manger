@@ -27,9 +27,14 @@ var routers = [
   },
   // 课程管理
   {
-    path: '/subject',
-    name: 'subject',
-    component: resolve => require(['../view/subject/subject-index.vue'], resolve)
+    path: '/course',
+    name: 'course',
+    component: resolve => require(['../view/course/course-index.vue'], resolve)
+  },
+  {
+    path: '/course/:id',
+    name: 'course:id',
+    component: resolve => require(['../view/course/course-info.vue'], resolve)
   },
   // 活动管理
   {

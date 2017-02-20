@@ -2,10 +2,12 @@
   <div id="app">
     <BarHeader v-on:openMenu="openMenu" v-on:closeAside="closeAside"></BarHeader>
     <section id="main">
-      <AsideMenu ref="menu"></AsideMenu>
+      <AsideMenu ref="menu" @menuSelected="menuSelected"></AsideMenu>
       <wy-breadcrumb>
-        <wy-breadcrumb-item :to="{path:'/'}">主页</wy-breadcrumb-item>
-        <wy-breadcrumb-item >教师管理</wy-breadcrumb-item>
+        <wy-breadcrumb-item :to="'/'">主页</wy-breadcrumb-item>
+        <wy-breadcrumb-item v-for="breadcrumb in BreadcrumbData" :to="breadcrumb.index">
+          {{breadcrumb.name}}
+        </wy-breadcrumb-item>
       </wy-breadcrumb>
       <section id="content">
         <div class="container">
@@ -34,12 +36,22 @@
       'wy-breadcrumb': WyBreadcrumb,
       'wy-breadcrumb-item': WyBreadcrumbItem
     },
+
+    data: function () {
+      return {
+        BreadcrumbData: []
+      }
+    },
+
     methods: {
       openMenu: function () {
         this.$refs.menu.open()
       },
       closeAside: function () {
         this.$refs.menu.close()
+      },
+      menuSelected: function (selectList) {
+        this.BreadcrumbData = selectList
       }
     }
   }

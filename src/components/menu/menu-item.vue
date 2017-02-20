@@ -1,7 +1,7 @@
 <template>
   <li :class="{active:isActive}" @click="handleClick">
     <a>
-      <slot></slot>
+      <slot></slot>{{name}}
     </a>
   </li>
 </template>
@@ -20,6 +20,9 @@
       index: {
         type: String,
         required: true
+      },
+      name: {
+        type: String
       }
     },
     computed: {

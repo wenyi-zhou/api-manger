@@ -1,11 +1,12 @@
 export default {
   computed: {
     indexPath: function () {
-      var path = [this.index]
+      var path = [{ 'index': this.index, 'name': this.name }]
       var parent = this.$parent
       while (parent.$options.componentName !== 'WyMenu') {
         if (parent.index) {
-          path.unshift(parent.index)
+          var p = { 'index': parent.index, 'name': parent.name }
+          path.unshift(p)
         }
         parent = parent.$parent
       }

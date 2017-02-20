@@ -30,8 +30,12 @@ Vue.http.interceptors.push((request, next) => {
 export default {
   // User
   user_register: function (params) {
-    // var option = {}
-    // option.params = params
     return Vue.http.post('user/lists', params)
+  },
+  course_list: function (params) {
+    return Vue.http.post('course/lists', params)
+  },
+  course_info: function (params) {
+    return Vue.http.post('course/detail', params)
   }
 }

@@ -31,7 +31,7 @@
         <el-table-column prop="people_limit" label="最多报名人数" width="100"></el-table-column>
         <el-table-column prop="people_payed" label="已购买人数" width="100"></el-table-column>
         <el-table-column prop="status" :formatter="statusFormatter" label="审核状态" width="110"></el-table-column>
-        <el-table-column label="操作">
+        <el-table-column label="操作" fixed="right">
           <template scope="scope">
             <el-button size="small" type="primary" @click="handleEdit(scope.row)">查看</el-button>
           </template>

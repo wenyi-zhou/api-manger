@@ -36,6 +36,11 @@ var routers = [
     name: 'course:id',
     component: resolve => require(['../view/course/course-info.vue'], resolve)
   },
+  {
+    path: '/course/:id/:lessonId',
+    name: 'course:id:lessonId',
+    component: resolve => require(['../view/course/lesson/lesson-info.vue'], resolve)
+  },
   // 活动管理
   {
     path: '/activity',

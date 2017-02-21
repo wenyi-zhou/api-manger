@@ -10,12 +10,17 @@
     </div>
     <div class="card-body card-padding">
       <el-tabs>
-        <el-tab-pane label="基本信息" name="first">
-          <info-base/>
+        <el-tab-pane label="基本信息" name="base">
+          <info-base :cur-course="curCourse" />
         </el-tab-pane>
-        <el-tab-pane label="图文介绍" name="second">配置管理</el-tab-pane>
-        <el-tab-pane label="课时列表" name="third">角色管理</el-tab-pane>
-        <el-tab-pane label="评论列表" name="fourth">定时任务补偿</el-tab-pane>
+        <el-tab-pane label="图文介绍" name="content" v-html="curCourse.content">
+        </el-tab-pane>
+        <el-tab-pane label="课时列表" name="third">
+          <info-lesson :cur-course-id="curCourse.id" />
+        </el-tab-pane>
+        <el-tab-pane label="评论列表" name="comment">
+          <info-comment :cur-course-id="curCourse.id" />
+        </el-tab-pane>
       </el-tabs>
     </div>
 </template>
@@ -23,10 +28,14 @@
 <script>
   import API from '../../api'
   import InfoBase from './course-info-base.vue'
+  import InfoLesson from './course-lesson.vue'
+  import InfoComment from './course-comment.vue'
 
   export default {
     components: {
-      'info-base': InfoBase
+      'info-base': InfoBase,
+      'info-comment': InfoComment,
+      'info-lesson': InfoLesson
     },
     data: function () {
       return {
@@ -68,5 +77,7 @@
 </script>
 
 <style>
-
+  image {
+    max-width: 100%!important
+  }
 </style>

@@ -13,7 +13,7 @@ Vue.http.interceptors.push((request, next) => {
   next((response) => {
     // 请求发送后的处理逻辑
 
-    if (response.ok) {
+    if (response.ok && response.data.code === 200) {
       // 成功
       response.data = response.data.data
     } else {
@@ -37,5 +37,16 @@ export default {
   },
   course_info: function (params) {
     return Vue.http.post('course/detail', params)
+  },
+  course_info_lessonList: function (params) {
+    return Vue.http.post('course/listLesson', params)
+  },
+  course_info_commentList: function (params) {
+    return Vue.http.post('comment/listCourseComment', params)
+  },
+  // Other
+  delete_comment: function (params) {
+    // 删除评论
+    return Vue.http.post('comment/deleteComment', params)
   }
 }

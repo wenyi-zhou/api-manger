@@ -81,7 +81,13 @@ input, button, span, textarea {
   border-radius: 0px!important
 }
 
-
+/* pull */
+.pull-right {
+	float: right!important
+}
+.pull-left {
+	float: left!important
+}
 /** .card **/
 
 .card {

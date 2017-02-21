@@ -12,7 +12,7 @@
         </el-form-item>
         <el-form-item>
           <el-date-picker type="daterange" range-separator="至" v-model="selectDate" placeholder="选择日期范围" @change="handleDateChange"
-            :picker-options="datePickerOption"></el-date-picker>
+            :picker-options="datePickerOption" :editable="false"></el-date-picker>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="submitSearch">确定</el-button>

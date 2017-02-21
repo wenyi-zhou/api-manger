@@ -1,219 +1,69 @@
 <template>
-  <div class="pm-body clearfix">
-    <div class="pmb-block">
-      <div class="pmbb-header">
-        <h2><i class="zmdi zmdi-equalizer m-r-10"></i> Summary</h2>
+  <el-row :gutter="20">
 
-        <ul class="actions">
-          <li class="dropdown">
-            <a href="#" data-toggle="dropdown">
-              <i class="zmdi zmdi-more-vert"></i>
-            </a>
-
-            <ul class="dropdown-menu dropdown-menu-right">
-              <li>
-                <a data-ma-action="profile-edit" href="#">Edit</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-      <div class="pmbb-body p-l-30">
-        <div class="pmbb-view">
-          Sed eu est vulputate, fringilla ligula ac, maximus arcu. Donec sed felis vel magna mattis ornare ut non turpis. Sed id arcu
-          elit. Sed nec sagittis tortor. Mauris ante urna, ornare sit amet mollis eu, aliquet ac ligula. Nullam dolor metus,
-          suscipit ac imperdiet nec, consectetur sed ex. Sed cursus porttitor leo.
-        </div>
-
-        <div class="pmbb-edit">
-          <div class="fg-line">
-            <textarea class="form-control" rows="5" placeholder="Summary...">Sed eu est vulputate, fringilla ligula ac, maximus arcu. Donec sed felis vel magna mattis ornare ut non turpis. Sed id arcu elit. Sed nec sagittis tortor. Mauris ante urna, ornare sit amet mollis eu, aliquet ac ligula. Nullam dolor metus, suscipit ac imperdiet nec, consectetur sed ex. Sed cursus porttitor leo.</textarea>
+    <el-col :span="16">
+      <div class="pm-body clearfix">
+        <div class="pmb-block">
+          <div class="pmbb-header">
+            <h2><i class="zmdi zmdi-equalizer m-r-10"></i>主要信息</h2>
+            <!--<div class="actions">
+             <el-button type="text" icon="edit" size="mini">编辑</el-button>
+        </div>-->
           </div>
-          <div class="m-t-10">
-            <button class="btn btn-primary btn-sm">Save</button>
-            <button data-ma-action="profile-edit-cancel" class="btn btn-link btn-sm">Cancel</button>
+          <div class="pmbb-body">
+            <div class="pmbb-view">
+              <dl class="dl-horizontal">
+                <dt>课程名称</dt>
+                <dd>{{curCourse.title}}</dd>
+              </dl>
+              <dl class="dl-horizontal">
+                <dt>年级</dt>
+                <dd>{{curCourse.grade_name}}</dd>
+              </dl>
+              <dl class="dl-horizontal">
+                <dt>科目</dt>
+                <dd>{{curCourse.subject_name}}</dd>
+              </dl>
+              <dl class="dl-horizontal">
+                <dt>上课老师</dt>
+                <dd>{{curCourse.tname}}</dd>
+              </dl>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="pmb-block">
-      <div class="pmbb-header">
-        <h2><i class="zmdi zmdi-account m-r-10"></i> Basic Information</h2>
+    </el-col>
+    <el-col :span="8">
+      <img alt="" :src="curCourse.title_image">
+    </el-col>
+  </el-row>
 
-        <ul class="actions">
-          <li class="dropdown">
-            <a href="#" data-toggle="dropdown">
-              <i class="zmdi zmdi-more-vert"></i>
-            </a>
 
-            <ul class="dropdown-menu dropdown-menu-right">
-              <li>
-                <a data-ma-action="profile-edit" href="#">Edit</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-      <div class="pmbb-body p-l-30">
-        <div class="pmbb-view">
-          <dl class="dl-horizontal">
-            <dt>Full Name</dt>
-            <dd>Mallinda Hollaway</dd>
-          </dl>
-          <dl class="dl-horizontal">
-            <dt>Gender</dt>
-            <dd>Female</dd>
-          </dl>
-          <dl class="dl-horizontal">
-            <dt>Birthday</dt>
-            <dd>June 23, 1990</dd>
-          </dl>
-          <dl class="dl-horizontal">
-            <dt>Martial Status</dt>
-            <dd>Single</dd>
-          </dl>
-        </div>
-
-        <div class="pmbb-edit">
-          <dl class="dl-horizontal">
-            <dt class="p-t-10">Full Name</dt>
-            <dd>
-              <div class="fg-line">
-                <input type="text" class="form-control" placeholder="eg. Mallinda Hollaway">
-              </div>
-
-            </dd>
-          </dl>
-          <dl class="dl-horizontal">
-            <dt class="p-t-10">Gender</dt>
-            <dd>
-              <div class="fg-line">
-                <select class="form-control">
-                                                        <option>Male</option>
-                                                        <option>Female</option>
-                                                        <option>Other</option>
-                                                    </select>
-              </div>
-            </dd>
-          </dl>
-          <dl class="dl-horizontal">
-            <dt class="p-t-10">Birthday</dt>
-            <dd>
-              <div class="dtp-container dropdown fg-line">
-                <input type='text' class="form-control date-picker" data-toggle="dropdown" placeholder="Click here...">
-              </div>
-            </dd>
-          </dl>
-          <dl class="dl-horizontal">
-            <dt class="p-t-10">Martial Status</dt>
-            <dd>
-              <div class="fg-line">
-                <select class="form-control">
-                                                        <option>Single</option>
-                                                        <option>Married</option>
-                                                        <option>Other</option>
-                                                    </select>
-              </div>
-            </dd>
-          </dl>
-
-          <div class="m-t-30">
-            <button class="btn btn-primary btn-sm">Save</button>
-            <button data-ma-action="profile-edit-cancel" class="btn btn-link btn-sm">Cancel</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="pmb-block">
-      <div class="pmbb-header">
-        <h2><i class="zmdi zmdi-phone m-r-10"></i> Contact Information</h2>
-        <ul class="actions">
-          <li class="dropdown">
-            <a href="#" data-toggle="dropdown">
-              <i class="zmdi zmdi-more-vert"></i>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-right">
-              <li>
-                <a data-ma-action="profile-edit" href="#">Edit</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-      <div class="pmbb-body p-l-30">
-        <div class="pmbb-view">
-          <dl class="dl-horizontal">
-            <dt>Mobile Phone</dt>
-            <dd>00971 12345678 9</dd>
-          </dl>
-          <dl class="dl-horizontal">
-            <dt>Email Address</dt>
-            <dd>malinda.h@gmail.com</dd>
-          </dl>
-          <dl class="dl-horizontal">
-            <dt>Twitter</dt>
-            <dd>@malinda</dd>
-          </dl>
-          <dl class="dl-horizontal">
-            <dt>Skype</dt>
-            <dd>malinda.hollaway</dd>
-          </dl>
-        </div>
-        <div class="pmbb-edit">
-          <dl class="dl-horizontal">
-            <dt class="p-t-10">Mobile Phone</dt>
-            <dd>
-              <div class="fg-line">
-                <input type="text" class="form-control" placeholder="eg. 00971 12345678 9">
-              </div>
-            </dd>
-          </dl>
-          <dl class="dl-horizontal">
-            <dt class="p-t-10">Email Address</dt>
-            <dd>
-              <div class="fg-line">
-                <input type="email" class="form-control" placeholder="eg. malinda.h@gmail.com">
-              </div>
-            </dd>
-          </dl>
-          <dl class="dl-horizontal">
-            <dt class="p-t-10">Twitter</dt>
-            <dd>
-              <div class="fg-line">
-                <input type="text" class="form-control" placeholder="eg. @malinda">
-              </div>
-            </dd>
-          </dl>
-          <dl class="dl-horizontal">
-            <dt class="p-t-10">Skype</dt>
-            <dd>
-              <div class="fg-line">
-                <input type="text" class="form-control" placeholder="eg. malinda.hollaway">
-              </div>
-            </dd>
-          </dl>
-
-          <div class="m-t-30">
-            <button class="btn btn-primary btn-sm">Save</button>
-            <button data-ma-action="profile-edit-cancel" class="btn btn-link btn-sm">Cancel</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </template>
 
 <script>
+  export default {
+    props: ['curCourse']
+  }
 
 </script>
 
-<style>
+<style scoped>
   dl {
-    margin-bottom: 18px
+    margin-bottom: 5px
   }
 
   dd {
     margin-left: 0
+  }
+
+  dt {
+    font-weight: 700
+  }
+
+  dd,
+  dt {
+    line-height: 1.42857143
   }
 
   .dl-horizontal dt {
@@ -235,7 +85,6 @@
       float: left;
       width: 160px;
       clear: left;
-      text-align: right;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap
@@ -245,28 +94,17 @@
     }
   }
 
-  @media (min-width:1200px) {
-    .pmb-block {
-      padding: 40px 42px 0
-    }
-  }
-
-  @media (max-width:1199px) {
-    .pmb-block {
-      padding: 30px 20px 0
-    }
-  }
-
   .pmb-block {
-    margin-bottom: 20px
+    padding: 15px 10px;
+    margin-bottom: 0px
   }
 
   .pmb-block:last-child {
-    margin-bottom: 50px
+    margin-bottom: 40px
   }
 
   .pmb-block .pmbb-header {
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     position: relative
   }
 

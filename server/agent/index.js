@@ -9,10 +9,10 @@ function requestOptions () {
   }
 }
 
-function errorMsg (error) {
+function errorMsg () {
   return {
     'code': 401,
-    'msg': error
+    'msg': '响应超时，稍后再试'
   }
 }
 
@@ -25,8 +25,14 @@ module.exports = function (req, res) {
     if (!error && response.statusCode === 200) {
       res.send(data)
     } else {
-      logger.error(error)
-      res.send(errorMsg())
+      logger.error(options.url)
+      if (data) {
+        logger.error(data)
+        res.status(response.statusCode).send(data)
+      } else {
+        logger.error(error)
+        res.status(404).send(errorMsg())
+      }
     }
   }
   try {

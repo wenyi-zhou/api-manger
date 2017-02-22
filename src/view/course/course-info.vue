@@ -15,11 +15,11 @@
         </el-tab-pane>
         <el-tab-pane label="图文介绍" name="content" v-html="curCourse.content">
         </el-tab-pane>
-        <el-tab-pane label="课时列表" name="third">
-          <info-lesson :cur-course-id="curCourse.id" />
+        <el-tab-pane label="课时列表" name="lesson">
+          <info-lesson :cur-course-id="curCourseId" />
         </el-tab-pane>
         <el-tab-pane label="评论列表" name="comment">
-          <info-comment :cur-course-id="curCourse.id" />
+          <info-comment :cur-course-id="curCourseId" />
         </el-tab-pane>
       </el-tabs>
     </div>
@@ -39,12 +39,14 @@
     },
     data: function () {
       return {
+        curCourseId: '',
         curCourse: {},
         isLoading: false
       }
     },
     created: function () {
       // 组件创建完后获取数据，此时 data 已经被 observed 了
+      this.curCourseId = this.$route.params.id
       this.fetchData()
     },
     // watch: {
@@ -58,16 +60,13 @@
 
       fetchData: function () {
         this.isLoading = true
-        var params = {
-          'id': this.$route.params.id
-        }
-        API.course_info(params).then(
-          (response) => {
+        var params = { 'id': this.curCourseId }
+        API.course_info(params,
+          (data) => {
             this.isLoading = false
-            this.curCourse = response.data
-          },
-          () => {
-            this.isLoading = false
+
+            if (!data) return
+            this.curCourse = data
           }
         )
       }

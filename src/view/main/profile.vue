@@ -2,7 +2,7 @@
   <div class="s-profile" :class="{toggled:hasProfileMenuOpend}">
     <a @click="toggleProfileMenu">
       <div class="sp-pic">
-        <img src="../../assets/demo/profile-pics/1.jpg" alt="">
+        <img src="../../assets/img/profile-default.jpg" alt="">
       </div>
       <div class="sp-info">{{admin.name}}<i class="zmdi zmdi-caret-down"></i>
       </div>
@@ -17,7 +17,6 @@
     </ul>
   </div>
 </template>
-
 <script>
   export default {
     data: function () {

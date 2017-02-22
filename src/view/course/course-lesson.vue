@@ -28,22 +28,21 @@
     methods: {
       fetchData: function () {
         this.isLoading = true
-        var pars = {
+        var params = {
           'records': 999,
           'course_id': this.curCourseId
         }
-        API.course_info_lessonList(pars).then(
-          (response) => {
+        API.course_info_lesson_list(params,
+          (data) => {
             this.isLoading = false
-            this.lessonList = response.data.list
-          },
-          () => {
-            this.isLoading = false
+
+            if (!data) return
+            this.lessonList = data.list
           }
         )
       },
       viewMore: function (lesson) {
-        this.$router.push('/course/' + lesson.course_id + '/' + lesson.id)
+        this.$router.replace('/course/' + lesson.course_id + '/' + lesson.id)
       }
     }
   }

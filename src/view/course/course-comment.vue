@@ -49,14 +49,13 @@
       fetchData: function () {
         this.isLoading = true
         this.filterFrom.course_id = this.curCourseId
-        API.course_info_commentList(this.filterFrom).then(
-          (response) => {
+        API.course_info_commentList(this.filterFrom,
+          (data) => {
             this.isLoading = false
-            this.commentList = response.data.list
-            this.totalRecords = response.data.totalRecords
-          },
-          () => {
-            this.isLoading = false
+
+            if (!data) return
+            this.commentList = data.list
+            this.totalRecords = data.totalRecords
           }
         )
       },
@@ -65,17 +64,15 @@
           'id': comment.id,
           'type': 3
         }
-        API.delete_comment(deletePar).then(
-          (response) => {
+        API.delete_comment(deletePar,
+          (data) => {
+            if (!data) return
             this.$notify({
               title: '提示',
               message: '删除成功',
               type: 'success'
             })
             this.fetchData()
-          },
-          () => {
-            this.isLoading = false
           }
         )
       }

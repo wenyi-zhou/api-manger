@@ -10,7 +10,7 @@
       <div class="list-group">
         <a class="list-group-item media" href="#">
           <div class="pull-left">
-            <img class="lgi-img" src="../../assets/demo/profile-pics/1.jpg" alt="">
+            <img class="lgi-img" alt="">
           </div>
           <div class="media-body">
             <div class="lgi-heading">Wendy Mitchell</div>

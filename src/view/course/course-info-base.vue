@@ -37,8 +37,6 @@
       <img alt="" :src="curCourse.title_image">
     </el-col>
   </el-row>
-
-
 </template>
 
 <script>
@@ -49,51 +47,6 @@
 </script>
 
 <style scoped>
-  dl {
-    margin-bottom: 5px
-  }
-
-  dd {
-    margin-left: 0
-  }
-
-  dt {
-    font-weight: 700
-  }
-
-  dd,
-  dt {
-    line-height: 1.42857143
-  }
-
-  .dl-horizontal dt {
-    text-align: left
-  }
-
-  .dl-horizontal dd:after {
-    clear: both
-  }
-
-  .dl-horizontal dd:after,
-  .dl-horizontal dd:before {
-    content: " ";
-    display: table
-  }
-
-  @media (min-width:768px) {
-    .dl-horizontal dt {
-      float: left;
-      width: 160px;
-      clear: left;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap
-    }
-    .dl-horizontal dd {
-      margin-left: 180px
-    }
-  }
-
   .pmb-block {
     padding: 15px 10px;
     margin-bottom: 0px

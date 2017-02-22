@@ -115,14 +115,13 @@
 
       fetchData: function () {
         this.isLoading = true
-        API.course_list(this.filterFrom).then(
-          (response) => {
+        API.course_list(this.filterFrom,
+          (data) => {
             this.isLoading = false
-            this.tableData = response.data.list
-            this.totalRecords = response.data.totalRecords
-          },
-          () => {
-            this.isLoading = false
+
+            if (!data) return
+            this.tableData = data.list
+            this.totalRecords = data.totalRecords
           }
         )
       },

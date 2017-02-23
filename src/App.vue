@@ -2,15 +2,14 @@
   <div id="app">
     <BarHeader v-on:openMenu="openMenu" v-on:closeAside="closeAside"></BarHeader>
     <section id="main">
-      <AsideMenu ref="menu" @menuSelected="menuSelected"></AsideMenu>
+      <AsideMenu ref="menu"></AsideMenu>
       <wy-breadcrumb>
         <wy-breadcrumb-item :to="'/'">主页</wy-breadcrumb-item>
-        <wy-breadcrumb-item v-for="breadcrumb in BreadcrumbData" :to="breadcrumb.index">
+        <wy-breadcrumb-item v-for="breadcrumb in routeMenus" :to="breadcrumb.index">
           {{breadcrumb.name}}
         </wy-breadcrumb-item>
       </wy-breadcrumb>
       <section id="content">
-        {{path}}
         <div class="container">
           <router-view></router-view>
         </div>
@@ -26,7 +25,6 @@
   import AsideMenu from './view/main/aside-menu'
   import BarFooter from './view/main/bar-footer'
   import BarHeader from './view/main/bar-header'
-  import { mapState } from 'vuex'
 
   export default {
     name: 'app',
@@ -38,6 +36,11 @@
       'wy-breadcrumb': WyBreadcrumb,
       'wy-breadcrumb-item': WyBreadcrumbItem
     },
+    computed: {
+      routeMenus: function () {
+        return this.$store.getters.routeMenus
+      }
+    },
 
     data: function () {
       return {
@@ -45,19 +48,12 @@
       }
     },
 
-    computed: mapState({
-      path: state => state.route.path
-    }),
-
     methods: {
       openMenu: function () {
         this.$refs.menu.open()
       },
       closeAside: function () {
         this.$refs.menu.close()
-      },
-      menuSelected: function (selectList) {
-        this.BreadcrumbData = selectList
       }
     },
     mounted () {

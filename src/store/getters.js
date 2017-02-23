@@ -1,4 +1,4 @@
-export const activityMenu = (state) => {
+export const routeMenus = (state) => {
   function findMenu (menuList, path) {
     for (var i in menuList) {
       var menu = menuList[i]
@@ -11,7 +11,7 @@ export const activityMenu = (state) => {
   const menuList = state.home.menu_list
   const shortPaths = state.route.path.split('/')
   shortPaths.shift()
-  const routeMenus = []
+  const _routeMenus = []
 
   var _index = ''
   for (var i = 0, len = shortPaths.length; i < len; i++) {
@@ -19,7 +19,7 @@ export const activityMenu = (state) => {
     if (i === 0) {
       list = menuList
     } else {
-      var subMenu = routeMenus[routeMenus.length - 1].sub_menu
+      var subMenu = _routeMenus[_routeMenus.length - 1].sub_menu
       if (subMenu) {
         list = subMenu
       } else {
@@ -32,16 +32,16 @@ export const activityMenu = (state) => {
     if (!menu) {
       break
     }
-    routeMenus.push(menu)
+    _routeMenus.push(menu)
   }
+  return _routeMenus
+}
+
+export const activityMenu = (state, getters) => {
+  const routeMenus = getters.routeMenus
   if (routeMenus.length > 0) {
     return routeMenus[routeMenus.length - 1].index
   } else {
     return ''
   }
-}
-
-export const counts = (state) => {
-  const data = state.notifications.counts
-  return data
 }

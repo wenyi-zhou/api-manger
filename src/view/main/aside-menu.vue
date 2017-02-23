@@ -1,46 +1,36 @@
 <template>
   <aside id="sidebar" class="sidebar c-overflow" v-bind:class="{toggled:hasOpend}">
     <profile />
-
-    <wy-menu hasRouter="true" @select="menuSelected">
-      <wy-menu-item index="/index" name="主页"><i class="zmdi zmdi-home"></i></wy-menu-item>
-      <wy-menu-sub index="/user" name="用户管理">
-        <template slot="title"><i class="zmdi zmdi-accounts"></i></template>
-        <wy-menu-item index="/user/teacher" name="教师管理"></wy-menu-item>
-        <wy-menu-item index="/user/organization" name="机构管理"></wy-menu-item>
-        <wy-menu-item index="/user/student" name="家长学生"></wy-menu-item>
-      </wy-menu-sub>
-
-      <wy-menu-item index="/course" name="课程管理"><i class="zmdi zmdi-book"></i></wy-menu-item>
-      <wy-menu-item index="/activity" name="活动管理"><i class="zmdi zmdi-flag"></i></wy-menu-item>
-
-      <wy-menu-sub index="/order" name="订单管理">
-        <template slot="title"><i class="zmdi zmdi-assignment"></i></template>
-        <wy-menu-item index="/order/activity" name="活动订单"></wy-menu-item>
-        <wy-menu-item index="/order/subject" name="课程订单"></wy-menu-item>
-      </wy-menu-sub>
-
+    <wy-menu hasRouter="true" v-bind:defaultActive="activity_menu" @select="menuSelected">
+      <wy-menu-items v-for="menu in menu_list" :menu="menu"></wy-menu-items>
     </wy-menu>
   </aside>
 </template>
 
 <script>
-  import { WyMenu, WyMenuItem, WyMenuSub } from '../../components/menu'
+  import { WyMenu, WyMenuItems } from '../../components/menu'
   import profile from './profile'
 
   export default {
     components: {
       'wy-menu': WyMenu,
-      'wy-menu-item': WyMenuItem,
-      'wy-menu-sub': WyMenuSub,
+      'wy-menu-items': WyMenuItems,
       profile
     },
 
     data: function () {
       return {
         hasOpend: false,
-        hasProfileMenuOpend: false,
-        admin: { name: '周文义' }
+        hasProfileMenuOpend: false
+      }
+    },
+
+    computed: {
+      activity_menu: function () {
+        return this.$store.getters.activityMenu
+      },
+      menu_list: function () {
+        return this.$store.state.home.menu_list
       }
     },
 

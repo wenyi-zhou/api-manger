@@ -39,11 +39,11 @@
 
     watch: {
       defaultActive(value) {
-        const item = this.items[value];
-        if (!item) return;
-
-        this.activedIndex = item.index;
-        this.initOpenedMenu();
+        const item = this.items[value]
+        this.activedIndex = value
+        setTimeout(() => {
+          this.initOpenedMenu()
+        }, 300)
       },
       defaultOpeneds(value) {
         this.openedMenus = value;
@@ -92,7 +92,7 @@
 
       handleItemClick(item) {
         let { index, indexPath } = item;
-        this.activedIndex = item.index;
+        // this.activedIndex = item.index;
         this.$emit('select', index, indexPath, item);
 
         if (this.hasRouter) {
@@ -104,13 +104,12 @@
         const index = this.activedIndex;
         const activeItem = this.items[index];
         if (!activeItem) return;
-
         let indexPath = activeItem.indexPath;
-
+        console.log(indexPath)
         // 展开该菜单项的路径上所有子菜单
         indexPath.forEach(index => {
-          let submenu = this.submenus[index];
-          submenu && this.openMenu(index, submenu.indexPath);
+          let submenu = this.submenus[index.index];
+          submenu && this.openMenu(index.index, submenu.indexPath);
         });
       },
       routeToItem(item) {

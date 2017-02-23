@@ -4,7 +4,6 @@ import Config from './config.js'
 
 Vue.use(VueResource)
 
-Vue.http.options.root = Config.BaseUrl
 Vue.http.options.credentials = false
 Vue.http.options.emulateHTTP = true
 Vue.http.options.emulateJSON = true
@@ -31,9 +30,27 @@ Vue.http.interceptors.push((request, next) => {
 })
 
 export default {
-  startRequest: function (path, params, callback) {
+  requestLocal: function (path, params, callback) {
+    Vue.http.options.root = ''
     if (typeof params === 'function') {
       callback = params
+      params = {}
+    }
+    Vue.http.get(path, params).then(
+      (response) => {
+        callback(response.data)
+      },
+      (response) => {
+        callback(undefined, response.status)
+      }
+    )
+  },
+
+  startRequest: function (path, params, callback) {
+    Vue.http.options.root = Config.BaseUrl
+    if (typeof params === 'function') {
+      callback = params
+      params = {}
     }
     Vue.http.post(path, params).then(
       (response) => {

@@ -1,0 +1,69 @@
+{
+  "code": 200,
+  "data": [
+    {
+      "name": "主页",
+      "index": "/index",
+      "icon": [
+        "zmdi",
+        "zmdi-home"
+      ]
+    },
+    {
+      "name": "用户管理",
+      "index": "/user",
+      "icon": [
+        "zmdi",
+        "zmdi-accounts"
+      ],
+      "sub_menu": [
+        {
+          "name": "教师管理",
+          "index": "/user/teachert"
+        },
+        {
+          "name": "机构管理",
+          "index": "/user/organization"
+        },
+        {
+          "name": "家长学生",
+          "index": "/user/student"
+        }
+      ]
+    },
+    {
+      "name": "课程管理",
+      "index": "/course",
+      "icon": [
+        "zmdi",
+        "zmdi-book"
+      ]
+    },
+    {
+      "name": "活动管理",
+      "index": "/activity",
+      "icon": [
+        "zmdi",
+        "zmdi-flag"
+      ]
+    },
+    {
+      "name": "订单管理",
+      "index": "/order",
+      "icon": [
+        "zmdi",
+        "zmdi-assignment"
+      ],
+      "sub_menu": [
+        {
+          "name": "活动订单",
+          "index": "/order/activity"
+        },
+        {
+          "name": "课程订单",
+          "index": "/order/subject"
+        }
+      ]
+    }
+  ]
+}

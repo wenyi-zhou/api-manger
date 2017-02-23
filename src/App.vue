@@ -10,6 +10,7 @@
         </wy-breadcrumb-item>
       </wy-breadcrumb>
       <section id="content">
+        {{path}}
         <div class="container">
           <router-view></router-view>
         </div>
@@ -25,6 +26,7 @@
   import AsideMenu from './view/main/aside-menu'
   import BarFooter from './view/main/bar-footer'
   import BarHeader from './view/main/bar-header'
+  import { mapState } from 'vuex'
 
   export default {
     name: 'app',
@@ -43,6 +45,10 @@
       }
     },
 
+    computed: mapState({
+      path: state => state.route.path
+    }),
+
     methods: {
       openMenu: function () {
         this.$refs.menu.open()
@@ -53,6 +59,9 @@
       menuSelected: function (selectList) {
         this.BreadcrumbData = selectList
       }
+    },
+    mounted () {
+      this.$store.dispatch('enumListInit')
     }
   }
 

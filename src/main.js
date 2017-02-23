@@ -6,15 +6,20 @@ import './assets/css/base.css'
 
 import Vue from 'vue'
 import router from './router'
+import store from './store'
+import { sync } from 'vuex-router-sync'
 import ElementUI from 'element-ui'
 
 import App from './App.vue'
+
+sync(store, router)
 
 Vue.use(ElementUI)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router, // （缩写）相当于 routes: routes
+  store,
   template: '<App/>',
   components: { App }
 })

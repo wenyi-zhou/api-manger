@@ -3,7 +3,7 @@
     <div class="card-header" style="padding-bottom: 0px;">
       <el-form :inline="true">
         <el-form-item>
-          <el-button type="primary" @click="back"><i class="zmdi zmdi-arrow-left"></i>&nbsp;&nbsp;返回课程</el-button>
+          <el-button type="primary" @click="back"><i class="zmdi zmdi-arrow-left"></i>&nbsp;&nbsp;返回列表</el-button>
           <el-button type="text" :loading="isLoading"></el-button>
         </el-form-item>
       </el-form>
@@ -13,74 +13,78 @@
         <el-tab-pane label="图文介绍" name="content">
           <div class="content">
             <div class="pull-left">
-              <img class="title-img" alt="" :src="curLesson.image">
-              <div>
+              <div style="text-align: center"><img class="title-img" alt="" :src="curObject.image"></div>
+              <div class="text">
                 <dl class="dl-horizontal">
-                  <dt>课时名称</dt>
-                  <dd>{{curLesson.title}}</dd>
+                  <dt>活动名称</dt>
+                  <dd>{{curObject.name}}</dd>
                 </dl>
                 <dl class="dl-horizontal">
-                  <dt>上课时间</dt>
-                  <dd>{{curLesson.start_time}}</dd>
+                  <dt>活动时间</dt>
+                  <dd>{{curObject.start_time}}</dd>
+                </dl>
+                <dl class="dl-horizontal">
+                  <dt>活动地点</dt>
+                  <dd>{{curObject.address}}</dd>
+                </dl>
+                <dl class="dl-horizontal">
+                  <dt>活动类别</dt>
+                  <dd>{{curObject.type_name}}</dd>
+                </dl>
+                <dl class="dl-horizontal">
+                  <dt>参与价格</dt>
+                  <dd>{{curObject.price}}</dd>
                 </dl>
               </div>
             </div>
-            <div class="content-body" v-html="curLesson.content"></div>
+            <div class="content-body" v-html="curObject.content"></div>
           </div>
         </el-tab-pane>
-        <el-tab-pane label="视频列表" name="video">
-          <lesson-video :cur-lesson-id="curLessonId" />
-        </el-tab-pane>
         <el-tab-pane label="评论列表" name="comment">
-          <info-comment :cur-lesson-id="curLessonId" />
+          <info-comment v-bind:cur-id="curId" />
         </el-tab-pane>
       </el-tabs>
     </div>
 </template>
 
 <script>
-  import API from '../../../api'
-  import InfoComment from './lesson-comment.vue'
-  import InfoVideo from './lesson-video.vue'
+  import API from '../../api'
+  import InfoComment from './activity-comment.vue'
 
   export default {
     components: {
-      'info-comment': InfoComment,
-      'lesson-video': InfoVideo
+      'info-comment': InfoComment
     },
     data: function () {
       return {
-        curLessonId: '',
-        curLesson: {},
+        curId: '',
+        curObject: {},
         isLoading: false
       }
     },
     created: function () {
-      // 组件创建完后获取数据，此时 data 已经被 observed 了
-      this.curLessonId = this.$route.params.lessonId
+      this.curId = this.$route.params.id
       this.fetchData()
     },
+
     methods: {
       back: function () {
-        this.$router.replace('/course/' + this.$route.params.id)
+        this.$router.replace('/activity')
       },
 
       fetchData: function () {
         this.isLoading = true
-        var params = { 'id': this.curLessonId }
-        API.lesson_info(params,
+        var params = { 'id': this.curId }
+        API.activity_info(params,
           (data) => {
             this.isLoading = false
-            this.curLesson = data
 
+            if (!data) return
+            this.curObject = data
             var breadcrumbs = []
             breadcrumbs.push({
-              index: '/course/' + this.$route.params.id,
-              name: '课程信息'
-            })
-            breadcrumbs.push({
               index: this.$route.path,
-              name: data.title
+              name: data.name
             })
             this.$store.dispatch('updateBreadcrumb', breadcrumbs)
           }
@@ -108,7 +112,7 @@
 
   .content .pull-left {
     border-right: 2px solid #eee;
-    padding-right: 10px
+    padding-right: 10px;
   }
 
   .title-img {

@@ -15,20 +15,6 @@
       "icon": [
         "zmdi",
         "zmdi-accounts"
-      ],
-      "sub_menu": [
-        {
-          "name": "教师管理",
-          "index": "/user/teachert"
-        },
-        {
-          "name": "机构管理",
-          "index": "/user/organization"
-        },
-        {
-          "name": "家长学生",
-          "index": "/user/student"
-        }
       ]
     },
     {
@@ -61,7 +47,7 @@
         },
         {
           "name": "课程订单",
-          "index": "/order/subject"
+          "index": "/order/course"
         }
       ]
     }

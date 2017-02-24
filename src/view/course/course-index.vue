@@ -76,10 +76,6 @@
     created: function () {
       this.fetchData()
     },
-    // watch: {
-    //   // 如果路由有变化，会再次执行该方法
-    //   '$route': 'fetchData'
-    // },
     methods: {
       handleSizeChange: function (val) {
         this.filterFrom.records = val
@@ -100,7 +96,6 @@
         }
       },
       submitSearch: function () {
-        alert(this.selectDate)
         if (!this.selectDate) {
           this.filterFrom.start_time = ''
           this.filterFrom.end_time = ''
@@ -125,8 +120,8 @@
           }
         )
       },
-      statusFormatter: function (status) {
-        switch (status) {
+      statusFormatter: function (row) {
+        switch (row.status) {
           case 1: return '正在审核'
           case 2: return '审核通过'
           default: return '审核不通过'

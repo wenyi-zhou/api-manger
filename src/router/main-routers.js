@@ -11,19 +11,9 @@ var routers = [
   },
   // 用户管理
   {
-    path: '/user/teacher',
-    name: 'user:teacher',
-    component: resolve => require(['../view/user/teacher-index.vue'], resolve)
-  },
-  {
-    path: '/user/organization',
-    name: 'user:organization',
-    component: resolve => require(['../view/user/organization-index.vue'], resolve)
-  },
-  {
-    path: '/user/student',
-    name: 'user:student',
-    component: resolve => require(['../view/user/student-index.vue'], resolve)
+    path: '/user',
+    name: 'user',
+    component: resolve => require(['../view/user/user-index.vue'], resolve)
   },
   // 课程管理
   {
@@ -46,6 +36,26 @@ var routers = [
     path: '/activity',
     name: 'activity',
     component: resolve => require(['../view/activity/activity-index.vue'], resolve)
+  },
+  {
+    path: '/activity/:id',
+    name: 'activity:id',
+    component: resolve => require(['../view/activity/activity-info.vue'], resolve)
+  },
+  // 订单管理
+  {
+    path: '/order',
+    redirect: '/order/course'
+  },
+  {
+    path: '/order/course',
+    name: 'order:course',
+    component: resolve => require(['../view/order/order-course.vue'], resolve)
+  },
+  {
+    path: '/order/activity',
+    name: 'order:activity',
+    component: resolve => require(['../view/order/order-activity.vue'], resolve)
   }
 ]
 

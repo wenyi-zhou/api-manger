@@ -49,7 +49,7 @@
       fetchData: function () {
         this.isLoading = true
         this.filterFrom.course_id = this.curCourseId
-        API.course_info_commentList(this.filterFrom,
+        API.courseInfoCommentList(this.filterFrom,
           (data) => {
             this.isLoading = false
 
@@ -64,7 +64,7 @@
           'id': comment.id,
           'type': 3
         }
-        API.delete_comment(deletePar,
+        API.commentDelete(deletePar,
           (data) => {
             if (!data) return
             this.$notify({

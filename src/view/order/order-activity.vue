@@ -3,11 +3,12 @@
     <div class="card-header" style="padding-bottom: 0px;">
       <el-form :inline="true" :model="filterFrom">
         <el-form-item>
-          <el-select v-model="filterFrom.status" >
-            <el-option label="全部" value=""></el-option>
-            <el-option label="正在审核" value="1"></el-option>
-            <el-option label="审核通过" value="2"></el-option>
-            <el-option label="审核不通过" value="3"></el-option>
+          订单状态
+          <el-select v-model="filterFrom.status">
+            <el-option label="全部订单" value=""></el-option>
+            <el-option label="订单已提交" value="1"></el-option>
+            <el-option label="等待支付" value="2"></el-option>
+            <el-option label="订单完成" value="3"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item>
@@ -17,24 +18,19 @@
         <el-form-item>
           <el-button type="primary" @click="submitFilter">确定</el-button>
         </el-form-item>
-        <div class="pull-right">
-          <el-button type="primary" icon="plus" @click="handleAdd">发布活动</el-button>
-        </div>
       </el-form>
     </div>
     <div class="card-body card-padding">
       <el-table :data="tableData" style="width: 100%" v-loading="isLoading" border>
-        <el-table-column prop="name" label="名称" width="140"></el-table-column>
-        <el-table-column prop="start_time" label="活动时间" width="160"></el-table-column>
-        <el-table-column prop="address" label="地点" width="200"></el-table-column>
-        <el-table-column prop="price" label="价格" width="100"></el-table-column>
-        <el-table-column prop="uname" label="发布者" width="160"></el-table-column>
-        <el-table-column prop="people_limit" label="最多报名人数" width="100"></el-table-column>
-        <el-table-column prop="people_payed" label="已购买人数" width="100"></el-table-column>
-        <el-table-column prop="status" :formatter="statusFormatter" label="审核状态" width="110"></el-table-column>
+        <el-table-column prop="order_number" label="订单编号" width="180"></el-table-column>
+        <el-table-column prop="activity_name" label="活动名称" width="160"></el-table-column>
+        <el-table-column prop="pay_time" label="下单时间" width="200"></el-table-column>
+        <el-table-column prop="price" label="金额" width="100"></el-table-column>
+        <el-table-column prop="uname" label="用户名字" width="160"></el-table-column>
+        <el-table-column :formatter="statusFormatter" label="订单状态" width="110"></el-table-column>
         <el-table-column label="操作">
           <template scope="scope">
-            <el-button size="small" type="primary" @click="handleEdit(scope.row)">查看</el-button>
+            <el-button size="small" type="primary" @click="handleDelete(scope.row)">删除</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -55,7 +51,8 @@
     start_time: '',
     end_time: '',
     pnum: 1,
-    records: 10
+    records: 10,
+    orderType: 'activity'
   }
 
   export default {
@@ -103,32 +100,53 @@
         }
         this.fetchData()
       },
-      handleAdd: function () {
-
-      },
-
-      // 编辑
-      handleEdit: function (SelectData) {
-        this.$router.push('/activity/' + SelectData.id)
+      handleDelete: function (SelectData) {
+        this.$confirm('你将删除该订单, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          this.deleteData(SelectData.id)
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          })
+        })
       },
 
       fetchData: function () {
         this.isLoading = true
-        API.activity_list(this.filterFrom,
+        API.orderList(this.filterFrom,
           (data) => {
             this.isLoading = false
-
             if (!data) return
             this.tableData = data.list
             this.totalRecords = data.totalRecords
           }
         )
       },
+      deleteData: function (id) {
+        var par = {
+          id: id,
+          type: 1,
+          admin_id: '11',
+          admin_name: 'wenyi'
+        }
+        API.orderDelete(par, (data) => {
+          if (data) {
+            this.$message({
+              type: 'success',
+              message: '删除成功!'
+            })
+          }
+        })
+      },
       statusFormatter: function (row) {
         switch (row.status) {
-          case 1: return '正在审核'
-          case 2: return '审核通过'
-          default: return '审核不通过'
+          case 1: return '订单已提交'
+          case 2: return '等待支付'
+          default: return '订单完成'
         }
       }
     }

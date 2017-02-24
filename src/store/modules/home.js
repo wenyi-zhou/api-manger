@@ -11,8 +11,8 @@ export default {
     MENU_LIST_GET_SUCCESS: (state, menuData) => {
       Vue.set(state, 'menu_list', menuData)
     },
-    BREADCRUMB_DATA_UPDATE: (state, {data}) => {
-      Vue.set(state, 'breadcrumb_data', data)
+    BREADCRUMB_DATA_UPDATE: (state, breadcrumbs) => {
+      Vue.set(state, 'breadcrumb_data', breadcrumbs)
     }
   },
 
@@ -21,6 +21,9 @@ export default {
       API.requestLocal('static/menu-list.json', (data) => {
         commit('MENU_LIST_GET_SUCCESS', data)
       })
+    },
+    updateBreadcrumb ({commit}, breadcrumbs) {
+      commit('BREADCRUMB_DATA_UPDATE', breadcrumbs)
     }
   }
 }

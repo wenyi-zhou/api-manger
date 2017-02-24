@@ -12,8 +12,8 @@
 </template>
 
 <script>
-  import API from '../../../api'
-  import CommentItem from '../../common/comment-item.vue'
+  import API from '../../api'
+  import CommentItem from '../common/comment-item.vue'
 
   var filterFrom = {
     pnum: 1,
@@ -25,7 +25,7 @@
       'comment-item': CommentItem
     },
 
-    props: ['curLessonId'],
+    props: ['curId'],
 
     data: function () {
       return {
@@ -48,8 +48,8 @@
       },
       fetchData: function () {
         this.isLoading = true
-        this.filterFrom.lesson_id = this.curLessonId
-        API.courseInfoCommentList(this.filterFrom,
+        this.filterFrom.activity_id = this.curId
+        API.activityInfoCommentList(this.filterFrom,
           (data) => {
             this.isLoading = false
 
@@ -62,7 +62,7 @@
       deleteComment: function (comment) {
         var deletePar = {
           'id': comment.id,
-          'type': 3
+          'type': 2
         }
         API.commentDelete(deletePar,
           (data) => {

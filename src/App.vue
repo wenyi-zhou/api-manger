@@ -8,6 +8,9 @@
         <wy-breadcrumb-item v-for="breadcrumb in routeMenus" :to="breadcrumb.index">
           {{breadcrumb.name}}
         </wy-breadcrumb-item>
+        <wy-breadcrumb-item v-for="breadcrumb in BreadcrumbData" :to="breadcrumb.index">
+          {{breadcrumb.name}}
+        </wy-breadcrumb-item>
       </wy-breadcrumb>
       <section id="content">
         <div class="container">
@@ -39,12 +42,9 @@
     computed: {
       routeMenus: function () {
         return this.$store.getters.routeMenus
-      }
-    },
-
-    data: function () {
-      return {
-        BreadcrumbData: []
+      },
+      BreadcrumbData: function () {
+        return this.$store.state.home.breadcrumb_data
       }
     },
 
@@ -56,7 +56,8 @@
         this.$refs.menu.close()
       }
     },
-    mounted () {
+
+    mounted: function () {
       this.$store.dispatch('enumListInit')
     }
   }

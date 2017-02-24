@@ -15,13 +15,14 @@ Vue.http.interceptors.push((request, next) => {
     //   title: response.data.code,
     //   message: response.data.msg
     // })
+    // console.log(response.url)
     if (response.ok && response.data.code === 200) {
       // 成功
       response.data = response.data.data
     } else {
       // 失败
       Vue.prototype.$notify.error({
-        title: '错误:' + response.data.code,
+        title: '请求错误',
         message: response.data
       })
     }
@@ -61,8 +62,9 @@ export default {
       }
     )
   },
+
   // 用户管理
-  user_register: function (params, callback) {
+  userList: function (params, callback) {
     this.startRequest('user/lists', params, callback)
   },
   // 课程管理
@@ -78,7 +80,7 @@ export default {
   course_info_lesson_info: function (params, callback) {
     this.startRequest('course/lessonDetail', params, callback)
   },
-  course_info_commentList: function (params, callback) {
+  courseInfoCommentList: function (params, callback) {
     this.startRequest('comment/listCourseComment', params, callback)
   },
   lesson_info: function (params, callback) {
@@ -87,9 +89,34 @@ export default {
   course_lesson_video_list: function (params, callback) {
     this.startRequest('video/lists', params, callback)
   },
+
+  // 活动管理
+  activity_list: function (params, callback) {
+    this.startRequest('activity/lists', params, callback)
+  },
+  activity_info: function (params, callback) {
+    this.startRequest('activity/detail', params, callback)
+  },
+  activityInfoCommentList: function (params, callback) {
+    this.startRequest('comment/listActivityComment', params, callback)
+  },
+
   // 其它
-  delete_comment: function (params, callback) {
+  commentDelete: function (params, callback) {
     // 删除评论
     this.startRequest('comment/deleteComment', params, callback)
+  },
+  orderList: function (params, callback) {
+    var path = ''
+    if (params.orderType === 'activity') {
+      path = 'order/listActivityOrder'
+    } else {
+      path = 'order/listCourseOrder'
+    }
+    this.startRequest(path, params, callback)
+  },
+
+  orderDelete: function (params, callback) {
+    this.startRequest('order/delete', params, callback)
   }
 }

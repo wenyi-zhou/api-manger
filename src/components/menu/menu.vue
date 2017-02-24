@@ -105,7 +105,6 @@
         const activeItem = this.items[index];
         if (!activeItem) return;
         let indexPath = activeItem.indexPath;
-        console.log(indexPath)
         // 展开该菜单项的路径上所有子菜单
         indexPath.forEach(index => {
           let submenu = this.submenus[index.index];
@@ -149,7 +148,7 @@
   .main-menu .active>a,
   .main-menu a.active,
   .main-menu a:hover {
-    color: #262626
+    color: #000;
   }
 
   .main-menu>li>a {
@@ -172,6 +171,6 @@
 
   .main-menu>li.active>a,
   .main-menu>li>a:hover {
-    background-color: #f7f7f7
+    background-color: #f3f3f3
   }
 </style>

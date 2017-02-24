@@ -135,6 +135,7 @@
         }
         API.orderDelete(par, (data) => {
           if (data) {
+            this.fetchData()
             this.$message({
               type: 'success',
               message: '删除成功!'

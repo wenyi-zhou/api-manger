@@ -1,3 +1,5 @@
 <template>
-  <div class="card"></div>
+  <div class="card">
+    欢迎登录。
+  </div>
 </template>

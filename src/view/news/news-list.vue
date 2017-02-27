@@ -24,13 +24,26 @@
     </div>
     <div class="card-body card-padding">
       <el-table :data="tableData" style="width: 100%" v-loading="isLoading" border>
+        <el-table-column type="expand">
+          <template scope="props">
+            <div class="text">
+              <dl class="dl-horizontal">
+                <dt>摘要</dt>
+                <dd>{{props.row.summary}}</dd>
+              </dl>
+              <dl class="dl-horizontal">
+                <dt>来源</dt>
+                <dd>{{props.row.source}}</dd>
+              </dl>
+            </div>
+          </template>
+        </el-table-column>
         <el-table-column prop="type_name" label="类别" width="110"></el-table-column>
         <el-table-column prop="title" label="标题" width="200"></el-table-column>
         <el-table-column prop="publish_time" label="发布时间" width="160"></el-table-column>
-        <el-table-column prop="source" label="来源" width="200"></el-table-column>
         <el-table-column prop="pageview" label="浏览量" width="80"></el-table-column>
-        <el-table-column label="是否启用" :formatter="enableFormatter" width="80"></el-table-column>
-        <el-table-column label="审核状态" :formatter="statusFormatter" width="80"></el-table-column>
+        <el-table-column label="是否启用" :formatter="enableFormatter" width="100"></el-table-column>
+        <el-table-column label="审核状态" :formatter="statusFormatter" width="100"></el-table-column>
         <el-table-column label="操作">
           <template scope="scope">
             <el-button size="small" type="primary" @click="handleEdit(scope.row)">详情</el-button>
@@ -137,5 +150,11 @@
     background: #eef1f6;
     border: 1px solid #dfe6ec;
     border-top: none
+  }
+  dt {
+    width: 60px !important;
+  }
+  dd {
+    margin-left: 65px !important;
   }
 </style>

@@ -116,14 +116,14 @@ dd, dt {
 @media (min-width:768px) {
   .dl-horizontal dt {
     float: left;
-    width: 160px;
+    width: 100px;
     clear: left;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap
   }
   .dl-horizontal dd {
-    margin-left: 180px
+    margin-left: 110px
   }
 }
 

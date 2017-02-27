@@ -4,6 +4,7 @@
       <el-form :inline="true">
         <el-form-item>
           <el-button type="primary" @click="back"><i class="zmdi zmdi-arrow-left"></i>&nbsp;&nbsp;返回列表</el-button>
+          <el-button v-if="!isLoading" type="primary" @click="handleEdit"><i class="zmdi zmdi-edit"></i>&nbsp;&nbsp;编辑</el-button>
           <el-button type="text" :loading="isLoading"></el-button>
         </el-form-item>
       </el-form>
@@ -72,6 +73,10 @@
         this.$router.replace('/activity')
       },
 
+      handleEdit: function () {
+        this.$router.push('/activity/edit/' + this.curId)
+      },
+
       fetchData: function () {
         this.isLoading = true
         var params = { 'id': this.curId }
@@ -91,6 +96,7 @@
         )
       }
     },
+
     beforeRouteLeave: function (to, from, next) {
       this.$store.dispatch('updateBreadcrumb', [])
       next()

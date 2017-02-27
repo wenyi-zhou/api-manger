@@ -144,7 +144,7 @@
         }
       },
       enableFormatter: function (row) {
-        switch (row.gender) {
+        switch (row.enable) {
           case 1: return '是'
           case 0: return '否'
           default: return ''

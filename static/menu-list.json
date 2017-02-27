@@ -50,6 +50,24 @@
           "index": "/order/course"
         }
       ]
+    },
+     {
+      "name": "资讯管理",
+      "index": "/news",
+      "icon": [
+        "zmdi",
+        "zmdi-reader"
+      ],
+      "sub_menu": [
+        {
+          "name": "资讯列表",
+          "index": "/news/list"
+        },
+        {
+          "name": "类别设置",
+          "index": "/news/type"
+        }
+      ]
     }
   ]
 }

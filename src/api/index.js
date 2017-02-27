@@ -100,6 +100,19 @@ export default {
   activityInfoCommentList: function (params, callback) {
     this.startRequest('comment/listActivityComment', params, callback)
   },
+  activityRelease: function (params, callback) {
+    this.startRequest('activity/release', params, callback)
+  },
+  activityDelete: function (params, callback) {
+    this.startRequest('activity/delete', params, callback)
+  },
+  activitySave: function (params, callback) {
+    if (params.id === '0') {
+      this.startRequest('activity/add', params, callback)
+    } else {
+      this.startRequest('activity/edit', params, callback)
+    }
+  },
 
   // 其它
   commentDelete: function (params, callback) {
@@ -115,8 +128,23 @@ export default {
     }
     this.startRequest(path, params, callback)
   },
-
   orderDelete: function (params, callback) {
     this.startRequest('order/delete', params, callback)
+  },
+  newsList: function (params, callback) {
+    this.startRequest('news/lists', params, callback)
+  },
+  newsTypeList: function (callback) {
+    this.startRequest('news/typeList', callback)
+  },
+  newsTypeSave: function (params, callback) {
+    if (params.id) {
+      this.startRequest('news/typeEdit', params, callback)
+    } else {
+      this.startRequest('news/typeAdd', params, callback)
+    }
+  },
+  newsTypeDelete: function (params, callback) {
+    this.startRequest('news/typeDelete', params, callback)
   }
 }

@@ -38,9 +38,14 @@ var routers = [
     component: resolve => require(['../view/activity/activity-index.vue'], resolve)
   },
   {
-    path: '/activity/:id',
-    name: 'activity:id',
+    path: '/activity/info/:id',
+    name: 'activity:info:id',
     component: resolve => require(['../view/activity/activity-info.vue'], resolve)
+  },
+  {
+    path: '/activity/edit/:id',
+    name: 'activity:edit:id',
+    component: resolve => require(['../view/activity/activity-edit.vue'], resolve)
   },
   // 订单管理
   {
@@ -56,6 +61,21 @@ var routers = [
     path: '/order/activity',
     name: 'order:activity',
     component: resolve => require(['../view/order/order-activity.vue'], resolve)
+  },
+  // 资讯管理
+  {
+    path: '/news',
+    redirect: '/news/list'
+  },
+  {
+    path: '/news/list',
+    name: 'news:list',
+    component: resolve => require(['../view/news/news-list.vue'], resolve)
+  },
+  {
+    path: '/news/type',
+    name: 'news:type',
+    component: resolve => require(['../view/news/news-type.vue'], resolve)
   }
 ]
 

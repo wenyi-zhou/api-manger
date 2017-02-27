@@ -3,7 +3,7 @@
     <div class="card-header" style="padding-bottom: 0px;">
       <el-form :inline="true" :model="filterFrom">
         <el-form-item>
-          <el-select v-model="filterFrom.status" >
+          <el-select v-model="filterFrom.status">
             <el-option label="全部" value=""></el-option>
             <el-option label="正在审核" value="1"></el-option>
             <el-option label="审核通过" value="2"></el-option>
@@ -34,7 +34,9 @@
         <el-table-column prop="status" :formatter="statusFormatter" label="审核状态" width="110"></el-table-column>
         <el-table-column label="操作">
           <template scope="scope">
-            <el-button size="small" type="primary" @click="handleEdit(scope.row)">查看</el-button>
+            <el-button size="small" type="primary" @click="handleView(scope.row)">查看</el-button>
+            <el-button v-if="scope.row.status===1" size="small" type="primary" @click="handldRelease(scope.row)">发布活动</el-button>
+            <el-button size="small" type="primary" @click="handldDelete(scope.row)">删除活动</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -104,12 +106,45 @@
         this.fetchData()
       },
       handleAdd: function () {
-
+        this.$router.push('/activity/edit/0')
       },
 
       // 编辑
-      handleEdit: function (SelectData) {
-        this.$router.push('/activity/' + SelectData.id)
+      handleView: function (SelectData) {
+        this.$router.push('/activity/info/' + SelectData.id)
+      },
+
+      handldRelease: function (SelectData) {
+        API.activityRelease({ id: SelectData.id },
+          (data) => {
+            if (!data) return
+            this.fetchData()
+          }
+        )
+      },
+
+      handldDelete: function (SelectData) {
+        this.$confirm('你将删除该活动, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          API.activityDelete({ id: SelectData.id, 'admin_id': '1', 'admin_name': 'wenyi' },
+            (data) => {
+              if (!data) return
+              this.fetchData()
+              this.$message({
+                type: 'success',
+                message: '删除成功!'
+              })
+            }
+          )
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          })
+        })
       },
 
       fetchData: function () {

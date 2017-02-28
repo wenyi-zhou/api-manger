@@ -14,27 +14,31 @@
         <el-tab-pane label="图文介绍" name="content">
           <div class="content">
             <div class="pull-left">
-              <div style="text-align: center"><img class="title-img" alt="" :src="curObject.image"></div>
+              <div style="text-align: center"><img class="title-img" alt="" :src="curObject.title_image"></div>
               <div class="text">
                 <dl class="dl-horizontal">
-                  <dt>活动名称</dt>
-                  <dd>{{curObject.name}}</dd>
+                  <dt>标题</dt>
+                  <dd>{{curObject.title}}</dd>
                 </dl>
                 <dl class="dl-horizontal">
-                  <dt>活动时间</dt>
-                  <dd>{{curObject.start_time}}</dd>
-                </dl>
-                <dl class="dl-horizontal">
-                  <dt>活动地点</dt>
-                  <dd>{{curObject.address}}</dd>
-                </dl>
-                <dl class="dl-horizontal">
-                  <dt>活动类别</dt>
+                  <dt>类别名称</dt>
                   <dd>{{curObject.type_name}}</dd>
                 </dl>
                 <dl class="dl-horizontal">
-                  <dt>参与价格</dt>
-                  <dd>{{curObject.price}}</dd>
+                  <dt>关键字</dt>
+                  <dd>{{curObject.key_word}}</dd>
+                </dl>
+                <dl class="dl-horizontal">
+                  <dt>浏览量</dt>
+                  <dd>{{curObject.pageview}}</dd>
+                </dl>
+                <dl class="dl-horizontal">
+                  <dt>发布时间</dt>
+                  <dd>{{curObject.publish_time}}</dd>
+                </dl>
+                 <dl class="dl-horizontal">
+                  <dt>摘要</dt>
+                  <dd>{{curObject.summary}}</dd>
                 </dl>
               </div>
             </div>
@@ -50,7 +54,7 @@
 
 <script>
   import API from '../../api'
-  import InfoComment from './activity-comment.vue'
+  import InfoComment from './news-comment.vue'
 
   export default {
     components: {
@@ -70,17 +74,17 @@
 
     methods: {
       back: function () {
-        this.$router.replace('/activity')
+        this.$router.replace('/news')
       },
 
       handleEdit: function () {
-        this.$router.push('/activity/edit/' + this.curId)
+        this.$router.push('/news/edit/' + this.curId)
       },
 
       fetchData: function () {
         this.isLoading = true
         var params = { 'id': this.curId }
-        API.activityInfo(params,
+        API.newsInfo(params,
           (data) => {
             this.isLoading = false
 
@@ -89,7 +93,7 @@
             var breadcrumbs = []
             breadcrumbs.push({
               index: this.$route.path,
-              name: data.name
+              name: data.title
             })
             this.$store.dispatch('updateBreadcrumb', breadcrumbs)
           }

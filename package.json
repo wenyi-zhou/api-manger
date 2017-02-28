@@ -18,6 +18,7 @@
     "vue": "^2.1.10",
     "vue-resource": "^1.2.0",
     "vue-router": "^2.2.0",
+    "vueditor": "^0.2.4",
     "vuex": "^2.1.2",
     "vuex-router-sync": "^4.1.2"
   },

@@ -3,7 +3,7 @@
   "data": [
     {
       "name": "主页",
-      "index": "/index",
+      "index": "/main",
       "icon": [
         "zmdi",
         "zmdi-home"

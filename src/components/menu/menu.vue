@@ -134,7 +134,7 @@
   .main-menu {
     list-style: none;
     padding-left: 0;
-    margin: 20px 0 0
+    margin: 0px 0px
   }
 
   .main-menu a {

@@ -64,12 +64,8 @@
 
 <script>
   import API from '../../api'
-  import InfoComment from './activity-comment.vue'
 
   export default {
-    components: {
-      'info-comment': InfoComment
-    },
     data: function () {
       return {
         fileList: [],
@@ -95,7 +91,7 @@
         var breadcrumbs = []
         breadcrumbs.push({
           index: '',
-          name: '活动编辑'
+          name: '新增活动'
         })
         this.$store.dispatch('updateBreadcrumb', breadcrumbs)
       } else {
@@ -129,7 +125,7 @@
       fetchData: function () {
         this.isLoading = true
         var params = { 'id': this.curId }
-        API.activity_info(params,
+        API.activityInfo(params,
           (data) => {
             this.isLoading = false
             if (!data) return

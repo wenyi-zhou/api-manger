@@ -4,6 +4,7 @@ import * as actions from './actions'
 import * as getters from './getters'
 
 import home from './modules/home'
+import admin from './modules/admin'
 
 Vue.use(Vuex)
 
@@ -13,7 +14,8 @@ export default new Vuex.Store({
   actions,
   getters,
   modules: {
-    home
+    home,
+    admin
   },
   strict: debug
 })

@@ -4,33 +4,42 @@
       <div class="sp-pic">
         <img src="../../assets/img/profile-default.jpg" alt="">
       </div>
-      <div class="sp-info">{{admin.name}}<i class="zmdi zmdi-caret-down"></i>
+      <div class="sp-info">{{admin.admin_name}}<i class="zmdi zmdi-caret-down"></i>
       </div>
     </a>
     <ul :style="{display:'inline'}" class="main-menu" v-show="hasProfileMenuOpend">
       <li>
-        <a @click="goRouter"><i class="zmdi zmdi-settings"></i>个人中心</a>
+        <a><i class="zmdi zmdi-settings"></i>个人中心</a>
       </li>
       <li>
-        <a><i class="zmdi zmdi-time-restore"></i>退出</a>
+        <a @click="handleLogout"><i class="zmdi zmdi-time-restore"></i>退出</a>
+      </li>
+       <li style="height: 5px;background-color: #f3f3f3">
       </li>
     </ul>
   </div>
 </template>
 <script>
   export default {
+
     data: function () {
       return {
-        hasProfileMenuOpend: false,
-        admin: { name: '周文义' }
+        hasProfileMenuOpend: false
+      }
+    },
+    computed: {
+      admin: function () {
+        return this.$store.state.admin.info
       }
     },
     methods: {
       toggleProfileMenu: function () {
         this.hasProfileMenuOpend = !this.hasProfileMenuOpend
       },
-      goRouter: function () {
-        this.$router.push('index')
+      handleLogout: function () {
+        window.sessionStorage.admin = ''
+        this.$store.dispatch('setAdmin', {})
+        this.$router.push('login')
       }
     }
   }

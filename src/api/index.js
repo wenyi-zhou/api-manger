@@ -7,20 +7,12 @@ Vue.use(VueResource)
 Vue.http.options.credentials = false
 Vue.http.options.emulateHTTP = true
 Vue.http.options.emulateJSON = true
+
 Vue.http.interceptors.push((request, next) => {
-  // 请求发送前的处理逻辑
   next((response) => {
-    // 请求发送后的处理逻辑
-    // Vue.prototype.$notify.error({
-    //   title: response.data.code,
-    //   message: response.data.msg
-    // })
-    // console.log(response.url)
     if (response.ok && response.data.code === 200) {
-      // 成功
       response.data = response.data.data
     } else {
-      // 失败
       Vue.prototype.$notify.error({
         title: '请求错误',
         message: response.data
@@ -48,11 +40,14 @@ export default {
   },
 
   startRequest: function (path, params, callback) {
+    console.log(Vue.store.state.admin.info)
     Vue.http.options.root = Config.BaseUrl
     if (typeof params === 'function') {
       callback = params
       params = {}
     }
+    params.admin_id = 1
+    params.admin_name = 'wenyi'
     Vue.http.post(path, params).then(
       (response) => {
         callback(response.data)
@@ -94,7 +89,7 @@ export default {
   activity_list: function (params, callback) {
     this.startRequest('activity/lists', params, callback)
   },
-  activity_info: function (params, callback) {
+  activityInfo: function (params, callback) {
     this.startRequest('activity/detail', params, callback)
   },
   activityInfoCommentList: function (params, callback) {
@@ -133,6 +128,19 @@ export default {
   },
   newsList: function (params, callback) {
     this.startRequest('news/lists', params, callback)
+  },
+  newsInfo: function (params, callback) {
+    this.startRequest('news/detail', params, callback)
+  },
+  newsInfoCommentList: function (params, callback) {
+    this.startRequest('comment/listNewsComment', params, callback)
+  },
+  newsSave: function (params, callback) {
+    if (params.id) {
+      this.startRequest('news/edit', params, callback)
+    } else {
+      this.startRequest('news/add', params, callback)
+    }
   },
   newsTypeList: function (callback) {
     this.startRequest('news/typeList', callback)

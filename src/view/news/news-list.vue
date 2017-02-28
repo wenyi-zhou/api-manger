@@ -20,6 +20,9 @@
         <el-form-item>
           <el-button type="primary" @click="submitFilter">确定</el-button>
         </el-form-item>
+        <div class="pull-right">
+          <el-button type="primary" icon="plus" @click="handleAdd">增加资讯</el-button>
+        </div>
       </el-form>
     </div>
     <div class="card-body card-padding">
@@ -28,18 +31,18 @@
           <template scope="props">
             <div class="text">
               <dl class="dl-horizontal">
-                <dt>摘要</dt>
+                <dt>摘要：</dt>
                 <dd>{{props.row.summary}}</dd>
               </dl>
               <dl class="dl-horizontal">
-                <dt>来源</dt>
+                <dt>来源：</dt>
                 <dd>{{props.row.source}}</dd>
               </dl>
             </div>
           </template>
         </el-table-column>
         <el-table-column prop="type_name" label="类别" width="110"></el-table-column>
-        <el-table-column prop="title" label="标题" width="200"></el-table-column>
+        <el-table-column prop="title" label="标题" width="250"></el-table-column>
         <el-table-column prop="publish_time" label="发布时间" width="160"></el-table-column>
         <el-table-column prop="pageview" label="浏览量" width="80"></el-table-column>
         <el-table-column label="是否启用" :formatter="enableFormatter" width="100"></el-table-column>
@@ -104,10 +107,12 @@
       submitFilter: function () {
         this.fetchData()
       },
-
+      handleAdd: function () {
+        this.$router.push('/news/edit/0')
+      },
       // 编辑
       handleEdit: function (SelectData) {
-        this.hasShowEdit = true
+        this.$router.push('/news/info/' + SelectData.id)
       },
 
       fetchData: function () {
@@ -151,9 +156,11 @@
     border: 1px solid #dfe6ec;
     border-top: none
   }
+
   dt {
     width: 60px !important;
   }
+
   dd {
     margin-left: 65px !important;
   }

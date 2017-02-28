@@ -872,3 +872,3096 @@
     </body>
 </html>
 
+[2017-02-28 09:28:45.422] [ERROR] cheese - /wkjy_core/public/index.php/admin/activity/edit
+[2017-02-28 09:28:45.429] [ERROR] cheese - {"code":802,"msg":"缺少参数id","data":{},"time":1488245325}
+[2017-02-28 09:28:45.561] [ERROR] cheese - /wkjy_core/public/index.php/admin/activity/detail
+[2017-02-28 09:28:45.562] [ERROR] cheese - {"code":802,"msg":"缺少参数id","data":{},"time":1488245325}
+[2017-02-28 11:35:22.125] [ERROR] cheese - /wkjy_core/public/index.php/admin/news/add?admin_id=1&admin_name=wenyi
+[2017-02-28 11:35:22.128] [ERROR] cheese - {"code":802,"msg":"缺少参数admin_id","data":{},"time":1488252922}
+[2017-02-28 11:48:11.175] [ERROR] cheese - /wkjy_core/public/index.php/admin/news/add
+[2017-02-28 11:48:11.176] [ERROR] cheese - {"code":500,"msg":"服务器内部错误","data":{},"time":1488253691}
+[2017-02-28 11:48:18.267] [ERROR] cheese - /wkjy_core/public/index.php/admin/news/add
+[2017-02-28 11:48:18.267] [ERROR] cheese - {"code":500,"msg":"服务器内部错误","data":{},"time":1488253698}
+[2017-02-28 11:49:37.219] [ERROR] cheese - /wkjy_core/public/index.php/admin/news/add
+[2017-02-28 11:49:37.220] [ERROR] cheese - {"code":500,"msg":"服务器内部错误","data":{},"time":1488253777}
+[2017-02-28 12:05:40.135] [ERROR] cheese - /wkjy_core/public/index.php/admin/news/add
+[2017-02-28 12:05:40.141] [ERROR] cheese - <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>系统发生错误</title>
+    <meta name="robots" content="noindex,nofollow" />
+    <style>
+        /* Base */
+        body {
+            color: #333;
+            font: 16px Verdana, "Helvetica Neue", helvetica, Arial, 'Microsoft YaHei', sans-serif;
+            margin: 0;
+            padding: 0 20px 20px;
+        }
+        h1{
+            margin: 10px 0 0;
+            font-size: 28px;
+            font-weight: 500;
+            line-height: 32px;
+        }
+        h2{
+            color: #4288ce;
+            font-weight: 400;
+            padding: 6px 0;
+            margin: 6px 0 0;
+            font-size: 18px;
+            border-bottom: 1px solid #eee;
+        }
+        h3{
+            margin: 12px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        abbr{
+            cursor: help;
+            text-decoration: underline;
+            text-decoration-style: dotted;
+        }
+        a{
+            color: #868686;
+            cursor: pointer;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+        .line-error{
+            background: #f8cbcb;
+        }
+
+        .echo table {
+            width: 100%;
+        }
+
+        .echo pre {
+            padding: 16px;
+            overflow: auto;
+            font-size: 85%;
+            line-height: 1.45;
+            background-color: #f7f7f7;
+            border: 0;
+            border-radius: 3px;
+            font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        }
+
+        .echo pre > pre {
+            padding: 0;
+            margin: 0;
+        }
+    
+        /* Exception Info */
+        .exception {
+            margin-top: 20px;
+        }
+        .exception .message{
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-bottom: 0 none;
+            line-height: 18px;
+            font-size:16px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑";
+        }
+
+        .exception .code{
+            float: left;
+            text-align: center;
+            color: #fff;
+            margin-right: 12px;
+            padding: 16px;
+            border-radius: 4px;
+            background: #999;
+        }
+        .exception .source-code{
+            padding: 6px;
+            border: 1px solid #ddd;
+
+            background: #f9f9f9;
+            overflow-x: auto;
+
+        }
+        .exception .source-code pre{
+            margin: 0;
+        }
+        .exception .source-code pre ol{
+            margin: 0;
+            color: #4288ce;
+            display: inline-block;
+            min-width: 100%;
+            box-sizing: border-box;
+        font-size:14px;
+            font-family: "Century Gothic",Consolas,"Liberation Mono",Courier,Verdana;
+            padding-left: 56px;
+        }
+        .exception .source-code pre li{
+            border-left: 1px solid #ddd;
+            height: 18px;
+            line-height: 18px;
+        }
+        .exception .source-code pre code{
+            color: #333;
+            height: 100%;
+            display: inline-block;
+            border-left: 1px solid #fff;
+        font-size:14px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑";
+        }
+        .exception .trace{
+            padding: 6px;
+            border: 1px solid #ddd;
+            border-top: 0 none;
+            line-height: 16px;
+        font-size:14px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑";
+        }
+        .exception .trace ol{
+            margin: 12px;
+        }
+        .exception .trace ol li{
+            padding: 2px 4px;
+        }
+        .exception div:last-child{
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+
+        /* Exception Variables */
+        .exception-var table{
+            width: 100%;
+            margin: 12px 0;
+            box-sizing: border-box;
+            table-layout:fixed;
+            word-wrap:break-word;            
+        }
+        .exception-var table caption{
+            text-align: left;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 6px 0;
+        }
+        .exception-var table caption small{
+            font-weight: 300;
+            display: inline-block;
+            margin-left: 10px;
+            color: #ccc;
+        }
+        .exception-var table tbody{
+            font-size: 13px;
+            font-family: Consolas,"Liberation Mono",Courier,"微软雅黑";
+        }
+        .exception-var table td{
+            padding: 0 6px;
+            vertical-align: top;
+            word-break: break-all;
+        }
+        .exception-var table td:first-child{
+            width: 28%;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        .exception-var table td pre{
+            margin: 0;
+        }
+
+        /* Copyright Info */
+        .copyright{
+            margin-top: 24px;
+            padding: 12px 0;
+            border-top: 1px solid #eee;
+        }
+
+        /* SPAN elements with the classes below are added by prettyprint. */
+        pre.prettyprint .pln { color: #000 }  /* plain text */
+        pre.prettyprint .str { color: #080 }  /* string content */
+        pre.prettyprint .kwd { color: #008 }  /* a keyword */
+        pre.prettyprint .com { color: #800 }  /* a comment */
+        pre.prettyprint .typ { color: #606 }  /* a type name */
+        pre.prettyprint .lit { color: #066 }  /* a literal value */
+        /* punctuation, lisp open bracket, lisp close bracket */
+        pre.prettyprint .pun, pre.prettyprint .opn, pre.prettyprint .clo { color: #660 }
+        pre.prettyprint .tag { color: #008 }  /* a markup tag name */
+        pre.prettyprint .atn { color: #606 }  /* a markup attribute name */
+        pre.prettyprint .atv { color: #080 }  /* a markup attribute value */
+        pre.prettyprint .dec, pre.prettyprint .var { color: #606 }  /* a declaration; a variable name */
+        pre.prettyprint .fun { color: red }  /* a function name */
+    </style>
+</head>
+<body>
+    <div class="echo">
+            </div>
+        <div class="exception">
+    <div class="message">
+        
+            <div class="info">
+                <div>
+                    <h2>[10501] <abbr title="think\exception\PDOException">PDOException</abbr> in <a class="toggle" title="/var/html/nginx/php/wkjy_core/thinkphp/library/think/db/Connection.php line 405">Connection.php line 405</a></h2>
+                </div>
+                <div><h1>SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect datetime value: '' for column 'publish_time' at row 1</h1></div>
+            </div>
+        
+    </div>
+	        <div class="source-code">
+            <pre class="prettyprint lang-php"><ol start="396"><li class="line-396"><code>            $this-&gt;bindValue($bind);
+</code></li><li class="line-397"><code>            // 执行语句
+</code></li><li class="line-398"><code>            $result = $this-&gt;PDOStatement-&gt;execute();
+</code></li><li class="line-399"><code>            // 调试结束
+</code></li><li class="line-400"><code>            $this-&gt;debug(false);
+</code></li><li class="line-401"><code>
+</code></li><li class="line-402"><code>            $this-&gt;numRows = $this-&gt;PDOStatement-&gt;rowCount();
+</code></li><li class="line-403"><code>            return $this-&gt;numRows;
+</code></li><li class="line-404"><code>        } catch (\PDOException $e) {
+</code></li><li class="line-405"><code>            throw new PDOException($e, $this-&gt;config, $this-&gt;queryStr);
+</code></li><li class="line-406"><code>        }
+</code></li><li class="line-407"><code>    }
+</code></li><li class="line-408"><code>
+</code></li><li class="line-409"><code>    /**
+</code></li><li class="line-410"><code>     * 根据参数绑定组装最终的SQL语句 便于调试
+</code></li><li class="line-411"><code>     * @access public
+</code></li><li class="line-412"><code>     * @param string    $sql 带参数绑定的sql语句
+</code></li><li class="line-413"><code>     * @param array     $bind 参数绑定列表
+</code></li><li class="line-414"><code>     * @return string
+</code></li></ol></pre>
+        </div>
+	        <div class="trace">
+            <h2>Call Stack</h2>
+            <ol>
+                <li>in <a class="toggle" title="/var/html/nginx/php/wkjy_core/thinkphp/library/think/db/Connection.php line 405">Connection.php line 405</a></li>
+                                <li>
+                at <abbr title="think\db\Connection">Connection</abbr>->execute('<a class="toggle" title="INSERT INTO `news` (`type_id` , `type_name` , `title` , `content` , `source` , `pageview` , `publish_time` , `key_word` , `admin_id` , `admin_name` , `update_time` , `create_time`) VALUES (:type_id , :type_name , :title , :content , :source , :pageview , :publish_time , :key_word , :admin_id , :admin_name , :update_time , :create_time) ">INSERT INTO `news` (...</a>', ['type_id' => ['1', 1], 'type_name' => ['教育资讯', 2], 'title' => ['asfasdf', 2], ...]) in <a class="toggle" title="/var/html/nginx/php/wkjy_core/thinkphp/library/think/db/Query.php line 242">Query.php line 242</a>                </li>
+                                <li>
+                at <abbr title="think\db\Query">Query</abbr>->execute('<a class="toggle" title="INSERT INTO `news` (`type_id` , `type_name` , `title` , `content` , `source` , `pageview` , `publish_time` , `key_word` , `admin_id` , `admin_name` , `update_time` , `create_time`) VALUES (:type_id , :type_name , :title , :content , :source , :pageview , :publish_time , :key_word , :admin_id , :admin_name , :update_time , :create_time) ">INSERT INTO `news` (...</a>', ['type_id' => ['1', 1], 'type_name' => ['教育资讯', 2], 'title' => ['asfasdf', 2], ...]) in <a class="toggle" title="/var/html/nginx/php/wkjy_core/thinkphp/library/think/db/Query.php line 1778">Query.php line 1778</a>                </li>
+                                <li>
+                at <abbr title="think\db\Query">Query</abbr>->insert(['type_id' => '1', 'type_name' => '教育资讯', 'title' => 'asfasdf', ...]) in <a class="toggle" title="/var/html/nginx/php/wkjy_core/thinkphp/library/think/Model.php line 764">Model.php line 764</a>                </li>
+                                <li>
+                at <abbr title="think\Model">Model</abbr>->save() in <a class="toggle" title="/var/html/nginx/php/wkjy_core/core/admin/controller/News.php line 80">News.php line 80</a>                </li>
+                                <li>
+                at <abbr title="app\admin\controller\News">News</abbr>->add()                </li>
+                                <li>
+                at <abbr title="ReflectionMethod">ReflectionMethod</abbr>->invokeArgs(<em>object</em>(<abbr title="app\admin\controller\News">News</abbr>), []) in <a class="toggle" title="/var/html/nginx/php/wkjy_core/thinkphp/library/think/App.php line 234">App.php line 234</a>                </li>
+                                <li>
+                at <abbr title="think\App">App</abbr>::invokeMethod([<em>object</em>(<abbr title="app\admin\controller\News">News</abbr>), 'add'], []) in <a class="toggle" title="/var/html/nginx/php/wkjy_core/thinkphp/library/think/App.php line 401">App.php line 401</a>                </li>
+                                <li>
+                at <abbr title="think\App">App</abbr>::module(['admin', 'news', 'add'], ['app_namespace' => 'app', 'app_debug' => <em>true</em>, 'app_trace' => <em>false</em>, ...], <em>null</em>) in <a class="toggle" title="/var/html/nginx/php/wkjy_core/thinkphp/library/think/App.php line 140">App.php line 140</a>                </li>
+                                <li>
+                at <abbr title="think\App">App</abbr>::run() in <a class="toggle" title="/var/html/nginx/php/wkjy_core/thinkphp/start.php line 18">start.php line 18</a>                </li>
+                                <li>
+                at require('<a class="toggle" title="/var/html/nginx/php/wkjy_core/thinkphp/start.php">/var/html/nginx/php/...</a>') in <a class="toggle" title="/var/html/nginx/php/wkjy_core/public/index.php line 17">index.php line 17</a>                </li>
+                            </ol>
+        </div>
+    </div>
+        
+        <div class="exception-var">
+        <h2>Exception Datas</h2>
+                <table>
+                        <caption>PDO Error Info</caption>
+            <tbody>
+                                <tr>
+                    <td>SQLSTATE</td>
+                    <td>
+                        22007                    </td>
+                </tr>
+                                <tr>
+                    <td>Driver Error Code</td>
+                    <td>
+                        1292                    </td>
+                </tr>
+                                <tr>
+                    <td>Driver Error Message</td>
+                    <td>
+                        Incorrect datetime value: '' for column 'publish_time' at row 1                    </td>
+                </tr>
+                            </tbody>
+                    </table>
+                <table>
+                        <caption>Database Status</caption>
+            <tbody>
+                                <tr>
+                    <td>Error Code</td>
+                    <td>
+                        10501                    </td>
+                </tr>
+                                <tr>
+                    <td>Error Message</td>
+                    <td>
+                        SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect datetime value: '' for column 'publish_time' at row 1                    </td>
+                </tr>
+                                <tr>
+                    <td>Error SQL</td>
+                    <td>
+                        INSERT INTO `news` (`type_id` , `type_name` , `title` , `content` , `source` , `pageview` , `publish_time` , `key_word` , `admin_id` , `admin_name` , `update_time` , `create_time`) VALUES (1 , '教育资讯' , 'asfasdf' , 'adfadsfa' , 'asdfadsf' , 1 , '' , 'adsfasdf' , 1 , 'wenyi' , '2017-02-28 12:05:40' , '2017-02-28 12:05:40')                    </td>
+                </tr>
+                            </tbody>
+                    </table>
+                <table>
+                        <caption>Database Config</caption>
+            <tbody>
+                                <tr>
+                    <td>type</td>
+                    <td>
+                        mysql                    </td>
+                </tr>
+                                <tr>
+                    <td>hostname</td>
+                    <td>
+                        192.168.111.200,192.168.111.100                    </td>
+                </tr>
+                                <tr>
+                    <td>database</td>
+                    <td>
+                        wkjy                    </td>
+                </tr>
+                                <tr>
+                    <td>username</td>
+                    <td>
+                        aurora                    </td>
+                </tr>
+                                <tr>
+                    <td>password</td>
+                    <td>
+                        pirateandsavior                    </td>
+                </tr>
+                                <tr>
+                    <td>hostport</td>
+                    <td>
+                        3306                    </td>
+                </tr>
+                                <tr>
+                    <td>dsn</td>
+                    <td>
+                                            </td>
+                </tr>
+                                <tr>
+                    <td>params</td>
+                    <td>
+                        []                    </td>
+                </tr>
+                                <tr>
+                    <td>charset</td>
+                    <td>
+                        utf8mb4                    </td>
+                </tr>
+                                <tr>
+                    <td>prefix</td>
+                    <td>
+                                            </td>
+                </tr>
+                                <tr>
+                    <td>debug</td>
+                    <td>
+                        true                    </td>
+                </tr>
+                                <tr>
+                    <td>deploy</td>
+                    <td>
+                        1                    </td>
+                </tr>
+                                <tr>
+                    <td>rw_separate</td>
+                    <td>
+                        true                    </td>
+                </tr>
+                                <tr>
+                    <td>master_num</td>
+                    <td>
+                        1                    </td>
+                </tr>
+                                <tr>
+                    <td>slave_no</td>
+                    <td>
+                        2                    </td>
+                </tr>
+                                <tr>
+                    <td>fields_strict</td>
+                    <td>
+                        false                    </td>
+                </tr>
+                                <tr>
+                    <td>resultset_type</td>
+                    <td>
+                        array                    </td>
+                </tr>
+                                <tr>
+                    <td>auto_timestamp</td>
+                    <td>
+                        datetime                    </td>
+                </tr>
+                                <tr>
+                    <td>sql_explain</td>
+                    <td>
+                        false                    </td>
+                </tr>
+                                <tr>
+                    <td>builder</td>
+                    <td>
+                                            </td>
+                </tr>
+                                <tr>
+                    <td>query</td>
+                    <td>
+                        \think\db\Query                    </td>
+                </tr>
+                            </tbody>
+                    </table>
+            </div>
+    
+        <div class="exception-var">
+        <h2>Environment Variables</h2>
+                <table>
+                        <caption>GET Data<small>empty</small></caption>
+                    </table>
+                <table>
+                        <caption>POST Data</caption>
+            <tbody>
+                                <tr>
+                    <td>type_id</td>
+                    <td>
+                        1                    </td>
+                </tr>
+                                <tr>
+                    <td>type_name</td>
+                    <td>
+                        教育资讯                    </td>
+                </tr>
+                                <tr>
+                    <td>title</td>
+                    <td>
+                        asfasdf                    </td>
+                </tr>
+                                <tr>
+                    <td>content</td>
+                    <td>
+                        adfadsfa                    </td>
+                </tr>
+                                <tr>
+                    <td>sumary</td>
+                    <td>
+                                            </td>
+                </tr>
+                                <tr>
+                    <td>source</td>
+                    <td>
+                        asdfadsf                    </td>
+                </tr>
+                                <tr>
+                    <td>pageview</td>
+                    <td>
+                        1                    </td>
+                </tr>
+                                <tr>
+                    <td>publish_time</td>
+                    <td>
+                                            </td>
+                </tr>
+                                <tr>
+                    <td>key_word</td>
+                    <td>
+                        adsfasdf                    </td>
+                </tr>
+                                <tr>
+                    <td>admin_id</td>
+                    <td>
+                        1                    </td>
+                </tr>
+                                <tr>
+                    <td>admin_name</td>
+                    <td>
+                        wenyi                    </td>
+                </tr>
+                            </tbody>
+                    </table>
+                <table>
+                        <caption>Files<small>empty</small></caption>
+                    </table>
+                <table>
+                        <caption>Cookies<small>empty</small></caption>
+                    </table>
+                <table>
+                        <caption>Session<small>empty</small></caption>
+                    </table>
+                <table>
+                        <caption>Server/Request Data</caption>
+            <tbody>
+                                <tr>
+                    <td>USER</td>
+                    <td>
+                        nginx                    </td>
+                </tr>
+                                <tr>
+                    <td>HOME</td>
+                    <td>
+                        /var/cache/nginx                    </td>
+                </tr>
+                                <tr>
+                    <td>FCGI_ROLE</td>
+                    <td>
+                        RESPONDER                    </td>
+                </tr>
+                                <tr>
+                    <td>QUERY_STRING</td>
+                    <td>
+                                            </td>
+                </tr>
+                                <tr>
+                    <td>REQUEST_METHOD</td>
+                    <td>
+                        POST                    </td>
+                </tr>
+                                <tr>
+                    <td>CONTENT_TYPE</td>
+                    <td>
+                        application/x-www-form-urlencoded                    </td>
+                </tr>
+                                <tr>
+                    <td>CONTENT_LENGTH</td>
+                    <td>
+                        182                    </td>
+                </tr>
+                                <tr>
+                    <td>SCRIPT_NAME</td>
+                    <td>
+                        /wkjy_core/public/index.php                    </td>
+                </tr>
+                                <tr>
+                    <td>REQUEST_URI</td>
+                    <td>
+                        /wkjy_core/public/index.php/admin/news/add                    </td>
+                </tr>
+                                <tr>
+                    <td>DOCUMENT_URI</td>
+                    <td>
+                        /wkjy_core/public/index.php/admin/news/add                    </td>
+                </tr>
+                                <tr>
+                    <td>DOCUMENT_ROOT</td>
+                    <td>
+                        /var/html/nginx/php                    </td>
+                </tr>
+                                <tr>
+                    <td>SERVER_PROTOCOL</td>
+                    <td>
+                        HTTP/1.1                    </td>
+                </tr>
+                                <tr>
+                    <td>REQUEST_SCHEME</td>
+                    <td>
+                        https                    </td>
+                </tr>
+                                <tr>
+                    <td>HTTPS</td>
+                    <td>
+                        on                    </td>
+                </tr>
+                                <tr>
+                    <td>GATEWAY_INTERFACE</td>
+                    <td>
+                        CGI/1.1                    </td>
+                </tr>
+                                <tr>
+                    <td>SERVER_SOFTWARE</td>
+                    <td>
+                        nginx/1.10.2                    </td>
+                </tr>
+                                <tr>
+                    <td>REMOTE_ADDR</td>
+                    <td>
+                        218.77.230.169                    </td>
+                </tr>
+                                <tr>
+                    <td>REMOTE_PORT</td>
+                    <td>
+                        8356                    </td>
+                </tr>
+                                <tr>
+                    <td>SERVER_ADDR</td>
+                    <td>
+                        192.168.111.200                    </td>
+                </tr>
+                                <tr>
+                    <td>SERVER_PORT</td>
+                    <td>
+                        443                    </td>
+                </tr>
+                                <tr>
+                    <td>SERVER_NAME</td>
+                    <td>
+                        api.weitrun.cn                    </td>
+                </tr>
+                                <tr>
+                    <td>REDIRECT_STATUS</td>
+                    <td>
+                        200                    </td>
+                </tr>
+                                <tr>
+                    <td>PATH_INFO</td>
+                    <td>
+                        /admin/news/add                    </td>
+                </tr>
+                                <tr>
+                    <td>SCRIPT_FILENAME</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/public/index.php                    </td>
+                </tr>
+                                <tr>
+                    <td>HTTP_HOST</td>
+                    <td>
+                        api.weitrun.cn:10009                    </td>
+                </tr>
+                                <tr>
+                    <td>HTTP_CONTENT_TYPE</td>
+                    <td>
+                        application/x-www-form-urlencoded                    </td>
+                </tr>
+                                <tr>
+                    <td>HTTP_CONTENT_LENGTH</td>
+                    <td>
+                        182                    </td>
+                </tr>
+                                <tr>
+                    <td>HTTP_CONNECTION</td>
+                    <td>
+                        close                    </td>
+                </tr>
+                                <tr>
+                    <td>PHP_SELF</td>
+                    <td>
+                        /admin/news/add                    </td>
+                </tr>
+                                <tr>
+                    <td>REQUEST_TIME_FLOAT</td>
+                    <td>
+                        1488254740.4788                    </td>
+                </tr>
+                                <tr>
+                    <td>REQUEST_TIME</td>
+                    <td>
+                        1488254740                    </td>
+                </tr>
+                            </tbody>
+                    </table>
+                <table>
+                        <caption>Environment Variables<small>empty</small></caption>
+                    </table>
+                <table>
+                        <caption>ThinkPHP Constants</caption>
+            <tbody>
+                                <tr>
+                    <td>APP_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/public/../core/                    </td>
+                </tr>
+                                <tr>
+                    <td>THINK_VERSION</td>
+                    <td>
+                        5.0.4                    </td>
+                </tr>
+                                <tr>
+                    <td>THINK_START_TIME</td>
+                    <td>
+                        1488254740.483                    </td>
+                </tr>
+                                <tr>
+                    <td>THINK_START_MEM</td>
+                    <td>
+                        238432                    </td>
+                </tr>
+                                <tr>
+                    <td>EXT</td>
+                    <td>
+                        .php                    </td>
+                </tr>
+                                <tr>
+                    <td>DS</td>
+                    <td>
+                        /                    </td>
+                </tr>
+                                <tr>
+                    <td>THINK_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/thinkphp/                    </td>
+                </tr>
+                                <tr>
+                    <td>LIB_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/thinkphp/library/                    </td>
+                </tr>
+                                <tr>
+                    <td>CORE_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/thinkphp/library/think/                    </td>
+                </tr>
+                                <tr>
+                    <td>TRAIT_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/thinkphp/library/traits/                    </td>
+                </tr>
+                                <tr>
+                    <td>ROOT_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/                    </td>
+                </tr>
+                                <tr>
+                    <td>EXTEND_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/extend/                    </td>
+                </tr>
+                                <tr>
+                    <td>VENDOR_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/vendor/                    </td>
+                </tr>
+                                <tr>
+                    <td>RUNTIME_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/runtime/                    </td>
+                </tr>
+                                <tr>
+                    <td>LOG_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/runtime/log/                    </td>
+                </tr>
+                                <tr>
+                    <td>CACHE_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/runtime/cache/                    </td>
+                </tr>
+                                <tr>
+                    <td>TEMP_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/runtime/temp/                    </td>
+                </tr>
+                                <tr>
+                    <td>CONF_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/public/../core/                    </td>
+                </tr>
+                                <tr>
+                    <td>CONF_EXT</td>
+                    <td>
+                        .php                    </td>
+                </tr>
+                                <tr>
+                    <td>ENV_PREFIX</td>
+                    <td>
+                        PHP_                    </td>
+                </tr>
+                                <tr>
+                    <td>IS_CLI</td>
+                    <td>
+                        false                    </td>
+                </tr>
+                                <tr>
+                    <td>IS_WIN</td>
+                    <td>
+                        false                    </td>
+                </tr>
+                                <tr>
+                    <td>ERROR_TRY</td>
+                    <td>
+                        操作失败，请稍后再试                    </td>
+                </tr>
+                                <tr>
+                    <td>FAVORITE_TYPE_NEWS</td>
+                    <td>
+                        1                    </td>
+                </tr>
+                                <tr>
+                    <td>FAVORITE_TYPE_ACTIVITY</td>
+                    <td>
+                        2                    </td>
+                </tr>
+                                <tr>
+                    <td>FAVORITE_TYPE_COURSE</td>
+                    <td>
+                        3                    </td>
+                </tr>
+                                <tr>
+                    <td>FAVORITE_TYPE_LESSON</td>
+                    <td>
+                        4                    </td>
+                </tr>
+                                <tr>
+                    <td>COURSE_WITH_SERVICE</td>
+                    <td>
+                        1                    </td>
+                </tr>
+                                <tr>
+                    <td>COURSE_WITHOUT_SERVICE</td>
+                    <td>
+                        2                    </td>
+                </tr>
+                                <tr>
+                    <td>USER_TYPE_CHILD</td>
+                    <td>
+                        1                    </td>
+                </tr>
+                                <tr>
+                    <td>USER_TYPE_TEACHER</td>
+                    <td>
+                        2                    </td>
+                </tr>
+                                <tr>
+                    <td>USER_TYPE_PARENT</td>
+                    <td>
+                        3                    </td>
+                </tr>
+                                <tr>
+                    <td>USER_TYPE_EDUORG</td>
+                    <td>
+                        4                    </td>
+                </tr>
+                                <tr>
+                    <td>USER_TYPE_ACTIVISTS</td>
+                    <td>
+                        5                    </td>
+                </tr>
+                                <tr>
+                    <td>INCREASE_NEWS</td>
+                    <td>
+                        1                    </td>
+                </tr>
+                                <tr>
+                    <td>INCREASE_ACTIVITY</td>
+                    <td>
+                        2                    </td>
+                </tr>
+                                <tr>
+                    <td>INCREASE_COURSE</td>
+                    <td>
+                        3                    </td>
+                </tr>
+                                <tr>
+                    <td>INCREASE_TYPE_VIEWS</td>
+                    <td>
+                        1                    </td>
+                </tr>
+                                <tr>
+                    <td>INCREASE_TYPE_REMARKS</td>
+                    <td>
+                        2                    </td>
+                </tr>
+                                <tr>
+                    <td>COURSE_STATUS_NOT_START</td>
+                    <td>
+                        1                    </td>
+                </tr>
+                                <tr>
+                    <td>COURSE_STATUS_VIDEO</td>
+                    <td>
+                        2                    </td>
+                </tr>
+                                <tr>
+                    <td>COURSE_STATUS_EXAM</td>
+                    <td>
+                        3                    </td>
+                </tr>
+                                <tr>
+                    <td>COURSE_STATUS_LIVE</td>
+                    <td>
+                        4                    </td>
+                </tr>
+                                <tr>
+                    <td>COURSE_STATUS_END</td>
+                    <td>
+                        5                    </td>
+                </tr>
+                            </tbody>
+                    </table>
+            </div>
+    
+    <div class="copyright">
+        <a title="官方网站" href="http://www.thinkphp.cn">ThinkPHP</a> 
+        <span>V5.0.4</span> 
+        <span>{ 十年磨一剑-为API开发设计的高性能框架 }</span>
+    </div>
+        <script>
+        var LINE = 405;
+
+        function $(selector, node){
+            var elements;
+
+            node = node || document;
+            if(document.querySelectorAll){
+                elements = node.querySelectorAll(selector);
+            } else {
+                switch(selector.substr(0, 1)){
+                    case '#':
+                        elements = [node.getElementById(selector.substr(1))];
+                        break;
+                    case '.':
+                        if(document.getElementsByClassName){
+                            elements = node.getElementsByClassName(selector.substr(1));
+                        } else {
+                            elements = get_elements_by_class(selector.substr(1), node);
+                        }
+                        break;
+                    default:
+                        elements = node.getElementsByTagName();
+                }
+            }
+            return elements;
+
+            function get_elements_by_class(search_class, node, tag) {
+                var elements = [], eles, 
+                    pattern  = new RegExp('(^|\\s)' + search_class + '(\\s|$)');
+
+                node = node || document;
+                tag  = tag  || '*';
+
+                eles = node.getElementsByTagName(tag);
+                for(var i = 0; i < eles.length; i++) {
+                    if(pattern.test(eles[i].className)) {
+                        elements.push(eles[i])
+                    }
+                }
+
+                return elements;
+            }
+        }
+
+        $.getScript = function(src, func){
+            var script = document.createElement('script');
+            
+            script.async  = 'async';
+            script.src    = src;
+            script.onload = func || function(){};
+            
+            $('head')[0].appendChild(script);
+        }
+
+        ;(function(){
+            var files = $('.toggle');
+            var ol    = $('ol', $('.prettyprint')[0]);
+            var li    = $('li', ol[0]);   
+
+            // 短路径和长路径变换
+            for(var i = 0; i < files.length; i++){
+                files[i].ondblclick = function(){
+                    var title = this.title;
+
+                    this.title = this.innerHTML;
+                    this.innerHTML = title;
+                }
+            }
+
+            // 设置出错行
+            var err_line = $('.line-' + LINE, ol[0])[0];
+            err_line.className = err_line.className + ' line-error';
+
+            $.getScript('//cdn.bootcss.com/prettify/r298/prettify.min.js', function(){
+                prettyPrint();
+
+                // 解决Firefox浏览器一个很诡异的问题
+                // 当代码高亮后，ol的行号莫名其妙的错位
+                // 但是只要刷新li里面的html重新渲染就没有问题了
+                if(window.navigator.userAgent.indexOf('Firefox') >= 0){
+                    ol[0].innerHTML = ol[0].innerHTML;
+                }
+            });
+
+        })();
+    </script>
+    </body>
+</html>
+
+[2017-02-28 14:30:42.929] [ERROR] cheese - /wkjy_core/public/index.php/admin/news/edit
+[2017-02-28 14:30:42.930] [ERROR] cheese - <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>系统发生错误</title>
+    <meta name="robots" content="noindex,nofollow" />
+    <style>
+        /* Base */
+        body {
+            color: #333;
+            font: 16px Verdana, "Helvetica Neue", helvetica, Arial, 'Microsoft YaHei', sans-serif;
+            margin: 0;
+            padding: 0 20px 20px;
+        }
+        h1{
+            margin: 10px 0 0;
+            font-size: 28px;
+            font-weight: 500;
+            line-height: 32px;
+        }
+        h2{
+            color: #4288ce;
+            font-weight: 400;
+            padding: 6px 0;
+            margin: 6px 0 0;
+            font-size: 18px;
+            border-bottom: 1px solid #eee;
+        }
+        h3{
+            margin: 12px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        abbr{
+            cursor: help;
+            text-decoration: underline;
+            text-decoration-style: dotted;
+        }
+        a{
+            color: #868686;
+            cursor: pointer;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+        .line-error{
+            background: #f8cbcb;
+        }
+
+        .echo table {
+            width: 100%;
+        }
+
+        .echo pre {
+            padding: 16px;
+            overflow: auto;
+            font-size: 85%;
+            line-height: 1.45;
+            background-color: #f7f7f7;
+            border: 0;
+            border-radius: 3px;
+            font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        }
+
+        .echo pre > pre {
+            padding: 0;
+            margin: 0;
+        }
+    
+        /* Exception Info */
+        .exception {
+            margin-top: 20px;
+        }
+        .exception .message{
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-bottom: 0 none;
+            line-height: 18px;
+            font-size:16px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑";
+        }
+
+        .exception .code{
+            float: left;
+            text-align: center;
+            color: #fff;
+            margin-right: 12px;
+            padding: 16px;
+            border-radius: 4px;
+            background: #999;
+        }
+        .exception .source-code{
+            padding: 6px;
+            border: 1px solid #ddd;
+
+            background: #f9f9f9;
+            overflow-x: auto;
+
+        }
+        .exception .source-code pre{
+            margin: 0;
+        }
+        .exception .source-code pre ol{
+            margin: 0;
+            color: #4288ce;
+            display: inline-block;
+            min-width: 100%;
+            box-sizing: border-box;
+        font-size:14px;
+            font-family: "Century Gothic",Consolas,"Liberation Mono",Courier,Verdana;
+            padding-left: 56px;
+        }
+        .exception .source-code pre li{
+            border-left: 1px solid #ddd;
+            height: 18px;
+            line-height: 18px;
+        }
+        .exception .source-code pre code{
+            color: #333;
+            height: 100%;
+            display: inline-block;
+            border-left: 1px solid #fff;
+        font-size:14px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑";
+        }
+        .exception .trace{
+            padding: 6px;
+            border: 1px solid #ddd;
+            border-top: 0 none;
+            line-height: 16px;
+        font-size:14px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑";
+        }
+        .exception .trace ol{
+            margin: 12px;
+        }
+        .exception .trace ol li{
+            padding: 2px 4px;
+        }
+        .exception div:last-child{
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+
+        /* Exception Variables */
+        .exception-var table{
+            width: 100%;
+            margin: 12px 0;
+            box-sizing: border-box;
+            table-layout:fixed;
+            word-wrap:break-word;            
+        }
+        .exception-var table caption{
+            text-align: left;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 6px 0;
+        }
+        .exception-var table caption small{
+            font-weight: 300;
+            display: inline-block;
+            margin-left: 10px;
+            color: #ccc;
+        }
+        .exception-var table tbody{
+            font-size: 13px;
+            font-family: Consolas,"Liberation Mono",Courier,"微软雅黑";
+        }
+        .exception-var table td{
+            padding: 0 6px;
+            vertical-align: top;
+            word-break: break-all;
+        }
+        .exception-var table td:first-child{
+            width: 28%;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        .exception-var table td pre{
+            margin: 0;
+        }
+
+        /* Copyright Info */
+        .copyright{
+            margin-top: 24px;
+            padding: 12px 0;
+            border-top: 1px solid #eee;
+        }
+
+        /* SPAN elements with the classes below are added by prettyprint. */
+        pre.prettyprint .pln { color: #000 }  /* plain text */
+        pre.prettyprint .str { color: #080 }  /* string content */
+        pre.prettyprint .kwd { color: #008 }  /* a keyword */
+        pre.prettyprint .com { color: #800 }  /* a comment */
+        pre.prettyprint .typ { color: #606 }  /* a type name */
+        pre.prettyprint .lit { color: #066 }  /* a literal value */
+        /* punctuation, lisp open bracket, lisp close bracket */
+        pre.prettyprint .pun, pre.prettyprint .opn, pre.prettyprint .clo { color: #660 }
+        pre.prettyprint .tag { color: #008 }  /* a markup tag name */
+        pre.prettyprint .atn { color: #606 }  /* a markup attribute name */
+        pre.prettyprint .atv { color: #080 }  /* a markup attribute value */
+        pre.prettyprint .dec, pre.prettyprint .var { color: #606 }  /* a declaration; a variable name */
+        pre.prettyprint .fun { color: red }  /* a function name */
+    </style>
+</head>
+<body>
+    <div class="echo">
+            </div>
+        <div class="exception">
+    <div class="message">
+        
+            <div class="info">
+                <div>
+                    <h2>[10501] <abbr title="think\exception\PDOException">PDOException</abbr> in <a class="toggle" title="/var/html/nginx/php/wkjy_core/thinkphp/library/think/db/Connection.php line 405">Connection.php line 405</a></h2>
+                </div>
+                <div><h1>SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect datetime value: 'Sun Feb 19 2017 00:00:00 GMT+0800 (中国标准时间)' for column 'publish_time' at row 1</h1></div>
+            </div>
+        
+    </div>
+	        <div class="source-code">
+            <pre class="prettyprint lang-php"><ol start="396"><li class="line-396"><code>            $this-&gt;bindValue($bind);
+</code></li><li class="line-397"><code>            // 执行语句
+</code></li><li class="line-398"><code>            $result = $this-&gt;PDOStatement-&gt;execute();
+</code></li><li class="line-399"><code>            // 调试结束
+</code></li><li class="line-400"><code>            $this-&gt;debug(false);
+</code></li><li class="line-401"><code>
+</code></li><li class="line-402"><code>            $this-&gt;numRows = $this-&gt;PDOStatement-&gt;rowCount();
+</code></li><li class="line-403"><code>            return $this-&gt;numRows;
+</code></li><li class="line-404"><code>        } catch (\PDOException $e) {
+</code></li><li class="line-405"><code>            throw new PDOException($e, $this-&gt;config, $this-&gt;queryStr);
+</code></li><li class="line-406"><code>        }
+</code></li><li class="line-407"><code>    }
+</code></li><li class="line-408"><code>
+</code></li><li class="line-409"><code>    /**
+</code></li><li class="line-410"><code>     * 根据参数绑定组装最终的SQL语句 便于调试
+</code></li><li class="line-411"><code>     * @access public
+</code></li><li class="line-412"><code>     * @param string    $sql 带参数绑定的sql语句
+</code></li><li class="line-413"><code>     * @param array     $bind 参数绑定列表
+</code></li><li class="line-414"><code>     * @return string
+</code></li></ol></pre>
+        </div>
+	        <div class="trace">
+            <h2>Call Stack</h2>
+            <ol>
+                <li>in <a class="toggle" title="/var/html/nginx/php/wkjy_core/thinkphp/library/think/db/Connection.php line 405">Connection.php line 405</a></li>
+                                <li>
+                at <abbr title="think\db\Connection">Connection</abbr>->execute('<a class="toggle" title="UPDATE `news`  SET `type_id`=:type_id,`type_name`=:type_name,`title`=:title,`title_image`=:title_image,`key_word`=:key_word,`summary`=:summary,`publish_time`=:publish_time,`source`=:source,`pageview`=:pageview,`remarks`=:remarks,`zan`=:zan,`news_order`=:news_order,`admin_id`=:admin_id,`admin_name`=:admin_name,`content`=:content,`enable`=:enable,`admin_verify`=:admin_verify,`in_first`=:in_first,`create_time`=:create_time,`update_time`=:update_time  WHERE  `id` = :where_id  ">UPDATE `news`  SET `...</a>', ['type_id' => ['2', 1], 'type_name' => ['特别通知', 2], 'title' => ['<a class="toggle" title="寻找本科教改新动能">...</a>', 2], ...]) in <a class="toggle" title="/var/html/nginx/php/wkjy_core/thinkphp/library/think/db/Query.php line 242">Query.php line 242</a>                </li>
+                                <li>
+                at <abbr title="think\db\Query">Query</abbr>->execute('<a class="toggle" title="UPDATE `news`  SET `type_id`=:type_id,`type_name`=:type_name,`title`=:title,`title_image`=:title_image,`key_word`=:key_word,`summary`=:summary,`publish_time`=:publish_time,`source`=:source,`pageview`=:pageview,`remarks`=:remarks,`zan`=:zan,`news_order`=:news_order,`admin_id`=:admin_id,`admin_name`=:admin_name,`content`=:content,`enable`=:enable,`admin_verify`=:admin_verify,`in_first`=:in_first,`create_time`=:create_time,`update_time`=:update_time  WHERE  `id` = :where_id  ">UPDATE `news`  SET `...</a>', ['type_id' => ['2', 1], 'type_name' => ['特别通知', 2], 'title' => ['<a class="toggle" title="寻找本科教改新动能">...</a>', 2], ...]) in <a class="toggle" title="/var/html/nginx/php/wkjy_core/thinkphp/library/think/db/Query.php line 1913">Query.php line 1913</a>                </li>
+                                <li>
+                at <abbr title="think\db\Query">Query</abbr>->update(['type_id' => '2', 'type_name' => '特别通知', 'title' => '<a class="toggle" title="寻找本科教改新动能">...</a>', ...]) in <a class="toggle" title="/var/html/nginx/php/wkjy_core/thinkphp/library/think/Model.php line 746">Model.php line 746</a>                </li>
+                                <li>
+                at <abbr title="think\Model">Model</abbr>->save(['type_id' => '2', 'type_name' => '特别通知', 'title' => '<a class="toggle" title="寻找本科教改新动能">...</a>', ...], ['id' => 1]) in <a class="toggle" title="/var/html/nginx/php/wkjy_core/thinkphp/library/think/Model.php line 1063">Model.php line 1063</a>                </li>
+                                <li>
+                at <abbr title="think\Model">Model</abbr>::update(['type_id' => '2', 'type_name' => '特别通知', 'title' => '<a class="toggle" title="寻找本科教改新动能">...</a>', ...], ['id' => 1]) in <a class="toggle" title="/var/html/nginx/php/wkjy_core/core/admin/controller/News.php line 179">News.php line 179</a>                </li>
+                                <li>
+                at <abbr title="app\admin\controller\News">News</abbr>->edit()                </li>
+                                <li>
+                at <abbr title="ReflectionMethod">ReflectionMethod</abbr>->invokeArgs(<em>object</em>(<abbr title="app\admin\controller\News">News</abbr>), []) in <a class="toggle" title="/var/html/nginx/php/wkjy_core/thinkphp/library/think/App.php line 234">App.php line 234</a>                </li>
+                                <li>
+                at <abbr title="think\App">App</abbr>::invokeMethod([<em>object</em>(<abbr title="app\admin\controller\News">News</abbr>), 'edit'], []) in <a class="toggle" title="/var/html/nginx/php/wkjy_core/thinkphp/library/think/App.php line 401">App.php line 401</a>                </li>
+                                <li>
+                at <abbr title="think\App">App</abbr>::module(['admin', 'news', 'edit'], ['app_namespace' => 'app', 'app_debug' => <em>true</em>, 'app_trace' => <em>false</em>, ...], <em>null</em>) in <a class="toggle" title="/var/html/nginx/php/wkjy_core/thinkphp/library/think/App.php line 140">App.php line 140</a>                </li>
+                                <li>
+                at <abbr title="think\App">App</abbr>::run() in <a class="toggle" title="/var/html/nginx/php/wkjy_core/thinkphp/start.php line 18">start.php line 18</a>                </li>
+                                <li>
+                at require('<a class="toggle" title="/var/html/nginx/php/wkjy_core/thinkphp/start.php">/var/html/nginx/php/...</a>') in <a class="toggle" title="/var/html/nginx/php/wkjy_core/public/index.php line 17">index.php line 17</a>                </li>
+                            </ol>
+        </div>
+    </div>
+        
+        <div class="exception-var">
+        <h2>Exception Datas</h2>
+                <table>
+                        <caption>PDO Error Info</caption>
+            <tbody>
+                                <tr>
+                    <td>SQLSTATE</td>
+                    <td>
+                        22007                    </td>
+                </tr>
+                                <tr>
+                    <td>Driver Error Code</td>
+                    <td>
+                        1292                    </td>
+                </tr>
+                                <tr>
+                    <td>Driver Error Message</td>
+                    <td>
+                        Incorrect datetime value: 'Sun Feb 19 2017 00:00:00 GMT+0800 (中国标准时间)' for column 'publish_time' at row 1                    </td>
+                </tr>
+                            </tbody>
+                    </table>
+                <table>
+                        <caption>Database Status</caption>
+            <tbody>
+                                <tr>
+                    <td>Error Code</td>
+                    <td>
+                        10501                    </td>
+                </tr>
+                                <tr>
+                    <td>Error Message</td>
+                    <td>
+                        SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect datetime value: 'Sun Feb 19 2017 00:00:00 GMT+0800 (中国标准时间)' for column 'publish_time' at row 1                    </td>
+                </tr>
+                                <tr>
+                    <td>Error SQL</td>
+                    <td>
+                        UPDATE `news`  SET `type_id`=2,`type_name`='特别通知',`title`='寻找本科教改新动能',`title_image`='https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3707794701,2499057775&amp;fm=111&amp;gp=0.jpg',`key_word`='中国农大',`summary`='学生可自由转专业、跨学科选课，教师潜心教学也能评教授',`publish_time`='Sun Feb 19 2017 00:00:00 GMT+0800 (中国标准时间)',`source`='中国教育新闻网&mdash;中国教育报',`pageview`=255,`remarks`=17,`zan`=0,`news_order`=100,`admin_id`=1,`admin_name`='wenyi',`content`='&lt;p style=\&quot;white-space: normal; background-color: rgb(255, 255, 255); box-sizing: border-box; margin-top: 0px; margin-bottom: 18px; color: rgb(116, 127, 140); font-family: &amp;quot;Open Sans&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, &amp;quot;Microsoft YaHei&amp;quot;, 微软雅黑, STHeiti, &amp;quot;WenQuanYi Micro Hei&amp;quot;, SimSun, sans-serif; font-size: 15px; line-height: 25px;\&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;关于东方教育好还是西式教育牛逼一直是各位家长争执讨论的重点。大多数刚到欧美发达国家的国人，通常会感慨其教育的宽松&mdash;&mdash;隔三差五的假期、三点钟就下课的学校、近乎于游戏的课堂教学以及老师们体贴耐心的鼓励，似乎只要孩子表现得不那么弱智，就可以轻松得到老师的肯定。作为一个家长，你会情不自禁地觉得，在欧美读书太轻松了、太容易了、太简单了。大多数在欧美短期待过几年的家长，都会把这种印象带回国内，作为他们与朋友们闲聊时的重要谈资。&lt;/p&gt;&lt;p style=\&quot;white-space: normal; background-color: rgb(255, 255, 255); box-sizing: border-box; margin-top: 0px; margin-bottom: 18px; color: rgb(116, 127, 140); font-family: &amp;quot;Open Sans&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, &amp;quot;Microsoft YaHei&amp;quot;, 微软雅黑, STHeiti, &amp;quot;WenQuanYi Micro Hei&amp;quot;, SimSun, sans-serif; font-s... STHeiti, &amp;quot;WenQuanYi Micro Hei&amp;quot;, SimSun, sans-serif; font-size: 15px; line-height: 25px;\&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;欧美的中小学的确与中国的中小学存在巨大不同，在那里，学生可以不承受任何压力。然后在快乐几年之后，大多数的孩子也就这样了，他们或者去社区大学再混几年，或者直接去找些底层的体力工作度日，或者直接开始拿失业补助，在街上闲逛。&lt;/p&gt;&lt;p style=\&quot;white-space: normal; background-color: rgb(255, 255, 255); box-sizing: border-box; margin-top: 0px; margin-bottom: 18px; color: rgb(116, 127, 140); font-family: &amp;quot;Open Sans&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, &amp;quot;Microsoft YaHei&amp;quot;, 微软雅黑, STHeiti, &amp;quot;WenQuanYi Micro Hei&amp;quot;, SimSun, sans-serif; font-size: 15px; line-height: 25px;\&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在美国，一个不去辅导班补课、不花大价钱去学习才艺参加社会活动去丰富自己履历的孩子几乎没有可能进入名牌大学。欧洲的情况好一点，因为当地的社会福利较高，很多学生能够较容易地进入好大学，可是这不并意味着在公立中学没有打下良好基础的他们能顺利毕业。我在鲁汶时曾惊讶于大学生天天狂欢，一位教授冷冷地告诉我：&ldquo;他们中的大多数人不过是来这里吃喝几年，体验一下生活。有三分之二的学生是拿不到学位的。&rdquo;&lt;/p&gt;&lt;p style=\&quot;text-align:center\&quot;&gt;&lt;img src=\&quot;http://img6.bdstatic.com/img/image/smallpic/fengjing1129.jpg\&quot; title=\&quot;undefined\&quot; alt=\&quot;demo.jpg\&quot;/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;',`enable`=1,`admin_verify`=0,`in_first`=2,`create_time`='2016-10-10 01:49:00',`update_time`='2017-02-28 14:30:42'  WHERE  `id` = 1                    </td>
+                </tr>
+                            </tbody>
+                    </table>
+                <table>
+                        <caption>Database Config</caption>
+            <tbody>
+                                <tr>
+                    <td>type</td>
+                    <td>
+                        mysql                    </td>
+                </tr>
+                                <tr>
+                    <td>hostname</td>
+                    <td>
+                        192.168.111.200,192.168.111.100                    </td>
+                </tr>
+                                <tr>
+                    <td>database</td>
+                    <td>
+                        wkjy                    </td>
+                </tr>
+                                <tr>
+                    <td>username</td>
+                    <td>
+                        aurora                    </td>
+                </tr>
+                                <tr>
+                    <td>password</td>
+                    <td>
+                        pirateandsavior                    </td>
+                </tr>
+                                <tr>
+                    <td>hostport</td>
+                    <td>
+                        3306                    </td>
+                </tr>
+                                <tr>
+                    <td>dsn</td>
+                    <td>
+                                            </td>
+                </tr>
+                                <tr>
+                    <td>params</td>
+                    <td>
+                        []                    </td>
+                </tr>
+                                <tr>
+                    <td>charset</td>
+                    <td>
+                        utf8mb4                    </td>
+                </tr>
+                                <tr>
+                    <td>prefix</td>
+                    <td>
+                                            </td>
+                </tr>
+                                <tr>
+                    <td>debug</td>
+                    <td>
+                        true                    </td>
+                </tr>
+                                <tr>
+                    <td>deploy</td>
+                    <td>
+                        1                    </td>
+                </tr>
+                                <tr>
+                    <td>rw_separate</td>
+                    <td>
+                        true                    </td>
+                </tr>
+                                <tr>
+                    <td>master_num</td>
+                    <td>
+                        1                    </td>
+                </tr>
+                                <tr>
+                    <td>slave_no</td>
+                    <td>
+                        2                    </td>
+                </tr>
+                                <tr>
+                    <td>fields_strict</td>
+                    <td>
+                        false                    </td>
+                </tr>
+                                <tr>
+                    <td>resultset_type</td>
+                    <td>
+                        array                    </td>
+                </tr>
+                                <tr>
+                    <td>auto_timestamp</td>
+                    <td>
+                        datetime                    </td>
+                </tr>
+                                <tr>
+                    <td>sql_explain</td>
+                    <td>
+                        false                    </td>
+                </tr>
+                                <tr>
+                    <td>builder</td>
+                    <td>
+                                            </td>
+                </tr>
+                                <tr>
+                    <td>query</td>
+                    <td>
+                        \think\db\Query                    </td>
+                </tr>
+                            </tbody>
+                    </table>
+            </div>
+    
+        <div class="exception-var">
+        <h2>Environment Variables</h2>
+                <table>
+                        <caption>GET Data<small>empty</small></caption>
+                    </table>
+                <table>
+                        <caption>POST Data</caption>
+            <tbody>
+                                <tr>
+                    <td>id</td>
+                    <td>
+                        1                    </td>
+                </tr>
+                                <tr>
+                    <td>type_id</td>
+                    <td>
+                        2                    </td>
+                </tr>
+                                <tr>
+                    <td>type_name</td>
+                    <td>
+                        特别通知                    </td>
+                </tr>
+                                <tr>
+                    <td>title</td>
+                    <td>
+                        寻找本科教改新动能                    </td>
+                </tr>
+                                <tr>
+                    <td>title_image</td>
+                    <td>
+                        https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3707794701,2499057775&amp;fm=111&amp;gp=0.jpg                    </td>
+                </tr>
+                                <tr>
+                    <td>key_word</td>
+                    <td>
+                        中国农大                    </td>
+                </tr>
+                                <tr>
+                    <td>summary</td>
+                    <td>
+                        学生可自由转专业、跨学科选课，教师潜心教学也能评教授                    </td>
+                </tr>
+                                <tr>
+                    <td>publish_time</td>
+                    <td>
+                        Sun Feb 19 2017 00:00:00 GMT+0800 (中国标准时间)                    </td>
+                </tr>
+                                <tr>
+                    <td>source</td>
+                    <td>
+                        中国教育新闻网&mdash;中国教育报                    </td>
+                </tr>
+                                <tr>
+                    <td>pageview</td>
+                    <td>
+                        255                    </td>
+                </tr>
+                                <tr>
+                    <td>remarks</td>
+                    <td>
+                        17                    </td>
+                </tr>
+                                <tr>
+                    <td>zan</td>
+                    <td>
+                        0                    </td>
+                </tr>
+                                <tr>
+                    <td>news_order</td>
+                    <td>
+                        100                    </td>
+                </tr>
+                                <tr>
+                    <td>admin_id</td>
+                    <td>
+                        1                    </td>
+                </tr>
+                                <tr>
+                    <td>admin_name</td>
+                    <td>
+                        wenyi                    </td>
+                </tr>
+                                <tr>
+                    <td>content</td>
+                    <td>
+                        &lt;p style=&quot;white-space: normal; background-color: rgb(255, 255, 255); box-sizing: border-box; margin-top: 0px; margin-bottom: 18px; color: rgb(116, 127, 140); font-family: &amp;quot;Open Sans&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, &amp;quot;Microsoft YaHei&amp;quot;, 微软雅黑, STHeiti, &amp;quot;WenQuanYi Micro Hei&amp;quot;, SimSun, sans-serif; font-size: 15px; line-height: 25px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;关于东方教育好还是西式教育牛逼一直是各位家长争执讨论的重点。大多数刚到欧美发达国家的国人，通常会感慨其教育的宽松&mdash;&mdash;隔三差五的假期、三点钟就下课的学校、近乎于游戏的课堂教学以及老师们体贴耐心的鼓励，似乎只要孩子表现得不那么弱智，就可以轻松得到老师的肯定。作为一个家长，你会情不自禁地觉得，在欧美读书太轻松了、太容易了、太简单了。大多数在欧美短期待过几年的家长，都会把这种印象带回国内，作为他们与朋友们闲聊时的重要谈资。&lt;/p&gt;&lt;p style=&quot;white-space: normal; background-color: rgb(255, 255, 255); box-sizing: border-box; margin-top: 0px; margin-bottom: 18px; color: rgb(116, 127, 140); font-family: &amp;quot;Open Sans&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, &amp;quot;Microsoft YaHei&amp;quot;, 微软雅黑, STHeiti, &amp;quot;WenQuanYi Micro Hei&amp;quot;, SimSun, sans-serif; font-s... STHeiti, &amp;quot;WenQuanYi Micro Hei&amp;quot;, SimSun, sans-serif; font-size: 15px; line-height: 25px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;欧美的中小学的确与中国的中小学存在巨大不同，在那里，学生可以不承受任何压力。然后在快乐几年之后，大多数的孩子也就这样了，他们或者去社区大学再混几年，或者直接去找些底层的体力工作度日，或者直接开始拿失业补助，在街上闲逛。&lt;/p&gt;&lt;p style=&quot;white-space: normal; background-color: rgb(255, 255, 255); box-sizing: border-box; margin-top: 0px; margin-bottom: 18px; color: rgb(116, 127, 140); font-family: &amp;quot;Open Sans&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, &amp;quot;Microsoft YaHei&amp;quot;, 微软雅黑, STHeiti, &amp;quot;WenQuanYi Micro Hei&amp;quot;, SimSun, sans-serif; font-size: 15px; line-height: 25px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在美国，一个不去辅导班补课、不花大价钱去学习才艺参加社会活动去丰富自己履历的孩子几乎没有可能进入名牌大学。欧洲的情况好一点，因为当地的社会福利较高，很多学生能够较容易地进入好大学，可是这不并意味着在公立中学没有打下良好基础的他们能顺利毕业。我在鲁汶时曾惊讶于大学生天天狂欢，一位教授冷冷地告诉我：&ldquo;他们中的大多数人不过是来这里吃喝几年，体验一下生活。有三分之二的学生是拿不到学位的。&rdquo;&lt;/p&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;img src=&quot;http://img6.bdstatic.com/img/image/smallpic/fengjing1129.jpg&quot; title=&quot;undefined&quot; alt=&quot;demo.jpg&quot;/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;                    </td>
+                </tr>
+                                <tr>
+                    <td>enable</td>
+                    <td>
+                        1                    </td>
+                </tr>
+                                <tr>
+                    <td>admin_verify</td>
+                    <td>
+                        0                    </td>
+                </tr>
+                                <tr>
+                    <td>in_first</td>
+                    <td>
+                        2                    </td>
+                </tr>
+                                <tr>
+                    <td>create_time</td>
+                    <td>
+                        2016-10-10 01:49:00                    </td>
+                </tr>
+                                <tr>
+                    <td>update_time</td>
+                    <td>
+                        2017-02-28 14:23:44                    </td>
+                </tr>
+                            </tbody>
+                    </table>
+                <table>
+                        <caption>Files<small>empty</small></caption>
+                    </table>
+                <table>
+                        <caption>Cookies<small>empty</small></caption>
+                    </table>
+                <table>
+                        <caption>Session<small>empty</small></caption>
+                    </table>
+                <table>
+                        <caption>Server/Request Data</caption>
+            <tbody>
+                                <tr>
+                    <td>USER</td>
+                    <td>
+                        nginx                    </td>
+                </tr>
+                                <tr>
+                    <td>HOME</td>
+                    <td>
+                        /var/cache/nginx                    </td>
+                </tr>
+                                <tr>
+                    <td>FCGI_ROLE</td>
+                    <td>
+                        RESPONDER                    </td>
+                </tr>
+                                <tr>
+                    <td>QUERY_STRING</td>
+                    <td>
+                                            </td>
+                </tr>
+                                <tr>
+                    <td>REQUEST_METHOD</td>
+                    <td>
+                        POST                    </td>
+                </tr>
+                                <tr>
+                    <td>CONTENT_TYPE</td>
+                    <td>
+                        application/x-www-form-urlencoded                    </td>
+                </tr>
+                                <tr>
+                    <td>CONTENT_LENGTH</td>
+                    <td>
+                        7944                    </td>
+                </tr>
+                                <tr>
+                    <td>SCRIPT_NAME</td>
+                    <td>
+                        /wkjy_core/public/index.php                    </td>
+                </tr>
+                                <tr>
+                    <td>REQUEST_URI</td>
+                    <td>
+                        /wkjy_core/public/index.php/admin/news/edit                    </td>
+                </tr>
+                                <tr>
+                    <td>DOCUMENT_URI</td>
+                    <td>
+                        /wkjy_core/public/index.php/admin/news/edit                    </td>
+                </tr>
+                                <tr>
+                    <td>DOCUMENT_ROOT</td>
+                    <td>
+                        /var/html/nginx/php                    </td>
+                </tr>
+                                <tr>
+                    <td>SERVER_PROTOCOL</td>
+                    <td>
+                        HTTP/1.1                    </td>
+                </tr>
+                                <tr>
+                    <td>REQUEST_SCHEME</td>
+                    <td>
+                        https                    </td>
+                </tr>
+                                <tr>
+                    <td>HTTPS</td>
+                    <td>
+                        on                    </td>
+                </tr>
+                                <tr>
+                    <td>GATEWAY_INTERFACE</td>
+                    <td>
+                        CGI/1.1                    </td>
+                </tr>
+                                <tr>
+                    <td>SERVER_SOFTWARE</td>
+                    <td>
+                        nginx/1.10.2                    </td>
+                </tr>
+                                <tr>
+                    <td>REMOTE_ADDR</td>
+                    <td>
+                        218.77.230.169                    </td>
+                </tr>
+                                <tr>
+                    <td>REMOTE_PORT</td>
+                    <td>
+                        11527                    </td>
+                </tr>
+                                <tr>
+                    <td>SERVER_ADDR</td>
+                    <td>
+                        192.168.111.200                    </td>
+                </tr>
+                                <tr>
+                    <td>SERVER_PORT</td>
+                    <td>
+                        443                    </td>
+                </tr>
+                                <tr>
+                    <td>SERVER_NAME</td>
+                    <td>
+                        api.weitrun.cn                    </td>
+                </tr>
+                                <tr>
+                    <td>REDIRECT_STATUS</td>
+                    <td>
+                        200                    </td>
+                </tr>
+                                <tr>
+                    <td>PATH_INFO</td>
+                    <td>
+                        /admin/news/edit                    </td>
+                </tr>
+                                <tr>
+                    <td>SCRIPT_FILENAME</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/public/index.php                    </td>
+                </tr>
+                                <tr>
+                    <td>HTTP_HOST</td>
+                    <td>
+                        api.weitrun.cn:10009                    </td>
+                </tr>
+                                <tr>
+                    <td>HTTP_CONTENT_TYPE</td>
+                    <td>
+                        application/x-www-form-urlencoded                    </td>
+                </tr>
+                                <tr>
+                    <td>HTTP_CONTENT_LENGTH</td>
+                    <td>
+                        7944                    </td>
+                </tr>
+                                <tr>
+                    <td>HTTP_CONNECTION</td>
+                    <td>
+                        close                    </td>
+                </tr>
+                                <tr>
+                    <td>PHP_SELF</td>
+                    <td>
+                        /admin/news/edit                    </td>
+                </tr>
+                                <tr>
+                    <td>REQUEST_TIME_FLOAT</td>
+                    <td>
+                        1488263442.2731                    </td>
+                </tr>
+                                <tr>
+                    <td>REQUEST_TIME</td>
+                    <td>
+                        1488263442                    </td>
+                </tr>
+                            </tbody>
+                    </table>
+                <table>
+                        <caption>Environment Variables<small>empty</small></caption>
+                    </table>
+                <table>
+                        <caption>ThinkPHP Constants</caption>
+            <tbody>
+                                <tr>
+                    <td>APP_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/public/../core/                    </td>
+                </tr>
+                                <tr>
+                    <td>THINK_VERSION</td>
+                    <td>
+                        5.0.4                    </td>
+                </tr>
+                                <tr>
+                    <td>THINK_START_TIME</td>
+                    <td>
+                        1488263442.2775                    </td>
+                </tr>
+                                <tr>
+                    <td>THINK_START_MEM</td>
+                    <td>
+                        256688                    </td>
+                </tr>
+                                <tr>
+                    <td>EXT</td>
+                    <td>
+                        .php                    </td>
+                </tr>
+                                <tr>
+                    <td>DS</td>
+                    <td>
+                        /                    </td>
+                </tr>
+                                <tr>
+                    <td>THINK_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/thinkphp/                    </td>
+                </tr>
+                                <tr>
+                    <td>LIB_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/thinkphp/library/                    </td>
+                </tr>
+                                <tr>
+                    <td>CORE_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/thinkphp/library/think/                    </td>
+                </tr>
+                                <tr>
+                    <td>TRAIT_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/thinkphp/library/traits/                    </td>
+                </tr>
+                                <tr>
+                    <td>ROOT_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/                    </td>
+                </tr>
+                                <tr>
+                    <td>EXTEND_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/extend/                    </td>
+                </tr>
+                                <tr>
+                    <td>VENDOR_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/vendor/                    </td>
+                </tr>
+                                <tr>
+                    <td>RUNTIME_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/runtime/                    </td>
+                </tr>
+                                <tr>
+                    <td>LOG_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/runtime/log/                    </td>
+                </tr>
+                                <tr>
+                    <td>CACHE_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/runtime/cache/                    </td>
+                </tr>
+                                <tr>
+                    <td>TEMP_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/runtime/temp/                    </td>
+                </tr>
+                                <tr>
+                    <td>CONF_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/public/../core/                    </td>
+                </tr>
+                                <tr>
+                    <td>CONF_EXT</td>
+                    <td>
+                        .php                    </td>
+                </tr>
+                                <tr>
+                    <td>ENV_PREFIX</td>
+                    <td>
+                        PHP_                    </td>
+                </tr>
+                                <tr>
+                    <td>IS_CLI</td>
+                    <td>
+                        false                    </td>
+                </tr>
+                                <tr>
+                    <td>IS_WIN</td>
+                    <td>
+                        false                    </td>
+                </tr>
+                                <tr>
+                    <td>ERROR_TRY</td>
+                    <td>
+                        操作失败，请稍后再试                    </td>
+                </tr>
+                                <tr>
+                    <td>FAVORITE_TYPE_NEWS</td>
+                    <td>
+                        1                    </td>
+                </tr>
+                                <tr>
+                    <td>FAVORITE_TYPE_ACTIVITY</td>
+                    <td>
+                        2                    </td>
+                </tr>
+                                <tr>
+                    <td>FAVORITE_TYPE_COURSE</td>
+                    <td>
+                        3                    </td>
+                </tr>
+                                <tr>
+                    <td>FAVORITE_TYPE_LESSON</td>
+                    <td>
+                        4                    </td>
+                </tr>
+                                <tr>
+                    <td>COURSE_WITH_SERVICE</td>
+                    <td>
+                        1                    </td>
+                </tr>
+                                <tr>
+                    <td>COURSE_WITHOUT_SERVICE</td>
+                    <td>
+                        2                    </td>
+                </tr>
+                                <tr>
+                    <td>USER_TYPE_CHILD</td>
+                    <td>
+                        1                    </td>
+                </tr>
+                                <tr>
+                    <td>USER_TYPE_TEACHER</td>
+                    <td>
+                        2                    </td>
+                </tr>
+                                <tr>
+                    <td>USER_TYPE_PARENT</td>
+                    <td>
+                        3                    </td>
+                </tr>
+                                <tr>
+                    <td>USER_TYPE_EDUORG</td>
+                    <td>
+                        4                    </td>
+                </tr>
+                                <tr>
+                    <td>USER_TYPE_ACTIVISTS</td>
+                    <td>
+                        5                    </td>
+                </tr>
+                                <tr>
+                    <td>INCREASE_NEWS</td>
+                    <td>
+                        1                    </td>
+                </tr>
+                                <tr>
+                    <td>INCREASE_ACTIVITY</td>
+                    <td>
+                        2                    </td>
+                </tr>
+                                <tr>
+                    <td>INCREASE_COURSE</td>
+                    <td>
+                        3                    </td>
+                </tr>
+                                <tr>
+                    <td>INCREASE_TYPE_VIEWS</td>
+                    <td>
+                        1                    </td>
+                </tr>
+                                <tr>
+                    <td>INCREASE_TYPE_REMARKS</td>
+                    <td>
+                        2                    </td>
+                </tr>
+                                <tr>
+                    <td>COURSE_STATUS_NOT_START</td>
+                    <td>
+                        1                    </td>
+                </tr>
+                                <tr>
+                    <td>COURSE_STATUS_VIDEO</td>
+                    <td>
+                        2                    </td>
+                </tr>
+                                <tr>
+                    <td>COURSE_STATUS_EXAM</td>
+                    <td>
+                        3                    </td>
+                </tr>
+                                <tr>
+                    <td>COURSE_STATUS_LIVE</td>
+                    <td>
+                        4                    </td>
+                </tr>
+                                <tr>
+                    <td>COURSE_STATUS_END</td>
+                    <td>
+                        5                    </td>
+                </tr>
+                            </tbody>
+                    </table>
+            </div>
+    
+    <div class="copyright">
+        <a title="官方网站" href="http://www.thinkphp.cn">ThinkPHP</a> 
+        <span>V5.0.4</span> 
+        <span>{ 十年磨一剑-为API开发设计的高性能框架 }</span>
+    </div>
+        <script>
+        var LINE = 405;
+
+        function $(selector, node){
+            var elements;
+
+            node = node || document;
+            if(document.querySelectorAll){
+                elements = node.querySelectorAll(selector);
+            } else {
+                switch(selector.substr(0, 1)){
+                    case '#':
+                        elements = [node.getElementById(selector.substr(1))];
+                        break;
+                    case '.':
+                        if(document.getElementsByClassName){
+                            elements = node.getElementsByClassName(selector.substr(1));
+                        } else {
+                            elements = get_elements_by_class(selector.substr(1), node);
+                        }
+                        break;
+                    default:
+                        elements = node.getElementsByTagName();
+                }
+            }
+            return elements;
+
+            function get_elements_by_class(search_class, node, tag) {
+                var elements = [], eles, 
+                    pattern  = new RegExp('(^|\\s)' + search_class + '(\\s|$)');
+
+                node = node || document;
+                tag  = tag  || '*';
+
+                eles = node.getElementsByTagName(tag);
+                for(var i = 0; i < eles.length; i++) {
+                    if(pattern.test(eles[i].className)) {
+                        elements.push(eles[i])
+                    }
+                }
+
+                return elements;
+            }
+        }
+
+        $.getScript = function(src, func){
+            var script = document.createElement('script');
+            
+            script.async  = 'async';
+            script.src    = src;
+            script.onload = func || function(){};
+            
+            $('head')[0].appendChild(script);
+        }
+
+        ;(function(){
+            var files = $('.toggle');
+            var ol    = $('ol', $('.prettyprint')[0]);
+            var li    = $('li', ol[0]);   
+
+            // 短路径和长路径变换
+            for(var i = 0; i < files.length; i++){
+                files[i].ondblclick = function(){
+                    var title = this.title;
+
+                    this.title = this.innerHTML;
+                    this.innerHTML = title;
+                }
+            }
+
+            // 设置出错行
+            var err_line = $('.line-' + LINE, ol[0])[0];
+            err_line.className = err_line.className + ' line-error';
+
+            $.getScript('//cdn.bootcss.com/prettify/r298/prettify.min.js', function(){
+                prettyPrint();
+
+                // 解决Firefox浏览器一个很诡异的问题
+                // 当代码高亮后，ol的行号莫名其妙的错位
+                // 但是只要刷新li里面的html重新渲染就没有问题了
+                if(window.navigator.userAgent.indexOf('Firefox') >= 0){
+                    ol[0].innerHTML = ol[0].innerHTML;
+                }
+            });
+
+        })();
+    </script>
+    </body>
+</html>
+
+[2017-02-28 14:30:59.693] [ERROR] cheese - /wkjy_core/public/index.php/admin/news/edit
+[2017-02-28 14:30:59.693] [ERROR] cheese - {"code":802,"msg":"缺少参数admin_id","data":{},"time":1488263460}
+[2017-02-28 14:45:43.430] [ERROR] cheese - /wkjy_core/public/index.php/admin/news/edit
+[2017-02-28 14:45:43.431] [ERROR] cheese - <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>系统发生错误</title>
+    <meta name="robots" content="noindex,nofollow" />
+    <style>
+        /* Base */
+        body {
+            color: #333;
+            font: 16px Verdana, "Helvetica Neue", helvetica, Arial, 'Microsoft YaHei', sans-serif;
+            margin: 0;
+            padding: 0 20px 20px;
+        }
+        h1{
+            margin: 10px 0 0;
+            font-size: 28px;
+            font-weight: 500;
+            line-height: 32px;
+        }
+        h2{
+            color: #4288ce;
+            font-weight: 400;
+            padding: 6px 0;
+            margin: 6px 0 0;
+            font-size: 18px;
+            border-bottom: 1px solid #eee;
+        }
+        h3{
+            margin: 12px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        abbr{
+            cursor: help;
+            text-decoration: underline;
+            text-decoration-style: dotted;
+        }
+        a{
+            color: #868686;
+            cursor: pointer;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+        .line-error{
+            background: #f8cbcb;
+        }
+
+        .echo table {
+            width: 100%;
+        }
+
+        .echo pre {
+            padding: 16px;
+            overflow: auto;
+            font-size: 85%;
+            line-height: 1.45;
+            background-color: #f7f7f7;
+            border: 0;
+            border-radius: 3px;
+            font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        }
+
+        .echo pre > pre {
+            padding: 0;
+            margin: 0;
+        }
+    
+        /* Exception Info */
+        .exception {
+            margin-top: 20px;
+        }
+        .exception .message{
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-bottom: 0 none;
+            line-height: 18px;
+            font-size:16px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑";
+        }
+
+        .exception .code{
+            float: left;
+            text-align: center;
+            color: #fff;
+            margin-right: 12px;
+            padding: 16px;
+            border-radius: 4px;
+            background: #999;
+        }
+        .exception .source-code{
+            padding: 6px;
+            border: 1px solid #ddd;
+
+            background: #f9f9f9;
+            overflow-x: auto;
+
+        }
+        .exception .source-code pre{
+            margin: 0;
+        }
+        .exception .source-code pre ol{
+            margin: 0;
+            color: #4288ce;
+            display: inline-block;
+            min-width: 100%;
+            box-sizing: border-box;
+        font-size:14px;
+            font-family: "Century Gothic",Consolas,"Liberation Mono",Courier,Verdana;
+            padding-left: 56px;
+        }
+        .exception .source-code pre li{
+            border-left: 1px solid #ddd;
+            height: 18px;
+            line-height: 18px;
+        }
+        .exception .source-code pre code{
+            color: #333;
+            height: 100%;
+            display: inline-block;
+            border-left: 1px solid #fff;
+        font-size:14px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑";
+        }
+        .exception .trace{
+            padding: 6px;
+            border: 1px solid #ddd;
+            border-top: 0 none;
+            line-height: 16px;
+        font-size:14px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑";
+        }
+        .exception .trace ol{
+            margin: 12px;
+        }
+        .exception .trace ol li{
+            padding: 2px 4px;
+        }
+        .exception div:last-child{
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+
+        /* Exception Variables */
+        .exception-var table{
+            width: 100%;
+            margin: 12px 0;
+            box-sizing: border-box;
+            table-layout:fixed;
+            word-wrap:break-word;            
+        }
+        .exception-var table caption{
+            text-align: left;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 6px 0;
+        }
+        .exception-var table caption small{
+            font-weight: 300;
+            display: inline-block;
+            margin-left: 10px;
+            color: #ccc;
+        }
+        .exception-var table tbody{
+            font-size: 13px;
+            font-family: Consolas,"Liberation Mono",Courier,"微软雅黑";
+        }
+        .exception-var table td{
+            padding: 0 6px;
+            vertical-align: top;
+            word-break: break-all;
+        }
+        .exception-var table td:first-child{
+            width: 28%;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        .exception-var table td pre{
+            margin: 0;
+        }
+
+        /* Copyright Info */
+        .copyright{
+            margin-top: 24px;
+            padding: 12px 0;
+            border-top: 1px solid #eee;
+        }
+
+        /* SPAN elements with the classes below are added by prettyprint. */
+        pre.prettyprint .pln { color: #000 }  /* plain text */
+        pre.prettyprint .str { color: #080 }  /* string content */
+        pre.prettyprint .kwd { color: #008 }  /* a keyword */
+        pre.prettyprint .com { color: #800 }  /* a comment */
+        pre.prettyprint .typ { color: #606 }  /* a type name */
+        pre.prettyprint .lit { color: #066 }  /* a literal value */
+        /* punctuation, lisp open bracket, lisp close bracket */
+        pre.prettyprint .pun, pre.prettyprint .opn, pre.prettyprint .clo { color: #660 }
+        pre.prettyprint .tag { color: #008 }  /* a markup tag name */
+        pre.prettyprint .atn { color: #606 }  /* a markup attribute name */
+        pre.prettyprint .atv { color: #080 }  /* a markup attribute value */
+        pre.prettyprint .dec, pre.prettyprint .var { color: #606 }  /* a declaration; a variable name */
+        pre.prettyprint .fun { color: red }  /* a function name */
+    </style>
+</head>
+<body>
+    <div class="echo">
+            </div>
+        <div class="exception">
+    <div class="message">
+        
+            <div class="info">
+                <div>
+                    <h2>[10501] <abbr title="think\exception\PDOException">PDOException</abbr> in <a class="toggle" title="/var/html/nginx/php/wkjy_core/thinkphp/library/think/db/Connection.php line 405">Connection.php line 405</a></h2>
+                </div>
+                <div><h1>SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect datetime value: '2017-02-05&nbsp;00:00:00' for column 'publish_time' at row 1</h1></div>
+            </div>
+        
+    </div>
+	        <div class="source-code">
+            <pre class="prettyprint lang-php"><ol start="396"><li class="line-396"><code>            $this-&gt;bindValue($bind);
+</code></li><li class="line-397"><code>            // 执行语句
+</code></li><li class="line-398"><code>            $result = $this-&gt;PDOStatement-&gt;execute();
+</code></li><li class="line-399"><code>            // 调试结束
+</code></li><li class="line-400"><code>            $this-&gt;debug(false);
+</code></li><li class="line-401"><code>
+</code></li><li class="line-402"><code>            $this-&gt;numRows = $this-&gt;PDOStatement-&gt;rowCount();
+</code></li><li class="line-403"><code>            return $this-&gt;numRows;
+</code></li><li class="line-404"><code>        } catch (\PDOException $e) {
+</code></li><li class="line-405"><code>            throw new PDOException($e, $this-&gt;config, $this-&gt;queryStr);
+</code></li><li class="line-406"><code>        }
+</code></li><li class="line-407"><code>    }
+</code></li><li class="line-408"><code>
+</code></li><li class="line-409"><code>    /**
+</code></li><li class="line-410"><code>     * 根据参数绑定组装最终的SQL语句 便于调试
+</code></li><li class="line-411"><code>     * @access public
+</code></li><li class="line-412"><code>     * @param string    $sql 带参数绑定的sql语句
+</code></li><li class="line-413"><code>     * @param array     $bind 参数绑定列表
+</code></li><li class="line-414"><code>     * @return string
+</code></li></ol></pre>
+        </div>
+	        <div class="trace">
+            <h2>Call Stack</h2>
+            <ol>
+                <li>in <a class="toggle" title="/var/html/nginx/php/wkjy_core/thinkphp/library/think/db/Connection.php line 405">Connection.php line 405</a></li>
+                                <li>
+                at <abbr title="think\db\Connection">Connection</abbr>->execute('<a class="toggle" title="UPDATE `news`  SET `type_id`=:type_id,`type_name`=:type_name,`title`=:title,`title_image`=:title_image,`key_word`=:key_word,`summary`=:summary,`publish_time`=:publish_time,`source`=:source,`pageview`=:pageview,`remarks`=:remarks,`zan`=:zan,`news_order`=:news_order,`admin_id`=:admin_id,`admin_name`=:admin_name,`content`=:content,`enable`=:enable,`admin_verify`=:admin_verify,`in_first`=:in_first,`create_time`=:create_time,`update_time`=:update_time  WHERE  `id` = :where_id  ">UPDATE `news`  SET `...</a>', ['type_id' => ['2', 1], 'type_name' => ['特别通知', 2], 'title' => ['<a class="toggle" title="寻找本科教改新动能">...</a>', 2], ...]) in <a class="toggle" title="/var/html/nginx/php/wkjy_core/thinkphp/library/think/db/Query.php line 242">Query.php line 242</a>                </li>
+                                <li>
+                at <abbr title="think\db\Query">Query</abbr>->execute('<a class="toggle" title="UPDATE `news`  SET `type_id`=:type_id,`type_name`=:type_name,`title`=:title,`title_image`=:title_image,`key_word`=:key_word,`summary`=:summary,`publish_time`=:publish_time,`source`=:source,`pageview`=:pageview,`remarks`=:remarks,`zan`=:zan,`news_order`=:news_order,`admin_id`=:admin_id,`admin_name`=:admin_name,`content`=:content,`enable`=:enable,`admin_verify`=:admin_verify,`in_first`=:in_first,`create_time`=:create_time,`update_time`=:update_time  WHERE  `id` = :where_id  ">UPDATE `news`  SET `...</a>', ['type_id' => ['2', 1], 'type_name' => ['特别通知', 2], 'title' => ['<a class="toggle" title="寻找本科教改新动能">...</a>', 2], ...]) in <a class="toggle" title="/var/html/nginx/php/wkjy_core/thinkphp/library/think/db/Query.php line 1913">Query.php line 1913</a>                </li>
+                                <li>
+                at <abbr title="think\db\Query">Query</abbr>->update(['type_id' => '2', 'type_name' => '特别通知', 'title' => '<a class="toggle" title="寻找本科教改新动能">...</a>', ...]) in <a class="toggle" title="/var/html/nginx/php/wkjy_core/thinkphp/library/think/Model.php line 746">Model.php line 746</a>                </li>
+                                <li>
+                at <abbr title="think\Model">Model</abbr>->save(['type_id' => '2', 'type_name' => '特别通知', 'title' => '<a class="toggle" title="寻找本科教改新动能">...</a>', ...], ['id' => 1]) in <a class="toggle" title="/var/html/nginx/php/wkjy_core/thinkphp/library/think/Model.php line 1063">Model.php line 1063</a>                </li>
+                                <li>
+                at <abbr title="think\Model">Model</abbr>::update(['type_id' => '2', 'type_name' => '特别通知', 'title' => '<a class="toggle" title="寻找本科教改新动能">...</a>', ...], ['id' => 1]) in <a class="toggle" title="/var/html/nginx/php/wkjy_core/core/admin/controller/News.php line 179">News.php line 179</a>                </li>
+                                <li>
+                at <abbr title="app\admin\controller\News">News</abbr>->edit()                </li>
+                                <li>
+                at <abbr title="ReflectionMethod">ReflectionMethod</abbr>->invokeArgs(<em>object</em>(<abbr title="app\admin\controller\News">News</abbr>), []) in <a class="toggle" title="/var/html/nginx/php/wkjy_core/thinkphp/library/think/App.php line 234">App.php line 234</a>                </li>
+                                <li>
+                at <abbr title="think\App">App</abbr>::invokeMethod([<em>object</em>(<abbr title="app\admin\controller\News">News</abbr>), 'edit'], []) in <a class="toggle" title="/var/html/nginx/php/wkjy_core/thinkphp/library/think/App.php line 401">App.php line 401</a>                </li>
+                                <li>
+                at <abbr title="think\App">App</abbr>::module(['admin', 'news', 'edit'], ['app_namespace' => 'app', 'app_debug' => <em>true</em>, 'app_trace' => <em>false</em>, ...], <em>null</em>) in <a class="toggle" title="/var/html/nginx/php/wkjy_core/thinkphp/library/think/App.php line 140">App.php line 140</a>                </li>
+                                <li>
+                at <abbr title="think\App">App</abbr>::run() in <a class="toggle" title="/var/html/nginx/php/wkjy_core/thinkphp/start.php line 18">start.php line 18</a>                </li>
+                                <li>
+                at require('<a class="toggle" title="/var/html/nginx/php/wkjy_core/thinkphp/start.php">/var/html/nginx/php/...</a>') in <a class="toggle" title="/var/html/nginx/php/wkjy_core/public/index.php line 17">index.php line 17</a>                </li>
+                            </ol>
+        </div>
+    </div>
+        
+        <div class="exception-var">
+        <h2>Exception Datas</h2>
+                <table>
+                        <caption>PDO Error Info</caption>
+            <tbody>
+                                <tr>
+                    <td>SQLSTATE</td>
+                    <td>
+                        22007                    </td>
+                </tr>
+                                <tr>
+                    <td>Driver Error Code</td>
+                    <td>
+                        1292                    </td>
+                </tr>
+                                <tr>
+                    <td>Driver Error Message</td>
+                    <td>
+                        Incorrect datetime value: '2017-02-05&nbsp;00:00:00' for column 'publish_time' at row 1                    </td>
+                </tr>
+                            </tbody>
+                    </table>
+                <table>
+                        <caption>Database Status</caption>
+            <tbody>
+                                <tr>
+                    <td>Error Code</td>
+                    <td>
+                        10501                    </td>
+                </tr>
+                                <tr>
+                    <td>Error Message</td>
+                    <td>
+                        SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect datetime value: '2017-02-05&nbsp;00:00:00' for column 'publish_time' at row 1                    </td>
+                </tr>
+                                <tr>
+                    <td>Error SQL</td>
+                    <td>
+                        UPDATE `news`  SET `type_id`=2,`type_name`='特别通知',`title`='寻找本科教改新动能',`title_image`='https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3707794701,2499057775&amp;fm=111&amp;gp=0.jpg',`key_word`='中国农大',`summary`='学生可自由转专业、跨学科选课，教师潜心教学也能评教授',`publish_time`='2017-02-05&nbsp;00:00:00',`source`='中国教育新闻网&mdash;中国教育报',`pageview`=255,`remarks`=17,`zan`=0,`news_order`=100,`admin_id`=1,`admin_name`='wenyi',`content`='&lt;p style=\&quot;white-space: normal; background-color: rgb(255, 255, 255); box-sizing: border-box; margin-top: 0px; margin-bottom: 18px; color: rgb(116, 127, 140); font-family: &amp;quot;Open Sans&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, &amp;quot;Microsoft YaHei&amp;quot;, 微软雅黑, STHeiti, &amp;quot;WenQuanYi Micro Hei&amp;quot;, SimSun, sans-serif; font-size: 15px; line-height: 25px;\&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;关于东方教育好还是西式教育牛逼一直是各位家长争执讨论的重点。大多数刚到欧美发达国家的国人，通常会感慨其教育的宽松&mdash;&mdash;隔三差五的假期、三点钟就下课的学校、近乎于游戏的课堂教学以及老师们体贴耐心的鼓励，似乎只要孩子表现得不那么弱智，就可以轻松得到老师的肯定。作为一个家长，你会情不自禁地觉得，在欧美读书太轻松了、太容易了、太简单了。大多数在欧美短期待过几年的家长，都会把这种印象带回国内，作为他们与朋友们闲聊时的重要谈资。&lt;/p&gt;&lt;p style=\&quot;white-space: normal; background-color: rgb(255, 255, 255); box-sizing: border-box; margin-top: 0px; margin-bottom: 18px; color: rgb(116, 127, 140); font-family: &amp;quot;Open Sans&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, &amp;quot;Microsoft YaHei&amp;quot;, 微软雅黑, STHeiti, &amp;quot;WenQuanYi Micro Hei&amp;quot;, SimSun, sans-serif; font-s... STHeiti, &amp;quot;WenQuanYi Micro Hei&amp;quot;, SimSun, sans-serif; font-size: 15px; line-height: 25px;\&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;欧美的中小学的确与中国的中小学存在巨大不同，在那里，学生可以不承受任何压力。然后在快乐几年之后，大多数的孩子也就这样了，他们或者去社区大学再混几年，或者直接去找些底层的体力工作度日，或者直接开始拿失业补助，在街上闲逛。&lt;/p&gt;&lt;p style=\&quot;white-space: normal; background-color: rgb(255, 255, 255); box-sizing: border-box; margin-top: 0px; margin-bottom: 18px; color: rgb(116, 127, 140); font-family: &amp;quot;Open Sans&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, &amp;quot;Microsoft YaHei&amp;quot;, 微软雅黑, STHeiti, &amp;quot;WenQuanYi Micro Hei&amp;quot;, SimSun, sans-serif; font-size: 15px; line-height: 25px;\&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在美国，一个不去辅导班补课、不花大价钱去学习才艺参加社会活动去丰富自己履历的孩子几乎没有可能进入名牌大学。欧洲的情况好一点，因为当地的社会福利较高，很多学生能够较容易地进入好大学，可是这不并意味着在公立中学没有打下良好基础的他们能顺利毕业。我在鲁汶时曾惊讶于大学生天天狂欢，一位教授冷冷地告诉我：&ldquo;他们中的大多数人不过是来这里吃喝几年，体验一下生活。有三分之二的学生是拿不到学位的。&rdquo;&lt;/p&gt;&lt;p style=\&quot;text-align:center\&quot;&gt;&lt;img src=\&quot;http://img6.bdstatic.com/img/image/smallpic/fengjing1129.jpg\&quot; title=\&quot;undefined\&quot; alt=\&quot;demo.jpg\&quot;/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;',`enable`=1,`admin_verify`=0,`in_first`=2,`create_time`='2016-10-10 01:49:00',`update_time`='2017-02-28 14:45:43'  WHERE  `id` = 1                    </td>
+                </tr>
+                            </tbody>
+                    </table>
+                <table>
+                        <caption>Database Config</caption>
+            <tbody>
+                                <tr>
+                    <td>type</td>
+                    <td>
+                        mysql                    </td>
+                </tr>
+                                <tr>
+                    <td>hostname</td>
+                    <td>
+                        192.168.111.200,192.168.111.100                    </td>
+                </tr>
+                                <tr>
+                    <td>database</td>
+                    <td>
+                        wkjy                    </td>
+                </tr>
+                                <tr>
+                    <td>username</td>
+                    <td>
+                        aurora                    </td>
+                </tr>
+                                <tr>
+                    <td>password</td>
+                    <td>
+                        pirateandsavior                    </td>
+                </tr>
+                                <tr>
+                    <td>hostport</td>
+                    <td>
+                        3306                    </td>
+                </tr>
+                                <tr>
+                    <td>dsn</td>
+                    <td>
+                                            </td>
+                </tr>
+                                <tr>
+                    <td>params</td>
+                    <td>
+                        []                    </td>
+                </tr>
+                                <tr>
+                    <td>charset</td>
+                    <td>
+                        utf8mb4                    </td>
+                </tr>
+                                <tr>
+                    <td>prefix</td>
+                    <td>
+                                            </td>
+                </tr>
+                                <tr>
+                    <td>debug</td>
+                    <td>
+                        true                    </td>
+                </tr>
+                                <tr>
+                    <td>deploy</td>
+                    <td>
+                        1                    </td>
+                </tr>
+                                <tr>
+                    <td>rw_separate</td>
+                    <td>
+                        true                    </td>
+                </tr>
+                                <tr>
+                    <td>master_num</td>
+                    <td>
+                        1                    </td>
+                </tr>
+                                <tr>
+                    <td>slave_no</td>
+                    <td>
+                        2                    </td>
+                </tr>
+                                <tr>
+                    <td>fields_strict</td>
+                    <td>
+                        false                    </td>
+                </tr>
+                                <tr>
+                    <td>resultset_type</td>
+                    <td>
+                        array                    </td>
+                </tr>
+                                <tr>
+                    <td>auto_timestamp</td>
+                    <td>
+                        datetime                    </td>
+                </tr>
+                                <tr>
+                    <td>sql_explain</td>
+                    <td>
+                        false                    </td>
+                </tr>
+                                <tr>
+                    <td>builder</td>
+                    <td>
+                                            </td>
+                </tr>
+                                <tr>
+                    <td>query</td>
+                    <td>
+                        \think\db\Query                    </td>
+                </tr>
+                            </tbody>
+                    </table>
+            </div>
+    
+        <div class="exception-var">
+        <h2>Environment Variables</h2>
+                <table>
+                        <caption>GET Data<small>empty</small></caption>
+                    </table>
+                <table>
+                        <caption>POST Data</caption>
+            <tbody>
+                                <tr>
+                    <td>id</td>
+                    <td>
+                        1                    </td>
+                </tr>
+                                <tr>
+                    <td>type_id</td>
+                    <td>
+                        2                    </td>
+                </tr>
+                                <tr>
+                    <td>type_name</td>
+                    <td>
+                        特别通知                    </td>
+                </tr>
+                                <tr>
+                    <td>title</td>
+                    <td>
+                        寻找本科教改新动能                    </td>
+                </tr>
+                                <tr>
+                    <td>title_image</td>
+                    <td>
+                        https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3707794701,2499057775&amp;fm=111&amp;gp=0.jpg                    </td>
+                </tr>
+                                <tr>
+                    <td>key_word</td>
+                    <td>
+                        中国农大                    </td>
+                </tr>
+                                <tr>
+                    <td>summary</td>
+                    <td>
+                        学生可自由转专业、跨学科选课，教师潜心教学也能评教授                    </td>
+                </tr>
+                                <tr>
+                    <td>publish_time</td>
+                    <td>
+                        2017-02-05&nbsp;00:00:00                    </td>
+                </tr>
+                                <tr>
+                    <td>source</td>
+                    <td>
+                        中国教育新闻网&mdash;中国教育报                    </td>
+                </tr>
+                                <tr>
+                    <td>pageview</td>
+                    <td>
+                        255                    </td>
+                </tr>
+                                <tr>
+                    <td>remarks</td>
+                    <td>
+                        17                    </td>
+                </tr>
+                                <tr>
+                    <td>zan</td>
+                    <td>
+                        0                    </td>
+                </tr>
+                                <tr>
+                    <td>news_order</td>
+                    <td>
+                        100                    </td>
+                </tr>
+                                <tr>
+                    <td>admin_id</td>
+                    <td>
+                        1                    </td>
+                </tr>
+                                <tr>
+                    <td>admin_name</td>
+                    <td>
+                        wenyi                    </td>
+                </tr>
+                                <tr>
+                    <td>content</td>
+                    <td>
+                        &lt;p style=&quot;white-space: normal; background-color: rgb(255, 255, 255); box-sizing: border-box; margin-top: 0px; margin-bottom: 18px; color: rgb(116, 127, 140); font-family: &amp;quot;Open Sans&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, &amp;quot;Microsoft YaHei&amp;quot;, 微软雅黑, STHeiti, &amp;quot;WenQuanYi Micro Hei&amp;quot;, SimSun, sans-serif; font-size: 15px; line-height: 25px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;关于东方教育好还是西式教育牛逼一直是各位家长争执讨论的重点。大多数刚到欧美发达国家的国人，通常会感慨其教育的宽松&mdash;&mdash;隔三差五的假期、三点钟就下课的学校、近乎于游戏的课堂教学以及老师们体贴耐心的鼓励，似乎只要孩子表现得不那么弱智，就可以轻松得到老师的肯定。作为一个家长，你会情不自禁地觉得，在欧美读书太轻松了、太容易了、太简单了。大多数在欧美短期待过几年的家长，都会把这种印象带回国内，作为他们与朋友们闲聊时的重要谈资。&lt;/p&gt;&lt;p style=&quot;white-space: normal; background-color: rgb(255, 255, 255); box-sizing: border-box; margin-top: 0px; margin-bottom: 18px; color: rgb(116, 127, 140); font-family: &amp;quot;Open Sans&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, &amp;quot;Microsoft YaHei&amp;quot;, 微软雅黑, STHeiti, &amp;quot;WenQuanYi Micro Hei&amp;quot;, SimSun, sans-serif; font-s... STHeiti, &amp;quot;WenQuanYi Micro Hei&amp;quot;, SimSun, sans-serif; font-size: 15px; line-height: 25px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;欧美的中小学的确与中国的中小学存在巨大不同，在那里，学生可以不承受任何压力。然后在快乐几年之后，大多数的孩子也就这样了，他们或者去社区大学再混几年，或者直接去找些底层的体力工作度日，或者直接开始拿失业补助，在街上闲逛。&lt;/p&gt;&lt;p style=&quot;white-space: normal; background-color: rgb(255, 255, 255); box-sizing: border-box; margin-top: 0px; margin-bottom: 18px; color: rgb(116, 127, 140); font-family: &amp;quot;Open Sans&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, &amp;quot;Microsoft YaHei&amp;quot;, 微软雅黑, STHeiti, &amp;quot;WenQuanYi Micro Hei&amp;quot;, SimSun, sans-serif; font-size: 15px; line-height: 25px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在美国，一个不去辅导班补课、不花大价钱去学习才艺参加社会活动去丰富自己履历的孩子几乎没有可能进入名牌大学。欧洲的情况好一点，因为当地的社会福利较高，很多学生能够较容易地进入好大学，可是这不并意味着在公立中学没有打下良好基础的他们能顺利毕业。我在鲁汶时曾惊讶于大学生天天狂欢，一位教授冷冷地告诉我：&ldquo;他们中的大多数人不过是来这里吃喝几年，体验一下生活。有三分之二的学生是拿不到学位的。&rdquo;&lt;/p&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;img src=&quot;http://img6.bdstatic.com/img/image/smallpic/fengjing1129.jpg&quot; title=&quot;undefined&quot; alt=&quot;demo.jpg&quot;/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;                    </td>
+                </tr>
+                                <tr>
+                    <td>enable</td>
+                    <td>
+                        1                    </td>
+                </tr>
+                                <tr>
+                    <td>admin_verify</td>
+                    <td>
+                        0                    </td>
+                </tr>
+                                <tr>
+                    <td>in_first</td>
+                    <td>
+                        2                    </td>
+                </tr>
+                                <tr>
+                    <td>create_time</td>
+                    <td>
+                        2016-10-10 01:49:00                    </td>
+                </tr>
+                                <tr>
+                    <td>update_time</td>
+                    <td>
+                        2017-02-28 14:23:44                    </td>
+                </tr>
+                            </tbody>
+                    </table>
+                <table>
+                        <caption>Files<small>empty</small></caption>
+                    </table>
+                <table>
+                        <caption>Cookies<small>empty</small></caption>
+                    </table>
+                <table>
+                        <caption>Session<small>empty</small></caption>
+                    </table>
+                <table>
+                        <caption>Server/Request Data</caption>
+            <tbody>
+                                <tr>
+                    <td>USER</td>
+                    <td>
+                        nginx                    </td>
+                </tr>
+                                <tr>
+                    <td>HOME</td>
+                    <td>
+                        /var/cache/nginx                    </td>
+                </tr>
+                                <tr>
+                    <td>FCGI_ROLE</td>
+                    <td>
+                        RESPONDER                    </td>
+                </tr>
+                                <tr>
+                    <td>QUERY_STRING</td>
+                    <td>
+                                            </td>
+                </tr>
+                                <tr>
+                    <td>REQUEST_METHOD</td>
+                    <td>
+                        POST                    </td>
+                </tr>
+                                <tr>
+                    <td>CONTENT_TYPE</td>
+                    <td>
+                        application/x-www-form-urlencoded                    </td>
+                </tr>
+                                <tr>
+                    <td>CONTENT_LENGTH</td>
+                    <td>
+                        7860                    </td>
+                </tr>
+                                <tr>
+                    <td>SCRIPT_NAME</td>
+                    <td>
+                        /wkjy_core/public/index.php                    </td>
+                </tr>
+                                <tr>
+                    <td>REQUEST_URI</td>
+                    <td>
+                        /wkjy_core/public/index.php/admin/news/edit                    </td>
+                </tr>
+                                <tr>
+                    <td>DOCUMENT_URI</td>
+                    <td>
+                        /wkjy_core/public/index.php/admin/news/edit                    </td>
+                </tr>
+                                <tr>
+                    <td>DOCUMENT_ROOT</td>
+                    <td>
+                        /var/html/nginx/php                    </td>
+                </tr>
+                                <tr>
+                    <td>SERVER_PROTOCOL</td>
+                    <td>
+                        HTTP/1.1                    </td>
+                </tr>
+                                <tr>
+                    <td>REQUEST_SCHEME</td>
+                    <td>
+                        https                    </td>
+                </tr>
+                                <tr>
+                    <td>HTTPS</td>
+                    <td>
+                        on                    </td>
+                </tr>
+                                <tr>
+                    <td>GATEWAY_INTERFACE</td>
+                    <td>
+                        CGI/1.1                    </td>
+                </tr>
+                                <tr>
+                    <td>SERVER_SOFTWARE</td>
+                    <td>
+                        nginx/1.10.2                    </td>
+                </tr>
+                                <tr>
+                    <td>REMOTE_ADDR</td>
+                    <td>
+                        218.77.230.169                    </td>
+                </tr>
+                                <tr>
+                    <td>REMOTE_PORT</td>
+                    <td>
+                        12122                    </td>
+                </tr>
+                                <tr>
+                    <td>SERVER_ADDR</td>
+                    <td>
+                        192.168.111.200                    </td>
+                </tr>
+                                <tr>
+                    <td>SERVER_PORT</td>
+                    <td>
+                        443                    </td>
+                </tr>
+                                <tr>
+                    <td>SERVER_NAME</td>
+                    <td>
+                        api.weitrun.cn                    </td>
+                </tr>
+                                <tr>
+                    <td>REDIRECT_STATUS</td>
+                    <td>
+                        200                    </td>
+                </tr>
+                                <tr>
+                    <td>PATH_INFO</td>
+                    <td>
+                        /admin/news/edit                    </td>
+                </tr>
+                                <tr>
+                    <td>SCRIPT_FILENAME</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/public/index.php                    </td>
+                </tr>
+                                <tr>
+                    <td>HTTP_HOST</td>
+                    <td>
+                        api.weitrun.cn:10009                    </td>
+                </tr>
+                                <tr>
+                    <td>HTTP_CONTENT_TYPE</td>
+                    <td>
+                        application/x-www-form-urlencoded                    </td>
+                </tr>
+                                <tr>
+                    <td>HTTP_CONTENT_LENGTH</td>
+                    <td>
+                        7860                    </td>
+                </tr>
+                                <tr>
+                    <td>HTTP_CONNECTION</td>
+                    <td>
+                        close                    </td>
+                </tr>
+                                <tr>
+                    <td>PHP_SELF</td>
+                    <td>
+                        /admin/news/edit                    </td>
+                </tr>
+                                <tr>
+                    <td>REQUEST_TIME_FLOAT</td>
+                    <td>
+                        1488264343.386                    </td>
+                </tr>
+                                <tr>
+                    <td>REQUEST_TIME</td>
+                    <td>
+                        1488264343                    </td>
+                </tr>
+                            </tbody>
+                    </table>
+                <table>
+                        <caption>Environment Variables<small>empty</small></caption>
+                    </table>
+                <table>
+                        <caption>ThinkPHP Constants</caption>
+            <tbody>
+                                <tr>
+                    <td>APP_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/public/../core/                    </td>
+                </tr>
+                                <tr>
+                    <td>THINK_VERSION</td>
+                    <td>
+                        5.0.4                    </td>
+                </tr>
+                                <tr>
+                    <td>THINK_START_TIME</td>
+                    <td>
+                        1488264343.3928                    </td>
+                </tr>
+                                <tr>
+                    <td>THINK_START_MEM</td>
+                    <td>
+                        256552                    </td>
+                </tr>
+                                <tr>
+                    <td>EXT</td>
+                    <td>
+                        .php                    </td>
+                </tr>
+                                <tr>
+                    <td>DS</td>
+                    <td>
+                        /                    </td>
+                </tr>
+                                <tr>
+                    <td>THINK_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/thinkphp/                    </td>
+                </tr>
+                                <tr>
+                    <td>LIB_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/thinkphp/library/                    </td>
+                </tr>
+                                <tr>
+                    <td>CORE_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/thinkphp/library/think/                    </td>
+                </tr>
+                                <tr>
+                    <td>TRAIT_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/thinkphp/library/traits/                    </td>
+                </tr>
+                                <tr>
+                    <td>ROOT_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/                    </td>
+                </tr>
+                                <tr>
+                    <td>EXTEND_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/extend/                    </td>
+                </tr>
+                                <tr>
+                    <td>VENDOR_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/vendor/                    </td>
+                </tr>
+                                <tr>
+                    <td>RUNTIME_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/runtime/                    </td>
+                </tr>
+                                <tr>
+                    <td>LOG_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/runtime/log/                    </td>
+                </tr>
+                                <tr>
+                    <td>CACHE_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/runtime/cache/                    </td>
+                </tr>
+                                <tr>
+                    <td>TEMP_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/runtime/temp/                    </td>
+                </tr>
+                                <tr>
+                    <td>CONF_PATH</td>
+                    <td>
+                        /var/html/nginx/php/wkjy_core/public/../core/                    </td>
+                </tr>
+                                <tr>
+                    <td>CONF_EXT</td>
+                    <td>
+                        .php                    </td>
+                </tr>
+                                <tr>
+                    <td>ENV_PREFIX</td>
+                    <td>
+                        PHP_                    </td>
+                </tr>
+                                <tr>
+                    <td>IS_CLI</td>
+                    <td>
+                        false                    </td>
+                </tr>
+                                <tr>
+                    <td>IS_WIN</td>
+                    <td>
+                        false                    </td>
+                </tr>
+                                <tr>
+                    <td>ERROR_TRY</td>
+                    <td>
+                        操作失败，请稍后再试                    </td>
+                </tr>
+                                <tr>
+                    <td>FAVORITE_TYPE_NEWS</td>
+                    <td>
+                        1                    </td>
+                </tr>
+                                <tr>
+                    <td>FAVORITE_TYPE_ACTIVITY</td>
+                    <td>
+                        2                    </td>
+                </tr>
+                                <tr>
+                    <td>FAVORITE_TYPE_COURSE</td>
+                    <td>
+                        3                    </td>
+                </tr>
+                                <tr>
+                    <td>FAVORITE_TYPE_LESSON</td>
+                    <td>
+                        4                    </td>
+                </tr>
+                                <tr>
+                    <td>COURSE_WITH_SERVICE</td>
+                    <td>
+                        1                    </td>
+                </tr>
+                                <tr>
+                    <td>COURSE_WITHOUT_SERVICE</td>
+                    <td>
+                        2                    </td>
+                </tr>
+                                <tr>
+                    <td>USER_TYPE_CHILD</td>
+                    <td>
+                        1                    </td>
+                </tr>
+                                <tr>
+                    <td>USER_TYPE_TEACHER</td>
+                    <td>
+                        2                    </td>
+                </tr>
+                                <tr>
+                    <td>USER_TYPE_PARENT</td>
+                    <td>
+                        3                    </td>
+                </tr>
+                                <tr>
+                    <td>USER_TYPE_EDUORG</td>
+                    <td>
+                        4                    </td>
+                </tr>
+                                <tr>
+                    <td>USER_TYPE_ACTIVISTS</td>
+                    <td>
+                        5                    </td>
+                </tr>
+                                <tr>
+                    <td>INCREASE_NEWS</td>
+                    <td>
+                        1                    </td>
+                </tr>
+                                <tr>
+                    <td>INCREASE_ACTIVITY</td>
+                    <td>
+                        2                    </td>
+                </tr>
+                                <tr>
+                    <td>INCREASE_COURSE</td>
+                    <td>
+                        3                    </td>
+                </tr>
+                                <tr>
+                    <td>INCREASE_TYPE_VIEWS</td>
+                    <td>
+                        1                    </td>
+                </tr>
+                                <tr>
+                    <td>INCREASE_TYPE_REMARKS</td>
+                    <td>
+                        2                    </td>
+                </tr>
+                                <tr>
+                    <td>COURSE_STATUS_NOT_START</td>
+                    <td>
+                        1                    </td>
+                </tr>
+                                <tr>
+                    <td>COURSE_STATUS_VIDEO</td>
+                    <td>
+                        2                    </td>
+                </tr>
+                                <tr>
+                    <td>COURSE_STATUS_EXAM</td>
+                    <td>
+                        3                    </td>
+                </tr>
+                                <tr>
+                    <td>COURSE_STATUS_LIVE</td>
+                    <td>
+                        4                    </td>
+                </tr>
+                                <tr>
+                    <td>COURSE_STATUS_END</td>
+                    <td>
+                        5                    </td>
+                </tr>
+                            </tbody>
+                    </table>
+            </div>
+    
+    <div class="copyright">
+        <a title="官方网站" href="http://www.thinkphp.cn">ThinkPHP</a> 
+        <span>V5.0.4</span> 
+        <span>{ 十年磨一剑-为API开发设计的高性能框架 }</span>
+    </div>
+        <script>
+        var LINE = 405;
+
+        function $(selector, node){
+            var elements;
+
+            node = node || document;
+            if(document.querySelectorAll){
+                elements = node.querySelectorAll(selector);
+            } else {
+                switch(selector.substr(0, 1)){
+                    case '#':
+                        elements = [node.getElementById(selector.substr(1))];
+                        break;
+                    case '.':
+                        if(document.getElementsByClassName){
+                            elements = node.getElementsByClassName(selector.substr(1));
+                        } else {
+                            elements = get_elements_by_class(selector.substr(1), node);
+                        }
+                        break;
+                    default:
+                        elements = node.getElementsByTagName();
+                }
+            }
+            return elements;
+
+            function get_elements_by_class(search_class, node, tag) {
+                var elements = [], eles, 
+                    pattern  = new RegExp('(^|\\s)' + search_class + '(\\s|$)');
+
+                node = node || document;
+                tag  = tag  || '*';
+
+                eles = node.getElementsByTagName(tag);
+                for(var i = 0; i < eles.length; i++) {
+                    if(pattern.test(eles[i].className)) {
+                        elements.push(eles[i])
+                    }
+                }
+
+                return elements;
+            }
+        }
+
+        $.getScript = function(src, func){
+            var script = document.createElement('script');
+            
+            script.async  = 'async';
+            script.src    = src;
+            script.onload = func || function(){};
+            
+            $('head')[0].appendChild(script);
+        }
+
+        ;(function(){
+            var files = $('.toggle');
+            var ol    = $('ol', $('.prettyprint')[0]);
+            var li    = $('li', ol[0]);   
+
+            // 短路径和长路径变换
+            for(var i = 0; i < files.length; i++){
+                files[i].ondblclick = function(){
+                    var title = this.title;
+
+                    this.title = this.innerHTML;
+                    this.innerHTML = title;
+                }
+            }
+
+            // 设置出错行
+            var err_line = $('.line-' + LINE, ol[0])[0];
+            err_line.className = err_line.className + ' line-error';
+
+            $.getScript('//cdn.bootcss.com/prettify/r298/prettify.min.js', function(){
+                prettyPrint();
+
+                // 解决Firefox浏览器一个很诡异的问题
+                // 当代码高亮后，ol的行号莫名其妙的错位
+                // 但是只要刷新li里面的html重新渲染就没有问题了
+                if(window.navigator.userAgent.indexOf('Firefox') >= 0){
+                    ol[0].innerHTML = ol[0].innerHTML;
+                }
+            });
+
+        })();
+    </script>
+    </body>
+</html>
+
+[2017-02-28 14:47:19.851] [ERROR] cheese - /wkjy_core/public/index.php/admin/news/detail
+[2017-02-28 14:47:19.852] [ERROR] cheese - { Error: connect ETIMEDOUT 210.37.0.8:10009
+    at Object.exports._errnoException (util.js:1022:11)
+    at exports._exceptionWithHostPort (util.js:1045:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1090:14)
+  code: 'ETIMEDOUT',
+  errno: 'ETIMEDOUT',
+  syscall: 'connect',
+  address: '210.37.0.8',
+  port: 10009 }
+[2017-02-28 14:47:25.951] [ERROR] cheese - /wkjy_core/public/index.php/admin/news/detail
+[2017-02-28 14:47:25.952] [ERROR] cheese - { Error: connect ETIMEDOUT 210.37.0.8:10009
+    at Object.exports._errnoException (util.js:1022:11)
+    at exports._exceptionWithHostPort (util.js:1045:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1090:14)
+  code: 'ETIMEDOUT',
+  errno: 'ETIMEDOUT',
+  syscall: 'connect',
+  address: '210.37.0.8',
+  port: 10009 }

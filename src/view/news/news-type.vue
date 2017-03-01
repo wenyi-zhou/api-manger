@@ -41,9 +41,7 @@
 
   var selectType = {
     id: '',
-    name: '',
-    'admin_id': 1,
-    'admin_name': 'wenyi'
+    name: ''
   }
 
   export default {
@@ -84,8 +82,6 @@
           cancelButtonText: '取消',
           type: 'warning'
         }).then(() => {
-          SelectData.admin_id = 1
-          SelectData.admin_name = 'wenyi'
           API.newsTypeDelete(SelectData, (data) => {
             if (!data) return
             this.fetchData()

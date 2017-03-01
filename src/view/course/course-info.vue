@@ -57,7 +57,7 @@
       fetchData: function () {
         this.isLoading = true
         var params = { 'id': this.curCourseId }
-        API.course_info(params,
+        API.courseInfo(params,
           (data) => {
             this.isLoading = false
 

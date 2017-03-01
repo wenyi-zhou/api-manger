@@ -51,7 +51,7 @@
         }
       ]
     },
-     {
+    {
       "name": "资讯管理",
       "index": "/news",
       "icon": [
@@ -66,6 +66,28 @@
         {
           "name": "类别设置",
           "index": "/news/type"
+        }
+      ]
+    },
+    {
+      "name": "系统设置",
+      "index": "/system",
+      "icon": [
+        "zmdi",
+        "zmdi-settings"
+      ],
+      "sub_menu": [
+        {
+          "name": "管理员列表",
+          "index": "/system/admin"
+        },
+        {
+          "name": "角色管理",
+          "index": "/system/role"
+        },
+        {
+          "name": "权限列表",
+          "index": "/system/permission"
         }
       ]
     }

@@ -1,6 +1,7 @@
 require('./check-versions')()
 var bodyParser = require('body-parser')
 var agent = require('../server/agent')
+var router = require('../server/router')
 
 var config = require('../config')
 if (!process.env.NODE_ENV) {
@@ -44,7 +45,7 @@ compiler.plugin('compilation', function (compilation) {
 })
 
 // 通用的中间件
-app.use(bodyParser.json({limit: '1mb'}))
+app.use(bodyParser.json({ limit: '1mb' }))
 app.use(bodyParser.urlencoded({ extended: true, limit: '1mb' }))
 
 // proxy api requests
@@ -72,6 +73,8 @@ app.use(staticPath, express.static('./static'))
 // 作用代理，解决不能跨域
 
 app.use('/wkjy_core', agent)
+
+app.use('/', router)
 
 // 错误中间件
 // app.use(errorHandler)

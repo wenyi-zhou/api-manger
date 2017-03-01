@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueResource from 'vue-resource'
 import Config from './config.js'
+import Store from '../store'
 
 Vue.use(VueResource)
 
@@ -9,13 +10,23 @@ Vue.http.options.emulateHTTP = true
 Vue.http.options.emulateJSON = true
 
 Vue.http.interceptors.push((request, next) => {
+  var message = Vue.prototype.$message({
+    duration: 0,
+    message: '正在处理数据……',
+    iconClass: 'zmdi zmdi-spinner icon-spin'
+  })
+
   next((response) => {
+    message.close()
     if (response.ok && response.data.code === 200) {
       response.data = response.data.data
     } else {
+      var msg = JSON.stringify(response.data)
+      if (response.data.msg) {
+        msg = response.data.msg
+      }
       Vue.prototype.$notify.error({
-        title: '请求错误',
-        message: response.data
+        message: msg
       })
     }
     return response
@@ -23,31 +34,41 @@ Vue.http.interceptors.push((request, next) => {
 })
 
 export default {
-  requestLocal: function (path, params, callback) {
+  requestLocal: function (options, callback) {
     Vue.http.options.root = ''
-    if (typeof params === 'function') {
-      callback = params
-      params = {}
+    if (!options.params) {
+      options.params = {}
     }
-    Vue.http.get(path, params).then(
-      (response) => {
-        callback(response.data)
-      },
-      (response) => {
-        callback(undefined, response.status)
-      }
-    )
+    if (options.method && options.method === 'post') {
+      Vue.http.post(options.path, options.params).then(
+        (response) => {
+          callback(response.data)
+        },
+        (response) => {
+          callback(undefined, response.status)
+        }
+      )
+    } else {
+      Vue.http.get(options.path, options.params).then(
+        (response) => {
+          callback(response.data)
+        },
+        (response) => {
+          callback(undefined, response.status)
+        }
+      )
+    }
   },
 
   startRequest: function (path, params, callback) {
-    console.log(Vue.store.state.admin.info)
     Vue.http.options.root = Config.BaseUrl
     if (typeof params === 'function') {
       callback = params
       params = {}
     }
-    params.admin_id = 1
-    params.admin_name = 'wenyi'
+
+    params.admin_id = Store.state.admin.info.admin_id
+    params.admin_name = Store.state.admin.info.admin_name
     Vue.http.post(path, params).then(
       (response) => {
         callback(response.data)
@@ -66,10 +87,16 @@ export default {
   course_list: function (params, callback) {
     this.startRequest('course/lists', params, callback)
   },
-  course_info: function (params, callback) {
+  courseInfo: function (params, callback) {
     this.startRequest('course/detail', params, callback)
   },
-  course_info_lesson_list: function (params, callback) {
+  courseVerify: function (params, callback) {
+    this.startRequest('course/verify', params, callback)
+  },
+  courseInFirst: function (params, callback) {
+    this.startRequest('course/inFirst', params, callback)
+  },
+  courseInfoLessonList: function (params, callback) {
     this.startRequest('course/listLesson', params, callback)
   },
   course_info_lesson_info: function (params, callback) {
@@ -80,6 +107,9 @@ export default {
   },
   lesson_info: function (params, callback) {
     this.startRequest('course/lessonDetail', params, callback)
+  },
+  courseLessonVerify: function (params, callback) {
+    this.startRequest('course/lessonVerify', params, callback)
   },
   course_lesson_video_list: function (params, callback) {
     this.startRequest('video/lists', params, callback)

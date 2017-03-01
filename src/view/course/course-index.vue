@@ -27,17 +27,22 @@
         <el-table-column prop="tname" label="老师" width="140"></el-table-column>
         <el-table-column prop="price" label="价格" width="100"></el-table-column>
         <el-table-column prop="start_time" label="开课时间" width="160"></el-table-column>
-        <el-table-column prop="bm_start" label="开始报名时间" width="160"></el-table-column>
+        <el-table-column :formatter="inFirstFormatter" label="首页推荐" width="100"> </el-table-column>
         <el-table-column prop="people_limit" label="最多报名人数" width="100"></el-table-column>
         <el-table-column prop="people_payed" label="已购买人数" width="100"></el-table-column>
-        <el-table-column prop="status" :formatter="statusFormatter" label="审核状态" width="110"></el-table-column>
-        <el-table-column label="操作" fixed="right">
+        <el-table-column :formatter="statusFormatter" label="审核状态"></el-table-column>
+        <el-table-column label="操作" fixed="right" width="180">
           <template scope="scope">
             <el-button size="small" type="primary" @click="handleEdit(scope.row)">查看</el-button>
+            <el-button v-if="scope.row.status===2" size="small" type="warning" @click="handleAction('noPass',scope.row.id)">取消通过</el-button>
+            <el-button v-else size="small" type="success" @click="handleAction('pass',scope.row.id)">通过审核</el-button>
           </template>
         </el-table-column>
       </el-table>
       <div class="table-pagination">
+        <div style="float: left;margin-left: 20px;">
+          <el-button size="small" type="text" @click="fetchData"><i class="zmdi zmdi-refresh" />&nbsp;&nbsp;重新加载</el-button>
+        </div>
         <el-pagination :current-page="filterFrom.pnum" :page-sizes="[5, 10, 15, 20]" :page-size="filterFrom.records" layout="sizes, prev, pager, next, jumper,total"
           :total="totalRecords" @size-change="handleSizeChange" @current-change="handlePageChange">
           </el-pagination>
@@ -48,6 +53,7 @@
 
 <script>
   import API from '../../api'
+  import Mixin from './course-mixin'
 
   var filterFrom = {
     status: '',
@@ -58,6 +64,14 @@
   }
 
   export default {
+    mixins: [Mixin],
+
+    computed: {
+      inFirst: function (infirst) {
+        return infirst === 1
+      }
+    },
+
     data: function () {
       return {
         searchKey: '',
@@ -103,17 +117,29 @@
         this.fetchData()
       },
 
-      // 编辑
       handleEdit: function (SelectData) {
         this.$router.push('/course/' + SelectData.id)
       },
 
+      handleAction: function (action, selectDateId) {
+        let params = {
+          id: selectDateId
+        }
+        switch (action) {
+          case 'pass': params.status = 2; break
+          case 'noPass': params.status = 3; break
+          default: break
+        }
+        API.courseVerify(params, (data) => {
+          if (!data) return
+          this.fetchData()
+        })
+      },
       fetchData: function () {
         this.isLoading = true
         API.course_list(this.filterFrom,
           (data) => {
             this.isLoading = false
-
             if (!data) return
             this.tableData = data.list
             this.totalRecords = data.totalRecords
@@ -121,11 +147,10 @@
         )
       },
       statusFormatter: function (row) {
-        switch (row.status) {
-          case 1: return '正在审核'
-          case 2: return '审核通过'
-          default: return '审核不通过'
-        }
+        return this.statusToString(row.status)
+      },
+      inFirstFormatter: function (row) {
+        return this.inFirstToString(row.in_first)
       }
     }
   }

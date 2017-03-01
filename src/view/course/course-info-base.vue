@@ -1,35 +1,117 @@
 <template>
   <el-row :gutter="20">
 
-    <el-col :span="16">
-      <div class="pm-body clearfix">
-        <div class="pmb-block">
-          <div class="pmbb-header">
-            <h2><i class="zmdi zmdi-equalizer m-r-10"></i>主要信息</h2>
-            <!--<div class="actions">
-             <el-button type="text" icon="edit" size="mini">编辑</el-button>
-        </div>-->
-          </div>
-          <div class="pmbb-body">
-            <div class="pmbb-view">
-              <dl class="dl-horizontal">
-                <dt>课程名称</dt>
-                <dd>{{curCourse.title}}</dd>
-              </dl>
-              <dl class="dl-horizontal">
-                <dt>年级</dt>
-                <dd>{{curCourse.grade_name}}</dd>
-              </dl>
-              <dl class="dl-horizontal">
-                <dt>科目</dt>
-                <dd>{{curCourse.subject_name}}</dd>
-              </dl>
-              <dl class="dl-horizontal">
-                <dt>上课老师</dt>
-                <dd>{{curCourse.tname}}</dd>
-              </dl>
-            </div>
-          </div>
+    <el-col :span="8">
+      <div class="info">
+        <div class="info-block">
+          <dl class="dl-horizontal">
+            <dt>课程名称</dt>
+            <dd>{{curCourse.title}}</dd>
+          </dl>
+          <dl class="dl-horizontal">
+            <dt>年级</dt>
+            <dd>{{curCourse.grade_name}}</dd>
+          </dl>
+          <dl class="dl-horizontal">
+            <dt>科目</dt>
+            <dd>{{curCourse.subject_name}}</dd>
+          </dl>
+          <dl class="dl-horizontal">
+            <dt>上课老师</dt>
+            <dd>{{curCourse.tname}}</dd>
+          </dl>
+          <dl class="dl-horizontal">
+            <dt>课时数</dt>
+            <dd>{{curCourse.lesson_count}}</dd>
+          </dl>
+          <dl class="dl-horizontal">
+            <dt>开课时间</dt>
+            <dd>{{curCourse.start_time}}</dd>
+          </dl>
+          <dl class="dl-horizontal">
+            <dt>结束时间</dt>
+            <dd>{{curCourse.end_time}}</dd>
+          </dl>
+        </div>
+        <div class="info-block">
+          <dl class="dl-horizontal">
+            <dt>价格</dt>
+            <dd>{{curCourse.price}}(元)</dd>
+          </dl>
+          <dl class="dl-horizontal">
+            <dt>已购买支付人数</dt>
+            <dd>{{curCourse.people_payed}}</dd>
+          </dl>
+          <dl class="dl-horizontal">
+            <dt>已购买支付人数</dt>
+            <dd>{{curCourse.people_ordered}}</dd>
+          </dl>
+          <dl class="dl-horizontal">
+            <dt>无服务已购买支付人数</dt>
+            <dd>{{curCourse.noservice_payed}}</dd>
+          </dl>
+          <dl class="dl-horizontal">
+            <dt>无服务已购买但未支付人数</dt>
+            <dd>{{curCourse.noservice_ordered}}</dd>
+          </dl>
+        </div>
+      </div>
+    </el-col>
+    <el-col :span="8">
+      <div class="info">
+        <div class="info-block">
+          <dl class="dl-horizontal">
+            <dt>报名时间</dt>
+            <dd>{{curCourse.bm_start}}</dd>
+          </dl>
+          <dl class="dl-horizontal">
+            <dt>结束报名时间</dt>
+            <dd>{{curCourse.bm_end}}</dd>
+          </dl>
+          <dl class="dl-horizontal">
+            <dt>课程购买人数上限</dt>
+            <dd>{{curCourse.people_limit}}(人)</dd>
+          </dl>
+          <dl class="dl-horizontal">
+            <dt>无服务报名开课时间</dt>
+            <dd>{{curCourse.noservice_start}}</dd>
+          </dl>
+          <dl class="dl-horizontal">
+            <dt>无服务报名结束时间</dt>
+            <dd>{{curCourse.noservice_end}}</dd>
+          </dl>
+          <dl class="dl-horizontal">
+            <dt>无服务课程购买人数上限</dt>
+            <dd>{{curCourse.noservice_limit}}(人)</dd>
+          </dl>
+        </div>
+        <div class="info-block">
+          <dl class="dl-horizontal">
+            <dt>点赞数</dt>
+            <dd>{{curCourse.zan}}</dd>
+          </dl>
+          <dl class="dl-horizontal">
+            <dt>评论数</dt>
+            <dd>{{curCourse.remarks}}</dd>
+          </dl>
+          <dl class="dl-horizontal">
+            <dt>查看数</dt>
+            <dd>{{curCourse.pageview}}</dd>
+          </dl>
+        </div>
+        <div class="info-block">
+          <dl class="dl-horizontal">
+            <dt>审核状态</dt>
+            <dd>{{status}}</dd>
+          </dl>
+          <dl class="dl-horizontal">
+            <dt>是否首页推荐</dt>
+            <dd>
+              {{isInFirst}}
+              <el-button v-if="curCourse.in_first===1" type="text" size="mini" @click="handleEditInFirst(false)">改为否</el-button>
+              <el-button v-if="curCourse.in_first===2" type="text" size="mini" @click="handleEditInFirst(true)">改为是</el-button>
+            </dd>
+          </dl>
         </div>
       </div>
     </el-col>
@@ -40,82 +122,54 @@
 </template>
 
 <script>
+  import Mixin from './course-mixin'
+  import API from '../../api'
+
   export default {
-    props: ['curCourse']
+    mixins: [Mixin],
+    props: ['curCourse'],
+    computed: {
+      isInFirst: function () {
+        return this.inFirstToString(this.curCourse.in_first)
+      },
+      status: function () {
+        return this.statusToString(this.curCourse.status)
+      }
+    },
+    methods: {
+      handleEditInFirst: function (result) {
+        var params = { id: this.curCourse.id }
+        if (result) {
+          params.in_first = 1
+        } else {
+          params.in_first = 2
+        }
+        API.courseInFirst(params,
+          (data) => {
+            if (!data) return
+            this.curCourse.in_first = params.in_first
+          }
+        )
+      }
+    }
   }
 
 </script>
 
 <style scoped>
-  .pmb-block {
-    padding: 15px 10px;
+  .info {
+    padding: 5px 10px;
+  }
+
+  .info-block {
+    margin-bottom: 20px
+  }
+
+  .info:last-child {
     margin-bottom: 0px
   }
 
-  .pmb-block:last-child {
-    margin-bottom: 40px
-  }
-
-  .pmb-block .pmbb-header {
-    margin-bottom: 15px;
-    position: relative
-  }
-
-  .pmb-block .pmbb-header .actions {
-    position: absolute;
-    top: -2px;
-    right: 0
-  }
-
-  .pmb-block .pmbb-header h2 {
-    margin: 0;
-    font-weight: 100;
-    font-size: 20px
-  }
-
-  .pmb-block .pmbb-edit {
-    position: relative;
-    z-index: 1;
-    display: none
-  }
-
-  .pmb-block .pmbb-edit,
-  .pmb-block .pmbb-view {
-    -webkit-animation-name: fadeIn;
-    animation-name: fadeIn;
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both
-  }
-
-  .pmb-block.toggled .pmbb-edit {
-    display: block
-  }
-
-  .pmb-block.toggled .pmbb-view {
-    display: none
-  }
-
-  .pmo-block {
-    padding: 25px
-  }
-
-  .pmo-block>h2 {
-    font-size: 16px;
-    margin: 0 0 15px
-  }
-
-  .pmo-items .pmob-body {
-    padding: 0 10px
-  }
-
-  .pmo-items a {
-    display: block;
-    padding: 4px
-  }
-
-  .pmo-items a img {
-    width: 100%
+  dt {
+    width: 180px;
   }
 </style>

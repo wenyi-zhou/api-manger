@@ -18,6 +18,8 @@
 </template>
 
 <script>
+  import API from '../api'
+
   export default {
     data: function () {
       return {
@@ -33,16 +35,16 @@
         if (!this.admin.login_name || !this.admin.password) {
           return
         }
-        // this.isLoading = true
-        let adminInfo = {
-          admin_id: 1,
-          admin_name: this.admin.login_name
-        }
-        window.sessionStorage.admin = JSON.stringify(adminInfo)
-        this.$store.dispatch('setAdmin', adminInfo)
-        let redirect = decodeURIComponent(this.$route.query.redirect || '/')
-        this.$router.push({
-          path: redirect
+        this.isLoading = true
+        API.requestLocal({ path: '/login', params: this.admin, method: 'post' }, (data) => {
+          this.isLoading = false
+          if (!data) return
+          window.sessionStorage.admin = JSON.stringify(data)
+          this.$store.dispatch('setAdmin', data)
+          let redirect = decodeURIComponent(this.$route.query.redirect || '/')
+          this.$router.push({
+            path: redirect
+          })
         })
       }
     }
@@ -53,6 +55,8 @@
 <style scoped>
   .card {
     width: 450px;
+    padding-top: 30px;
+    padding-right: 20px;
   }
 
   .login-content {

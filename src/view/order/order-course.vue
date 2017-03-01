@@ -130,9 +130,7 @@
       deleteData: function (id) {
         var par = {
           id: id,
-          type: 2,
-          admin_id: '11',
-          admin_name: 'wenyi'
+          type: 2
         }
         API.orderDelete(par, (data, error) => {
           if (data) {

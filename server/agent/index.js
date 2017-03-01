@@ -1,7 +1,7 @@
 var webRequest = require('request')
 var logger = require('../log/logger')
 
-function requestOptions () {
+const requestOptions = function () {
   return {
     baseUrl: 'https://api.weitrun.cn:10009',
     method: 'POST',
@@ -9,7 +9,7 @@ function requestOptions () {
   }
 }
 
-function errorMsg () {
+const errorMsg = function () {
   return {
     'code': 401,
     'msg': '响应超时，稍后再试'
@@ -21,7 +21,7 @@ module.exports = function (req, res) {
   options.url = req.originalUrl
   options.form = req.body
   // logger.info(req.originalUrl + ' params:' + JSON.stringify(req.body))
-  function callback (error, response, data) {
+  const callback = function (error, response, data) {
     if (!error && response.statusCode === 200) {
       res.send(data)
     } else {

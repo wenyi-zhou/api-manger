@@ -86,6 +86,26 @@ var routers = [
     name: 'news:type',
     component: resolve => require(['../view/news/news-type.vue'], resolve)
   },
+   // 系统设置
+  {
+    path: 'system',
+    redirect: '/system/admin'
+  },
+  {
+    path: 'system/admin',
+    name: 'system:admin',
+    component: resolve => require(['../view/system/admin-list.vue'], resolve)
+  },
+  {
+    path: 'system/role',
+    name: 'system:role',
+    component: resolve => require(['../view/system/role-list.vue'], resolve)
+  },
+  {
+    path: 'system/permission',
+    name: 'system:permission',
+    component: resolve => require(['../view/system/permission-list.vue'], resolve)
+  },
   {
     path: '*',
     redirect: '/'

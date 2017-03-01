@@ -1,9 +1,7 @@
 <template>
-  <div>
     <div class="list">
-      <lesson-item v-for="item in lessonList" :lesson="item" @viewMore="viewMore"></lesson-item>
+      <lesson-item v-for="item in lessonList" :lesson="item"></lesson-item>
     </div>
-  </div>
 </template>
 
 <script>
@@ -32,17 +30,13 @@
           'records': 999,
           'course_id': this.curCourseId
         }
-        API.course_info_lesson_list(params,
+        API.courseInfoLessonList(params,
           (data) => {
             this.isLoading = false
-
             if (!data) return
             this.lessonList = data.list
           }
         )
-      },
-      viewMore: function (lesson) {
-        this.$router.replace('/course/' + lesson.course_id + '/' + lesson.id)
       }
     }
   }

@@ -18,7 +18,7 @@ export default {
 
   actions: {
     enumListInit ({ commit }) {
-      API.requestLocal('static/menu-list.json', (data) => {
+      API.requestLocal({ path: 'static/menu-list.json' }, (data) => {
         commit('MENU_LIST_GET_SUCCESS', data)
       })
     },

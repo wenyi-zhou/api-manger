@@ -3,11 +3,9 @@
     <a ref="menu-sub-title">
       <slot name="title"></slot>{{name}}
     </a>
-    <!--<collapse-transition>-->
     <ul :style="{display:'inline'}" v-show="opened">
       <slot></slot>
     </ul>
-    <!--</collapse-transition>-->
   </li>
 </template>
 

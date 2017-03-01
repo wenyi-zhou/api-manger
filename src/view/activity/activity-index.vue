@@ -129,7 +129,7 @@
           cancelButtonText: '取消',
           type: 'warning'
         }).then(() => {
-          API.activityDelete({ id: SelectData.id, 'admin_id': '1', 'admin_name': 'wenyi' },
+          API.activityDelete({ id: SelectData.id },
             (data) => {
               if (!data) return
               this.fetchData()

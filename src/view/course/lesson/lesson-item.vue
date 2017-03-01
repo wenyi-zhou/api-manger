@@ -7,22 +7,52 @@
       <div class="lgi-heading">
         <label style="margin-right: 10px">{{lesson.title}}</label>
         <el-button type="text" size="mini" @click="viewMore">查看详情</el-button>
+        <el-button v-if="lesson.status===2" type="text" size="mini" @click="handleAction('noPass')">取消通过</el-button>
+        <el-button v-else type="text" size="mini" @click="handleAction('pass')">审核通过</el-button>
       </div>
       <small class="lgi-text">内容介绍：{{lesson.content}}</small>
       <ul class="lgi-attrs">
-        <li>当前状态：{{lesson.create_time}}</li>
-        <li>是否免费：{{lesson.free}}</li>
+        <li>审核状态：{{status}}</li>
+        <li>开始时间：{{lesson.start_time}}</li>
+        <li>是否免费：{{isFree}}</li>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
+  import API from '../../../api'
+  import Mixin from '../course-mixin'
+
   export default {
+    mixins: [Mixin],
+
     props: ['lesson'],
+    computed: {
+      isFree: function () {
+        return this.lesson.free === 1 ? '是' : '否'
+      },
+      status: function () {
+        return this.statusToString(this.lesson.status)
+      }
+    },
     methods: {
+      handleAction: function (action) {
+        let params = {
+          id: this.lesson.id
+        }
+        switch (action) {
+          case 'pass': params.status = 2; break
+          case 'noPass': params.status = 3; break
+          default: break
+        }
+        API.courseLessonVerify(params, (data) => {
+          if (!data) return
+          this.lesson.status = params.status
+        })
+      },
       viewMore: function () {
-        this.$emit('viewMore', this.lesson)
+        this.$router.replace('/course/' + this.lesson.course_id + '/' + this.lesson.id)
       }
     }
   }

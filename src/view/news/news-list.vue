@@ -5,6 +5,7 @@
         <el-form-item>
           类别
           <el-select v-model="filterFrom.type" :loading="initTypeList">
+            <el-option label="全部" value=""></el-option>
             <el-option v-for="option in typeList" :label="option.name" :value="option.id"></el-option>
           </el-select>
         </el-form-item>
@@ -18,7 +19,7 @@
           </el-select>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="submitFilter">确定</el-button>
+          <el-button type="primary" @click="fetchData">确定</el-button>
         </el-form-item>
         <div class="pull-right">
           <el-button type="primary" icon="plus" @click="handleAdd">增加资讯</el-button>
@@ -104,9 +105,6 @@
         this.fetchData()
       },
 
-      submitFilter: function () {
-        this.fetchData()
-      },
       handleAdd: function () {
         this.$router.push('/news/edit/0')
       },
@@ -125,8 +123,10 @@
       },
       initSelectType: function () {
         API.newsTypeList((data) => {
-          this.typeList = data
           this.initTypeList = false
+          if (data) {
+            this.typeList = data
+          }
         })
       },
       enableFormatter: function (row) {

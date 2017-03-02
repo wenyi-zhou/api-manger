@@ -15,7 +15,7 @@
         </el-form-item>
         <el-form-item>
           认证状态
-          <el-select v-model="filterFrom.status">
+          <el-select v-model="filterFrom.verify">
             <el-option label="全部" value=""></el-option>
             <el-option label="正在认证" value="1"></el-option>
             <el-option label="认证不通过" value="2"></el-option>
@@ -32,7 +32,7 @@
           </el-select>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="submitFilter">确定</el-button>
+          <el-button type="primary" @click="fetchData">确定</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -53,32 +53,23 @@
         </el-table-column>
       </el-table>
       <div class="table-pagination">
+        <div style="float: left;margin-left: 20px;">
+          <el-button size="small" type="text" @click="fetchData"><i class="zmdi zmdi-refresh" />&nbsp;&nbsp;重新加载</el-button>
+        </div>
         <el-pagination :current-page="filterFrom.pnum" :page-sizes="[5, 10, 15, 20]" :page-size="filterFrom.records" layout="sizes, prev, pager, next, jumper,total"
           :total="totalRecords" @size-change="handleSizeChange" @current-change="handlePageChange">
           </el-pagination>
       </div>
     </div>
-    <el-dialog title="收货地址" v-model="hasShowEdit">
-      <el-form :model="filterFrom">
-        <el-form-item label="活动名称">
-          <el-input v-model="filterFrom.type" auto-complete="off"></el-input>
-        </el-form-item>
-      </el-form>
-      <div slot="footer" class="dialog-footer">
-        <el-button @click="hasShowEdit = false">取 消</el-button>
-        <el-button type="primary" @click="hasShowEdit = false">确 定</el-button>
-      </div>
-    </el-dialog>
   </div>
 </template>
 
 <script>
   import API from '../../api'
+  import mixin from './user-mixin'
 
   var filterFrom = {
-    status: '',
-    start_time: '',
-    end_time: '',
+    verify: '',
     pnum: 1,
     records: 10,
     type: '',
@@ -86,13 +77,13 @@
   }
 
   export default {
+    mixins: [mixin],
     data: function () {
       return {
         isLoading: false,
         tableData: [],
         filterFrom,
-        totalRecords: 0,
-        hasShowEdit: false
+        totalRecords: 0
       }
     },
     created: function () {
@@ -109,13 +100,9 @@
         this.fetchData()
       },
 
-      submitFilter: function () {
-        this.fetchData()
-      },
-
       // 编辑
       handleEdit: function (SelectData) {
-        this.hasShowEdit = true
+        this.$router.push('/user/' + SelectData.type + '/' + SelectData.id)
       },
 
       fetchData: function () {
@@ -128,35 +115,16 @@
       },
 
       typeFormatter: function (row) {
-        switch (row.type) {
-          case 1: return '学生'
-          case 2: return '老师'
-          case 3: return '家长'
-          case 4: return '教育机构'
-          default: return '活动发布者'
-        }
+        return this.typeToString(row.type)
       },
       genderFormatter: function (row) {
-        switch (row.gender) {
-          case 1: return '男'
-          case 2: return '女'
-          default: return '未填写'
-        }
+        return this.genderToString(row.gender)
       },
       enableFormatter: function (row) {
-        switch (row.enable) {
-          case 1: return '是'
-          case 0: return '否'
-          default: return ''
-        }
+        return this.enableToString(row.enable)
       },
       statusFormatter: function (row) {
-        switch (row.status) {
-          case 3: return '认证通过'
-          case 2: return '认证不通过'
-          case 1: return '正在认证'
-          default: return '未认证'
-        }
+        return this.verifyToString(row.verify)
       }
     }
   }

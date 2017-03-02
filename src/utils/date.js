@@ -1,7 +1,15 @@
 // 对Date的扩展，将 Date 转化为指定格式的String
 // 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符，
 // 年(y)可以用1-4个占位符，毫秒(S)只能用1个占位符(是1-3位的数字)
-exports.format = function (date, fmt) {
+/**
+ *
+ * @param {*待转换的日期} date
+ * @param {*格式字条串} fmt
+ */
+const format = function (date, fmt) {
+  if (!date || typeof (date) !== 'object') {
+    return date
+  }
   if (!fmt) {
     fmt = 'yyyy-MM-dd'
   }
@@ -23,4 +31,8 @@ exports.format = function (date, fmt) {
     }
   }
   return fmt
+}
+
+export default {
+  format
 }

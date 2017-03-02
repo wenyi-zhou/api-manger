@@ -1,7 +1,7 @@
 <template>
   <div class="login-content">
     <div class="card lc-block">
-      <div class="card-body card-padding">
+      <div class="card-body card-padding" v-on:keyup.enter="handleLogin">
         <el-form :model="admin" label-width="80px">
           <el-form-item label="登录名">
             <el-input v-model="admin.login_name"></el-input>

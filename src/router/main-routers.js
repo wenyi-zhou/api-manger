@@ -14,6 +14,11 @@ var routers = [
     name: 'user',
     component: resolve => require(['../view/user/user-index.vue'], resolve)
   },
+  {
+    path: 'user/:type/:id',
+    name: 'user/:type:id',
+    component: resolve => require(['../view/user/user-info.vue'], resolve)
+  },
   // 课程管理
   {
     path: 'course',
@@ -26,24 +31,33 @@ var routers = [
     component: resolve => require(['../view/course/course-info.vue'], resolve)
   },
   {
-    path: 'course/:id/:lessonId',
+    path: 'course/:courseId/:lessonId',
     name: 'course:id:lessonId',
     component: resolve => require(['../view/course/lesson/lesson-info.vue'], resolve)
   },
   // 活动管理
   {
     path: 'activity',
-    name: 'activity',
-    component: resolve => require(['../view/activity/activity-index.vue'], resolve)
+    redirect: '/activity/list'
   },
   {
-    path: 'activity/info/:id',
-    name: 'activity:info:id',
+    path: 'activity/list',
+    name: 'activity:list',
+    component: resolve => require(['../view/activity/activity-list.vue'], resolve)
+  },
+  {
+    path: 'activity/type',
+    name: 'activity:type',
+    component: resolve => require(['../view/activity/activity-type.vue'], resolve)
+  },
+  {
+    path: 'activity/list/info/:id',
+    name: 'activity:list:info:id',
     component: resolve => require(['../view/activity/activity-info.vue'], resolve)
   },
   {
-    path: 'activity/edit/:id',
-    name: 'activity:edit:id',
+    path: 'activity/list/edit/:id',
+    name: 'activity:list:edit:id',
     component: resolve => require(['../view/activity/activity-edit.vue'], resolve)
   },
   // 订单管理
@@ -86,7 +100,7 @@ var routers = [
     name: 'news:type',
     component: resolve => require(['../view/news/news-type.vue'], resolve)
   },
-   // 系统设置
+  // 系统设置
   {
     path: 'system',
     redirect: '/system/admin'
@@ -105,10 +119,10 @@ var routers = [
     path: 'system/permission',
     name: 'system:permission',
     component: resolve => require(['../view/system/permission-list.vue'], resolve)
-  },
-  {
-    path: '*',
-    redirect: '/'
+    // },
+    // {
+    //   path: '*',
+    //   redirect: '/'
   }
 ]
 

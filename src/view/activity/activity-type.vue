@@ -9,8 +9,10 @@
     </div>
     <div class="card-body card-padding">
       <el-table :data="tableData" style="width: 100%" v-loading="isLoading" border>
-        <el-table-column prop="id" label="id" width="150"></el-table-column>
-        <el-table-column prop="name" label="显示名称" width="250"></el-table-column>
+        <el-table-column prop="id" label="id" width="100"></el-table-column>
+        <el-table-column prop="name" label="显示名称" width="150"></el-table-column>
+        <el-table-column prop="admin_name" label="添加管理员" width="150"></el-table-column>
+        <el-table-column prop="create_time" label="添加时间" width="260"></el-table-column>
         <el-table-column label="操作">
           <template scope="scope">
             <el-button size="small" type="primary" @click="handleDelete(scope.row)">删除</el-button>
@@ -72,7 +74,7 @@
         this.hasShowEdit = true
       },
       handleSave: function () {
-        API.newsTypeSave(this.selectType, (data) => {
+        API.activityTypeSave(this.selectType, (data) => {
           if (!data) return
           this.fetchData()
           this.hasShowEdit = false
@@ -84,7 +86,7 @@
           cancelButtonText: '取消',
           type: 'warning'
         }).then(() => {
-          API.newsTypeDelete(SelectData, (data) => {
+          API.activityTypeDelete(SelectData, (data) => {
             if (!data) return
             this.fetchData()
             this.hasShowEdit = false
@@ -99,7 +101,7 @@
 
       fetchData: function () {
         this.isLoading = true
-        API.newsTypeList((data) => {
+        API.activityTypeList((data) => {
           this.isLoading = false
           this.tableData = data
         })
@@ -114,6 +116,7 @@
     padding: 10px 20px;
     background: #eef1f6;
     border: 1px solid #dfe6ec;
-    border-top: none
+    border-top: none;
+    overflow: auto;
   }
 </style>

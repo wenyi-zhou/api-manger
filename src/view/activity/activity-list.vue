@@ -3,6 +3,7 @@
     <div class="card-header" style="padding-bottom: 0px;">
       <el-form :inline="true" :model="filterFrom">
         <el-form-item>
+          审核状态：
           <el-select v-model="filterFrom.status">
             <el-option label="全部" value=""></el-option>
             <el-option label="正在审核" value="1"></el-option>
@@ -11,6 +12,14 @@
           </el-select>
         </el-form-item>
         <el-form-item>
+          类别：
+          <el-select v-model="filterFrom.type" :loading="initTypeList">
+            <el-option label="全部" value=""></el-option>
+            <el-option v-for="option in typeList" :label="option.name" :value="option.id"></el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item>
+          日期范围：
           <el-date-picker type="daterange" range-separator="至" v-model="selectDate" placeholder="选择日期范围" @change="handleDateChange"
             :picker-options="datePickerOption" :editable="false"></el-date-picker>
         </el-form-item>
@@ -41,6 +50,9 @@
         </el-table-column>
       </el-table>
       <div class="table-pagination">
+        <div style="float: left;margin-left: 20px;">
+          <el-button size="small" type="text" @click="fetchData"><i class="zmdi zmdi-refresh" />&nbsp;&nbsp;重新加载</el-button>
+        </div>
         <el-pagination :current-page="filterFrom.pnum" :page-sizes="[5, 10, 15, 20]" :page-size="filterFrom.records" layout="sizes, prev, pager, next, jumper,total"
           :total="totalRecords" @size-change="handleSizeChange" @current-change="handlePageChange">
           </el-pagination>
@@ -57,13 +69,15 @@
     start_time: '',
     end_time: '',
     pnum: 1,
-    records: 10
+    records: 10,
+    type: ''
   }
 
   export default {
     data: function () {
       return {
-        searchKey: '',
+        typeList: [],
+        initTypeList: true,
         isLoading: false,
         tableData: [],
         totalRecords: 0,
@@ -78,6 +92,7 @@
     },
     created: function () {
       this.fetchData()
+      this.initSelectType()
     },
     methods: {
       handleSizeChange: function (val) {
@@ -106,12 +121,12 @@
         this.fetchData()
       },
       handleAdd: function () {
-        this.$router.push('/activity/edit/0')
+        this.$router.push('/activity/list/edit/0')
       },
 
       // 编辑
       handleView: function (SelectData) {
-        this.$router.push('/activity/info/' + SelectData.id)
+        this.$router.push('/activity/list/info/' + SelectData.id)
       },
 
       handldRelease: function (SelectData) {
@@ -158,6 +173,14 @@
             this.totalRecords = data.totalRecords
           }
         )
+      },
+      initSelectType: function () {
+        API.activityTypeList((data) => {
+          this.initTypeList = false
+          if (data) {
+            this.typeList = data
+          }
+        })
       },
       statusFormatter: function (row) {
         switch (row.status) {

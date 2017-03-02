@@ -83,6 +83,9 @@ export default {
   userList: function (params, callback) {
     this.startRequest('user/lists', params, callback)
   },
+  userInfo: function (params, callback) {
+    this.startRequest('user/detail', params, callback)
+  },
   // 课程管理
   course_list: function (params, callback) {
     this.startRequest('course/lists', params, callback)
@@ -108,6 +111,9 @@ export default {
   lesson_info: function (params, callback) {
     this.startRequest('course/lessonDetail', params, callback)
   },
+  courseLessonTest: function (params, callback) {
+    this.startRequest('question/lists', params, callback)
+  },
   courseLessonVerify: function (params, callback) {
     this.startRequest('course/lessonVerify', params, callback)
   },
@@ -132,11 +138,25 @@ export default {
     this.startRequest('activity/delete', params, callback)
   },
   activitySave: function (params, callback) {
-    if (params.id === '0') {
-      this.startRequest('activity/add', params, callback)
-    } else {
+    if (params.id && params.id !== '0') {
       this.startRequest('activity/edit', params, callback)
+    } else {
+      this.startRequest('activity/add', params, callback)
     }
+  },
+  activityTypeList: function (callback) {
+    this.startRequest('activity/typeList', callback)
+  },
+  activityTypeSave: function (params, callback) {
+    if (params.id) {
+      this.startRequest('activity/typeEdit', params, callback)
+    } else {
+      params.id = ''
+      this.startRequest('activity/typeAdd', params, callback)
+    }
+  },
+  activityTypeDelete: function (params, callback) {
+    this.startRequest('activity/typeDelete', params, callback)
   },
 
   // 其它

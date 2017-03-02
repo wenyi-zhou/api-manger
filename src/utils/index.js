@@ -1,5 +1,5 @@
-import date from './date.js'
+import DateUtil from './date.js'
 
 export default {
-  date
+  'date': DateUtil
 }

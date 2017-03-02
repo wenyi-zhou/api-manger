@@ -4,6 +4,7 @@
       <el-form :inline="true">
         <el-form-item>
           <el-button type="primary" @click="handleBack"><i class="zmdi zmdi-arrow-left"></i>&nbsp;&nbsp;返回</el-button>
+          <el-button v-if="!isLoading" type="success" @click="onSubmit"><i class="zmdi zmdi-save"></i>&nbsp;&nbsp;保存</el-button>
           <el-button type="text" :loading="isLoading"></el-button>
         </el-form-item>
       </el-form>
@@ -14,6 +15,11 @@
           <el-col :span="14">
             <el-form-item label="活动名称">
               <el-input v-model="curObject.name"></el-input>
+            </el-form-item>
+            <el-form-item label="类别">
+              <el-select v-model="curObject.type_id" :loading="initTypeList" style="width: 100%;">
+                <el-option v-for="option in typeList" :label="option.name" :value="option.id"></el-option>
+              </el-select>
             </el-form-item>
             <el-form-item label="活动时间">
               <el-col :span="11">
@@ -54,27 +60,28 @@
         <el-form-item label="活动内容">
           <el-input type="textarea" :autosize="{ minRows: 4, maxRows: 10 }" v-model="curObject.content"></el-input>
         </el-form-item>
-        <el-form-item>
-          <el-button type="primary" @click="onSubmit">保存</el-button>
-          <el-button>取消</el-button>
-        </el-form-item>
       </el-form>
     </div>
 </template>
 
 <script>
   import API from '../../api'
+  import utils from '../../utils'
 
   export default {
     data: function () {
       return {
+        typeList: [],
+        initTypeList: true,
         fileList: [],
         curId: '',
         curObject: {},
         isLoading: false
       }
     },
+
     created: function () {
+      this.initSelectType()
       this.curId = this.$route.params.id
       if (this.curId === '0') {
         this.curObject = {
@@ -86,7 +93,8 @@
           address: '',
           content: '',
           price: '',
-          people_limit: ''
+          people_limit: '',
+          type_id: ''
         }
         var breadcrumbs = []
         breadcrumbs.push({
@@ -104,10 +112,9 @@
         var p = this.$store.state.home.breadcrumb_data
         if (p.length > 1) {
           p = p[p.length - 2]
-          console.log(p)
           this.$router.replace(p.index)
         } else {
-          this.$router.replace('/activity')
+          this.$router.replace('/activity/list')
         }
       },
       handleRemove: function (file, fileList) {
@@ -117,8 +124,20 @@
         console.log(file)
       },
       onSubmit: function () {
+        for (var i = 0, len = this.typeList.length; i < len; i++) {
+          if (this.typeList[i].id === this.curObject.type_id) {
+            this.curObject.type_name = this.typeList[i].name
+          }
+        }
+        this.curObject.start_time = utils.date.format(this.curObject.start_time)
+        this.curObject.end_time = utils.date.format(this.curObject.end_time)
+        this.curObject.bm_start = utils.date.format(this.curObject.bm_start)
+        this.curObject.bm_end = utils.date.format(this.curObject.bm_end)
+        this.isLoading = true
         API.activitySave(this.curObject, (data) => {
-          this.fetchData()
+          this.isLoading = false
+          if (!data) return
+          this.handleBack()
         })
       },
 
@@ -132,7 +151,7 @@
             this.curObject = data
             var breadcrumbs = []
             breadcrumbs.push({
-              index: '/activity/info/' + this.curId,
+              index: '/activity/list/info/' + this.curId,
               name: data.name
             })
             breadcrumbs.push({
@@ -142,6 +161,14 @@
             this.$store.dispatch('updateBreadcrumb', breadcrumbs)
           }
         )
+      },
+      initSelectType: function () {
+        API.activityTypeList((data) => {
+          this.initTypeList = false
+          if (data) {
+            this.typeList = data
+          }
+        })
       }
     },
 

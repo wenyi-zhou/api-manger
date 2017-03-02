@@ -31,6 +31,9 @@
         <el-tab-pane label="视频列表" name="video">
           <lesson-video :cur-lesson-id="curLessonId" />
         </el-tab-pane>
+        <el-tab-pane label="课后习题" name="test">
+          <lesson-test :cur-lesson-id="curLessonId" />
+        </el-tab-pane>
         <el-tab-pane label="评论列表" name="comment">
           <info-comment :cur-lesson-id="curLessonId" />
         </el-tab-pane>
@@ -41,11 +44,13 @@
 <script>
   import API from '../../../api'
   import InfoComment from './lesson-comment.vue'
+  import InfoTest from './lesson-test.vue'
   import InfoVideo from './lesson-video.vue'
 
   export default {
     components: {
       'info-comment': InfoComment,
+      'lesson-test': InfoTest,
       'lesson-video': InfoVideo
     },
     data: function () {
@@ -62,7 +67,7 @@
     },
     methods: {
       back: function () {
-        this.$router.replace('/course/' + this.$route.params.id)
+        this.$router.replace('/course/' + this.$route.params.courseId)
       },
 
       fetchData: function () {
@@ -75,7 +80,7 @@
 
             var breadcrumbs = []
             breadcrumbs.push({
-              index: '/course/' + this.$route.params.id,
+              index: '/course/' + this.$route.params.courseId,
               name: '课程信息'
             })
             breadcrumbs.push({

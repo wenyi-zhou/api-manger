@@ -31,6 +31,16 @@
       "icon": [
         "zmdi",
         "zmdi-flag"
+      ],
+      "sub_menu": [
+        {
+          "name": "活动列表",
+          "index": "/activity/list"
+        },
+        {
+          "name": "活动类别",
+          "index": "/activity/type"
+        }
       ]
     },
     {

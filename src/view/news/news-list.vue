@@ -30,7 +30,7 @@
       <el-table :data="tableData" style="width: 100%" v-loading="isLoading" border>
         <el-table-column type="expand">
           <template scope="props">
-            <div class="text">
+            <div>
               <dl class="dl-horizontal">
                 <dt>摘要：</dt>
                 <dd>{{props.row.summary}}</dd>

@@ -52,7 +52,7 @@
         })
       },
       viewMore: function () {
-        this.$router.replace('/course/' + this.lesson.course_id + '/' + this.lesson.id)
+        this.$router.replace('/course/list/' + this.lesson.course_id + '/' + this.lesson.id)
       }
     }
   }

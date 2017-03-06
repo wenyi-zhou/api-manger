@@ -54,7 +54,7 @@
       </el-table>
       <div class="table-pagination">
         <div style="float: left;margin-left: 20px;">
-          <el-button size="small" type="text" @click="fetchData"><i class="zmdi zmdi-refresh" />&nbsp;&nbsp;重新加载</el-button>
+          <el-button type="text" @click="fetchData"><i class="zmdi zmdi-refresh" />&nbsp;&nbsp;重新加载</el-button>
         </div>
         <el-pagination :current-page="filterFrom.pnum" :page-sizes="[5, 10, 15, 20]" :page-size="filterFrom.records" layout="sizes, prev, pager, next, jumper,total"
           :total="totalRecords" @size-change="handleSizeChange" @current-change="handlePageChange">

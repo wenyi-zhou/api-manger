@@ -12,25 +12,177 @@
         <el-tab-pane label="基本信息" name="content">
           <el-row :gutter="20">
             <el-col :span="4">
-              <div style="text-align: center"><img class="title-img" alt="" :src="curObject.avatar"></div>
-                </el-col>
-            <el-col :span="6">
-              <div class="content-left">
+              <div style="text-align: center">
+                <img class="title-img" alt="" v-bind:src="curObject.avatar">
+              </div>
+            </el-col>
+            <el-col :span="5">
+              <div class="content-body">
+                <h1>基本信息</h1>
                 <div class="block">
                   <dl class="dl-horizontal">
-                    <dt>活动名称</dt>
-                    <dd>{{curObject.name}}</dd>
+                    <dt>标识ID</dt>
+                    <dd>{{curObject.id}}</dd>
+                  </dl>
+                  <dl class="dl-horizontal">
+                    <dt>登录名</dt>
+                    <dd>{{curObject.login_name}}</dd>
+                  </dl>
+                  <dl class="dl-horizontal">
+                    <dt>昵称</dt>
+                    <dd>{{curObject.nickname}}</dd>
+                  </dl>
+                  <dl class="dl-horizontal">
+                    <dt>性别</dt>
+                    <dd>{{this.genderToString(curObject.gender)}}</dd>
+                  </dl>
+                  <dl class="dl-horizontal">
+                    <dt>地区</dt>
+                    <dd>{{curObject.area}}</dd>
+                  </dl>
+                  <dl class="dl-horizontal">
+                    <dt>邮箱</dt>
+                    <dd>{{curObject.email}}</dd>
+                  </dl>
+                </div>
+                <div class="block">
+                  <dl class="dl-horizontal">
+                    <dt>注册类型</dt>
+                    <dd>{{this.typeToString(curObject.type)}}</dd>
+                  </dl>
+                  <dl class="dl-horizontal">
+                    <dt>注册时间</dt>
+                    <dd>{{curObject.create_time}}</dd>
+                  </dl>
+                  <dl class="dl-horizontal">
+                    <dt>最近登录时间</dt>
+                    <dd>{{curObject.last_login}}</dd>
+                  </dl>
+                  <dl class="dl-horizontal">
+                    <dt>是否启用</dt>
+                    <dd>{{this.enableToString(curObject.enable)}}</dd>
                   </dl>
                 </div>
               </div>
             </el-col>
-            <el-col :span="6">
-              <div class="content-left">
-                <div class="block">
-                  <dl class="dl-horizontal">
-                    <dt>活动名称</dt>
-                    <dd>{{curObject.name}}</dd>
-                  </dl>
+            <el-col :span="7">
+              <div class="content-body">
+                <div v-if="curObject.type==1">
+                  <h1>学生信息</h1>
+                  <div class="block">
+                    <dl class="dl-horizontal">
+                      <dt>姓名</dt>
+                      <dd>{{curObject.name}}</dd>
+                    </dl>
+                    <dl class="dl-horizontal">
+                      <dt>年级</dt>
+                      <dd>{{curObject.grade_nam}}</dd>
+                    </dl>
+                    <dl class="dl-horizontal">
+                      <dt>家长ID</dt>
+                      <dd>{{curObject.pid}}</dd>
+                    </dl>
+                  </div>
+                </div>
+                <div v-else-if="curObject.type==2">
+                  <h1>老师信息</h1>
+                  <div class="block">
+                    <dl class="dl-horizontal">
+                      <dt>是否认证</dt>
+                      <dd>{{this.verifyToString(curObject.verify)}}</dd>
+                    </dl>
+                  </div>
+                  <div class="block">
+                    <dl class="dl-horizontal">
+                      <dt>真实姓名</dt>
+                      <dd>{{curObject.name}}</dd>
+                    </dl>
+                    <dl class="dl-horizontal">
+                      <dt>证件号码</dt>
+                      <dd>{{curObject.id_num}}</dd>
+                    </dl>
+                    <dl class="dl-horizontal">
+                      <dt>证件照片</dt>
+                      <dd>{{curObject.id_image}}</dd>
+                    </dl>
+                    <dl class="dl-horizontal">
+                      <dt>地点</dt>
+                      <dd>{{curObject.address}}</dd>
+                    </dl>
+                    <dl class="dl-horizontal">
+                      <dt>联系方式</dt>
+                      <dd>{{curObject.phone}}</dd>
+                    </dl>
+                    <dl class="dl-horizontal">
+                      <dt>机构名称</dt>
+                      <dd>{{curObject.gov_name}}</dd>
+                    </dl>
+                  </div>
+                </div>
+                <div v-else-if="curObject.type==3">
+                  <h1>家长信息</h1>
+                  <div class="block">
+                    <dl class="dl-horizontal">
+                      <dt>姓名</dt>
+                      <dd>{{curObject.name}}</dd>
+                    </dl>
+                  </div>
+                </div>
+                <div v-else-if="curObject.type==4">
+                  <h1>机构信息</h1>
+                </div>
+                <div v-else>
+                  <h1>活动发布者信息</h1>
+                  <div class="block">
+                    <dl class="dl-horizontal">
+                      <dt>是否认证</dt>
+                      <dd>{{this.verifyToString(curObject.verify)}}</dd>
+                    </dl>
+                  </div>
+                  <div class="block">
+                    <dl class="dl-horizontal">
+                      <dt>真实姓名</dt>
+                      <dd>{{curObject.name}}</dd>
+                    </dl>
+                    <dl class="dl-horizontal">
+                      <dt>证件号码</dt>
+                      <dd>{{curObject.id_num}}</dd>
+                    </dl>
+                    <dl class="dl-horizontal">
+                      <dt>证件照片</dt>
+                      <dd>{{curObject.id_image}}</dd>
+                    </dl>
+                    <dl class="dl-horizontal">
+                      <dt>地点</dt>
+                      <dd>{{curObject.address}}</dd>
+                    </dl>
+                    <dl class="dl-horizontal">
+                      <dt>联系方式</dt>
+                      <dd>{{curObject.phone}}</dd>
+                    </dl>
+                    <dl class="dl-horizontal">
+                      <dt>机构名称</dt>
+                      <dd>{{curObject.gov_name}}</dd>
+                    </dl>
+                  </div>
+                  <div class="block">
+                    <dl class="dl-horizontal">
+                      <dt>公司名字</dt>
+                      <dd>{{curObject.company_name}}</dd>
+                    </dl>
+                    <dl class="dl-horizontal">
+                      <dt>公司地点</dt>
+                      <dd>{{curObject.company_address}}</dd>
+                    </dl>
+                    <dl class="dl-horizontal">
+                      <dt>公司证件ID</dt>
+                      <dd>{{curObject.copany_id}}</dd>
+                    </dl>
+                    <dl class="dl-horizontal">
+                      <dt>公司证件图片</dt>
+                      <dd>{{curObject.company_idphoto}}</dd>
+                    </dl>
+                  </div>
                 </div>
               </div>
             </el-col>
@@ -39,21 +191,17 @@
             </el-col>
           </el-row>
         </el-tab-pane>
-        <el-tab-pane label="TA的评论" name="comment">
-          <info-comment v-bind:cur-id="curId" />
-        </el-tab-pane>
       </el-tabs>
     </div>
 </template>
 
 <script>
   import API from '../../api'
-  import InfoComment from './user-comment.vue'
+  import Mixin from './user-mixin'
 
   export default {
-    components: {
-      'info-comment': InfoComment
-    },
+    mixins: [Mixin],
+
     data: function () {
       return {
         curId: '',
@@ -69,12 +217,9 @@
 
     methods: {
       back: function () {
-        this.$router.replace('/activity/list')
+        this.$router.replace('/user')
       },
 
-      handleEdit: function () {
-        this.$router.push('/activity/list/edit/' + this.curId)
-      },
       fetchData: function () {
         var params = { 'id': this.curId, type: this.curType }
         API.userInfo(params,
@@ -89,13 +234,6 @@
             this.$store.dispatch('updateBreadcrumb', breadcrumbs)
           }
         )
-      },
-      statusFormatter: function (status) {
-        switch (status) {
-          case 1: return '正在审核'
-          case 2: return '审核通过'
-          default: return '审核不通过'
-        }
       }
     },
 
@@ -108,37 +246,26 @@
 </script>
 
 <style scoped>
-  image {
-    max-width: 100%!important
-  }
-
-  .content-left {
-    border-right: 2px solid #eee;
-    padding: 0px 10px 0px 10px
-  }
-
   .title-img {
-    min-width: 100px;
-    min-height: 100px;
-    max-width: 300px;
-    max-height: 300px;
     border-radius: 3px;
     margin-bottom: 10px;
   }
 
   .content-body {
-    display: table-cell;
     padding: 0px 10px 0px 10px
   }
 
-.block{
-  margin-bottom:20px;
-}
+  .block {
+    margin-bottom: 20px;
+  }
 
   dt {
-    width: 150px;
+    width: 60px;
   }
+
   dd {
-    margin-left: 155px;
+    margin-left: 75px;
+    white-space: normal;
+    word-wrap: break-word
   }
 </style>

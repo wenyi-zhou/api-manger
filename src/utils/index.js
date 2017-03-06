@@ -1,5 +1,7 @@
 import DateUtil from './date.js'
+import ObjectUtll from './object'
 
 export default {
-  'date': DateUtil
+  'date': DateUtil,
+  'object': ObjectUtll
 }

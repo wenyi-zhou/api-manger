@@ -3,7 +3,7 @@ var logger = require('../log/logger')
 
 const requestOptions = function () {
   return {
-    baseUrl: 'https://api.weitrun.cn:10009',
+    baseUrl: 'https://api.weitrun.com',
     method: 'POST',
     url: ''
   }

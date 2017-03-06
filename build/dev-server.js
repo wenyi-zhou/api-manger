@@ -44,6 +44,8 @@ compiler.plugin('compilation', function (compilation) {
   })
 })
 
+// app.enable('trust proxy')
+
 // 通用的中间件
 app.use(bodyParser.json({ limit: '1mb' }))
 app.use(bodyParser.urlencoded({ extended: true, limit: '1mb' }))
@@ -72,18 +74,16 @@ var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsS
 app.use(staticPath, express.static('./static'))
 // 作用代理，解决不能跨域
 
-app.use('/wkjy_core', agent)
+app.use('/wcjy_api', agent)
 
 app.use('/', router)
 
 // 错误中间件
-// app.use(errorHandler)
-
-// function errorHandler (err, req, res, next) {
+// app.use(function (err, req, res, next) {
 //   console.error(err.stack)
 //   res.status(500)
 //   res.render('error', { error: err })
-// }
+// })
 
 var uri = 'http://localhost:' + port
 

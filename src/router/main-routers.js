@@ -22,17 +22,23 @@ var routers = [
   // 课程管理
   {
     path: 'course',
-    name: 'course',
-    component: resolve => require(['../view/course/course-index.vue'], resolve)
+    redirect: '/course/list'
   },
   {
-    path: 'course/:id',
-    name: 'course:id',
+    path: 'course/list',
+    name: 'course:list',
+    component: resolve => require(['../view/course/course-list.vue'], resolve)
+  },
+  {
+    path: 'course/list/:id',
     component: resolve => require(['../view/course/course-info.vue'], resolve)
   },
   {
-    path: 'course/:courseId/:lessonId',
-    name: 'course:id:lessonId',
+    path: 'course/list/:courseId/:lessonId',
+    component: resolve => require(['../view/course/lesson/lesson-info.vue'], resolve)
+  },
+  {
+    path: 'course/setting',
     component: resolve => require(['../view/course/lesson/lesson-info.vue'], resolve)
   },
   // 活动管理

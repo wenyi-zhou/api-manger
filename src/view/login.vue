@@ -25,8 +25,8 @@
       return {
         isLoading: false,
         admin: {
-          'login_name': '',
-          'password': ''
+          'login_name': 'admin',
+          'password': '111111'
         }
       }
     },

@@ -11,16 +11,20 @@
           </el-select>
         </el-form-item>
         <el-form-item>
-          <el-date-picker type="daterange" range-separator="至" v-model="selectDate" placeholder="选择日期范围" @change="handleDateChange"
-            :picker-options="datePickerOption" :editable="false"></el-date-picker>
+          <el-date-picker type="daterange" range-separator="至" v-model="selectDate" placeholder="选择日期范围" :picker-options="datePickerOption"
+            :editable="false"></el-date-picker>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="submitSearch">确定</el-button>
+          <el-button type="text" @click="showDialog = true"><i class="zmdi zmdi-filter-list" />&nbsp;更多筛选</el-button>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary" @click="submitSearch">确&nbsp;&nbsp;定</el-button>
         </el-form-item>
       </el-form>
     </div>
     <div class="card-body card-padding">
       <el-table :data="tableData" style="width: 100%" v-loading="isLoading" border>
+        <el-table-column prop="id" label="ID" width="60"></el-table-column>
         <el-table-column prop="title" label="名称" width="140"></el-table-column>
         <el-table-column prop="subject_name" label="科目" width="80"></el-table-column>
         <el-table-column prop="grade_name" label="针对年级" width="100"></el-table-column>
@@ -41,21 +45,46 @@
       </el-table>
       <div class="table-pagination">
         <div style="float: left;margin-left: 20px;">
-          <el-button size="small" type="text" @click="fetchData"><i class="zmdi zmdi-refresh" />&nbsp;&nbsp;重新加载</el-button>
+          <el-button type="text" @click="fetchData"><i class="zmdi zmdi-refresh" />&nbsp;&nbsp;重新加载</el-button>
         </div>
         <el-pagination :current-page="filterFrom.pnum" :page-sizes="[5, 10, 15, 20]" :page-size="filterFrom.records" layout="sizes, prev, pager, next, jumper,total"
           :total="totalRecords" @size-change="handleSizeChange" @current-change="handlePageChange">
-          </el-pagination>
+        </el-pagination>
       </div>
     </div>
+    <el-dialog title="更多筛选" v-model="showDialog" size="tiny">
+      <el-form ref="from" :model="filterFrom" label-width="80px">
+        <el-form-item label="教师ID">
+          <el-input v-model="filterFrom.tid"></el-input>
+        </el-form-item>
+        <el-form-item label="科目ID">
+          <el-input v-model="filterFrom.subject_id"></el-input>
+        </el-form-item>
+        <el-form-item label="年级ID">
+          <el-input v-model="filterFrom.grade_id"></el-input>
+        </el-form-item>
+        <el-form-item label="机构ID">
+          <el-input v-model="filterFrom.org_id"></el-input>
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click.stop="resetForm">重 置</el-button>
+        <el-button type="primary" @click.stop="submitSearch">确 定</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
 <script>
   import API from '../../api'
   import Mixin from './course-mixin'
+  import utils from '../../utils'
 
   var filterFrom = {
+    tid: '',
+    subject_id: '',
+    grade_id: '',
+    org_id: '',
     status: '',
     start_time: '',
     end_time: '',
@@ -79,6 +108,7 @@
         tableData: [],
         totalRecords: 0,
         filterFrom,
+        showDialog: false,
         datePickerOption: {
           disabledDate: function (time) {
             return time.getTime() > Date.now()
@@ -99,18 +129,12 @@
         this.filterFrom.pnum = val
         this.fetchData()
       },
-      handleDateChange: function (val) {
-        if (val) {
-          var dates = val.split('至')
-          this.filterFrom.start_time = dates[0]
-          this.filterFrom.end_time = dates[1]
-        } else {
-          this.filterFrom.start_time = ''
-          this.filterFrom.end_time = ''
-        }
-      },
       submitSearch: function () {
-        if (!this.selectDate) {
+        this.showDialog = false
+        if (this.selectDate) {
+          this.filterFrom.start_time = utils.date.format(this.selectDate[0])
+          this.filterFrom.end_time = utils.date.format(this.selectDate[1])
+        } else {
           this.filterFrom.start_time = ''
           this.filterFrom.end_time = ''
         }
@@ -118,12 +142,12 @@
       },
 
       handleEdit: function (SelectData) {
-        this.$router.push('/course/' + SelectData.id)
+        this.$router.push('/course/list/' + SelectData.id)
       },
 
-      handleAction: function (action, selectDateId) {
+      handleAction: function (action, selectDataId) {
         let params = {
-          id: selectDateId
+          id: selectDataId
         }
         switch (action) {
           case 'pass': params.status = 2; break
@@ -151,6 +175,12 @@
       },
       inFirstFormatter: function (row) {
         return this.inFirstToString(row.in_first)
+      },
+      resetForm: function () {
+        this.filterFrom.tid = ''
+        this.filterFrom.subject_id = ''
+        this.filterFrom.grade_id = ''
+        this.filterFrom.org_id = ''
       }
     }
   }

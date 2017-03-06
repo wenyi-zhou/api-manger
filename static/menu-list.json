@@ -23,6 +23,16 @@
       "icon": [
         "zmdi",
         "zmdi-book"
+      ],
+      "sub_menu": [
+        {
+          "name": "课程列表",
+          "index": "/course/list"
+        },
+        {
+          "name": "课程设置",
+          "index": "/course/setting"
+        }
       ]
     },
     {

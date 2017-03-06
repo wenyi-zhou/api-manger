@@ -67,7 +67,7 @@
     },
     methods: {
       back: function () {
-        this.$router.replace('/course/' + this.$route.params.courseId)
+        this.$router.replace('/course/list/' + this.$route.params.courseId)
       },
 
       fetchData: function () {
@@ -80,7 +80,7 @@
 
             var breadcrumbs = []
             breadcrumbs.push({
-              index: '/course/' + this.$route.params.courseId,
+              index: '/course/list/' + this.$route.params.courseId,
               name: '课程信息'
             })
             breadcrumbs.push({

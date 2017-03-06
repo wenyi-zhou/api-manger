@@ -204,5 +204,19 @@ export default {
   },
   newsTypeDelete: function (params, callback) {
     this.startRequest('news/typeDelete', params, callback)
+  },
+  // 条幅广告
+  bannerList: function (params, callback) {
+    this.startRequest('ad/lists', params, callback)
+  },
+  bannerSave: function (params, callback) {
+    if (params.id && params.id > 0) {
+      this.startRequest('ad/edit', params, callback)
+    } else {
+      this.startRequest('ad/add', params, callback)
+    }
+  },
+  bannerDelete: function (params, callback) {
+    this.startRequest('ad/delete', params, callback)
   }
 }

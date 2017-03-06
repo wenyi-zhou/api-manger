@@ -81,6 +81,10 @@ input, button, span, textarea {
   border-radius: 0px!important
 }
 
+image, img {
+  max-width: 100% !important
+}
+
 
 /*dl dt dd */
 
@@ -93,7 +97,7 @@ dd {
 }
 
 dt {
-  font-weight: 700
+  font-weight: 600
 }
 
 dd, dt {
@@ -101,7 +105,7 @@ dd, dt {
 }
 
 .dl-horizontal dt {
-  text-align: left
+  text-align: right
 }
 
 .dl-horizontal dd:after {
@@ -238,4 +242,3 @@ dd, dt {
 .card-light .card-header h2, .card-light .card-header h2 small {
   color: #fff
 }
-

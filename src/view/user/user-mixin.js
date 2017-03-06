@@ -14,7 +14,8 @@ export default {
         case 2: return '老师'
         case 3: return '家长'
         case 4: return '教育机构'
-        default: return '活动发布者'
+        case 5: return '活动发布者'
+        default: return ''
       }
     },
     genderToString: function (gender) {

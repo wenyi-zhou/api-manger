@@ -164,7 +164,7 @@
 
       fetchData: function () {
         this.isLoading = true
-        API.activity_list(this.filterFrom,
+        API.activityList(this.filterFrom,
           (data) => {
             this.isLoading = false
 

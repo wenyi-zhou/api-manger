@@ -30,7 +30,7 @@
         <el-table-column prop="grade_name" label="针对年级" width="100"></el-table-column>
         <el-table-column prop="tname" label="老师" width="140"></el-table-column>
         <el-table-column prop="price" label="价格" width="100"></el-table-column>
-        <el-table-column prop="start_time" label="开课时间" width="160"></el-table-column>
+        <el-table-column prop="start_time" label="开课时间" width="180"></el-table-column>
         <el-table-column :formatter="inFirstFormatter" label="首页推荐" width="100"> </el-table-column>
         <el-table-column prop="people_limit" label="最多报名人数" width="100"></el-table-column>
         <el-table-column prop="people_payed" label="已购买人数" width="100"></el-table-column>
@@ -161,7 +161,7 @@
       },
       fetchData: function () {
         this.isLoading = true
-        API.course_list(this.filterFrom,
+        API.courseList(this.filterFrom,
           (data) => {
             this.isLoading = false
             if (!data) return

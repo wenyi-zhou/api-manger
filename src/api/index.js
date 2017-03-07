@@ -87,7 +87,7 @@ export default {
     this.startRequest('user/detail', params, callback)
   },
   // 课程管理
-  course_list: function (params, callback) {
+  courseList: function (params, callback) {
     this.startRequest('course/lists', params, callback)
   },
   courseInfo: function (params, callback) {
@@ -120,9 +120,29 @@ export default {
   course_lesson_video_list: function (params, callback) {
     this.startRequest('video/lists', params, callback)
   },
+  // 科目设置
+  subjectList: function (callback) {
+    this.startRequest('index/subjectList', callback)
+  },
+  subjectSave: function (params, callback) {
+    this.startRequest('index/subjectAdd', params, callback)
+  },
+  subjectDelete: function (params, callback) {
+    this.startRequest('index/subjectDelete', params, callback)
+  },
+  // 年级设置
+  gradeList: function (callback) {
+    this.startRequest('index/gradeList', callback)
+  },
+  gradeSave: function (params, callback) {
+    this.startRequest('index/gradeAdd', params, callback)
+  },
+  gradeDelete: function (params, callback) {
+    this.startRequest('index/gradeDelete', params, callback)
+  },
 
   // 活动管理
-  activity_list: function (params, callback) {
+  activityList: function (params, callback) {
     this.startRequest('activity/lists', params, callback)
   },
   activityInfo: function (params, callback) {
@@ -218,5 +238,20 @@ export default {
   },
   bannerDelete: function (params, callback) {
     this.startRequest('ad/delete', params, callback)
+  },
+  // 管理员
+  adminList: function (params, callback) {
+    this.startRequest('admin/lists', params, callback)
+  },
+  adminSave: function (params, callback) {
+    if (params.id && params.id > 0) {
+      this.startRequest('admin/edit', params, callback)
+    } else {
+      params.roles = ''
+      this.startRequest('admin/add', params, callback)
+    }
+  },
+  adminDelete: function (params, callback) {
+    this.startRequest('admin/delete', params, callback)
   }
 }

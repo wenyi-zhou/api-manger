@@ -39,7 +39,7 @@ var routers = [
   },
   {
     path: 'course/setting',
-    component: resolve => require(['../view/course/lesson/lesson-info.vue'], resolve)
+    component: resolve => require(['../view/course/course-setting.vue'], resolve)
   },
   // 活动管理
   {
@@ -115,16 +115,6 @@ var routers = [
     path: 'system/admin',
     name: 'system:admin',
     component: resolve => require(['../view/system/admin-list.vue'], resolve)
-  },
-  {
-    path: 'system/role',
-    name: 'system:role',
-    component: resolve => require(['../view/system/role-list.vue'], resolve)
-  },
-  {
-    path: 'system/permission',
-    name: 'system:permission',
-    component: resolve => require(['../view/system/permission-list.vue'], resolve)
     // },
     // {
     //   path: '*',

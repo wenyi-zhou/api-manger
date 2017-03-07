@@ -4,7 +4,7 @@
     <section id="main">
       <AsideMenu ref="menu"></AsideMenu>
       <wy-breadcrumb>
-        <wy-breadcrumb-item :to="'/'">主页</wy-breadcrumb-item>
+        <wy-breadcrumb-item :to="'/'">管理系统</wy-breadcrumb-item>
         <wy-breadcrumb-item v-for="breadcrumb in routeMenus" :to="breadcrumb.index">
           {{breadcrumb.name}}
         </wy-breadcrumb-item>
@@ -90,5 +90,14 @@
       padding-left: 15px;
       padding-right: 15px
     }
+  }
+
+  .table-pagination {
+    text-align: right;
+    padding: 10px 0px;
+    background: #eef1f6;
+    border: 1px solid #dfe6ec;
+    border-top: none;
+    overflow: auto
   }
 </style>

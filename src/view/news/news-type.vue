@@ -18,9 +18,9 @@
           </template>
         </el-table-column>
       </el-table>
-      <div class="table-pagination">
+      <div class="table-pagination clearfix">
         <div style="float: left;margin-left: 20px;">
-          <el-button size="small" type="text" @click="fetchData"><i class="zmdi zmdi-refresh" />&nbsp;&nbsp;重新加载</el-button>
+          <el-button type="text" @click="fetchData"><i class="zmdi zmdi-refresh" />&nbsp;&nbsp;重新加载</el-button>
         </div>
       </div>
     </div>
@@ -108,12 +108,3 @@
   }
 
 </script>
-
-<style>
-  .table-pagination {
-    padding: 10px 20px;
-    background: #eef1f6;
-    border: 1px solid #dfe6ec;
-    border-top: none
-  }
-</style>

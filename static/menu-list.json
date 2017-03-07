@@ -100,14 +100,6 @@
         {
           "name": "管理员列表",
           "index": "/system/admin"
-        },
-        {
-          "name": "角色管理",
-          "index": "/system/role"
-        },
-        {
-          "name": "权限列表",
-          "index": "/system/permission"
         }
       ]
     }

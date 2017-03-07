@@ -17,6 +17,9 @@ const deepClone = function (object) {
       for (var i = 0; i < object.length; i++) newArr.push(object[i])
       return newArr
     } else {
+      if (object === null) {
+        return null
+      }
       var newObj = {}
       for (var key in object) {
         newObj[key] = deepClone(object[key])

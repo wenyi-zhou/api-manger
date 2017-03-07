@@ -1,7 +1,7 @@
 <template>
   <aside id="sidebar" class="sidebar c-overflow" v-bind:class="{toggled:hasOpend}">
     <profile />
-    <wy-menu hasRouter="true" v-bind:defaultActive="activity_menu" @select="menuSelected">
+    <wy-menu hasRouter="true" v-bind:defaultActive="activity_menu" @select="menuSelected" v-bind:unique-opened="true">
       <wy-menu-items v-for="menu in menu_list" :menu="menu"></wy-menu-items>
     </wy-menu>
   </aside>

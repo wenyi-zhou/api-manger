@@ -172,13 +172,3 @@
   }
 
 </script>
-
-<style>
-  .table-pagination {
-    text-align: right;
-    padding: 10px 0px;
-    background: #eef1f6;
-    border: 1px solid #dfe6ec;
-    border-top: none
-  }
-</style>

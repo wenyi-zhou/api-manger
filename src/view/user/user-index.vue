@@ -28,7 +28,7 @@
           <el-select v-model="filterFrom.enable">
             <el-option label="全部" value=""></el-option>
             <el-option label="启用" value="1"></el-option>
-            <el-option label="未启用" value="0"></el-option>
+            <el-option label="禁用" value="2"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item>

@@ -101,14 +101,18 @@
         <div class="info-block">
           <dl class="dl-horizontal">
             <dt>审核状态</dt>
-            <dd>{{status}}</dd>
+            <dd>
+              {{status}}
+              <el-button v-if="curCourse.status===2" size="mini" type="text" @click="handleAction('noPass',curCourse.id)">取消通过</el-button>
+              <el-button v-else type="text" size="mini" @click="handleAction('pass',curCourse.id)">通过审核</el-button>
+            </dd>
           </dl>
           <dl class="dl-horizontal">
             <dt>是否首页推荐</dt>
             <dd>
               {{isInFirst}}
               <el-button v-if="curCourse.in_first===1" type="text" size="mini" @click="handleEditInFirst(false)">改为否</el-button>
-              <el-button v-if="curCourse.in_first===2" type="text" size="mini" @click="handleEditInFirst(true)">改为是</el-button>
+              <el-button v-else type="text" size="mini" @click="handleEditInFirst(true)">改为是</el-button>
             </dd>
           </dl>
         </div>
@@ -149,6 +153,20 @@
             this.curCourse.in_first = params.in_first
           }
         )
+      },
+      handleAction: function (action, selectDataId) {
+        let params = {
+          id: selectDataId
+        }
+        switch (action) {
+          case 'pass': params.status = 2; break
+          case 'noPass': params.status = 3; break
+          default: break
+        }
+        API.courseVerify(params, (data) => {
+          if (!data) return
+          this.curCourse.status = params.status
+        })
       }
     }
   }
@@ -169,6 +187,10 @@
   }
 
   dt {
-    width: 180px;
+    width: 170px;
+  }
+
+  dd {
+    margin-left: 180px;
   }
 </style>

@@ -28,7 +28,7 @@ export default {
     enableToString: function (enable) {
       switch (enable) {
         case 1: return '是'
-        case 0: return '否'
+        case 2: return '否'
         default: return ''
       }
     }

@@ -21,8 +21,8 @@
                 <h1>基本信息</h1>
                 <div class="block">
                   <dl class="dl-horizontal">
-                    <dt>标识ID</dt>
-                    <dd>{{curObject.id}}</dd>
+                    <dt>Id</dt>
+                    <dd>{{curObject.uid}}</dd>
                   </dl>
                   <dl class="dl-horizontal">
                     <dt>登录名</dt>
@@ -60,7 +60,11 @@
                   </dl>
                   <dl class="dl-horizontal">
                     <dt>是否启用</dt>
-                    <dd>{{this.enableToString(curObject.enable)}}</dd>
+                    <dd>
+                      {{this.enableToString(curObject.enable)}}
+                      <el-button v-if="curObject.enable===1" type="text" size="mini" @click="handleEditEnable(2)">改为禁用</el-button>
+                      <el-button v-if="curObject.enable===2" type="text" size="mini" @click="handleEditEnable(1)">改为启用</el-button>
+                    </dd>
                   </dl>
                 </div>
               </div>
@@ -76,7 +80,7 @@
                     </dl>
                     <dl class="dl-horizontal">
                       <dt>年级</dt>
-                      <dd>{{curObject.grade_nam}}</dd>
+                      <dd>{{curObject.grade_name}}</dd>
                     </dl>
                     <dl class="dl-horizontal">
                       <dt>家长ID</dt>
@@ -89,7 +93,10 @@
                   <div class="block">
                     <dl class="dl-horizontal">
                       <dt>是否认证</dt>
-                      <dd>{{this.verifyToString(curObject.verify)}}</dd>
+                      <dd>
+                        {{this.verifyToString(curObject.verify)}}
+                        <a @click="handleVerify">更改</a>
+                      </dd>
                     </dl>
                   </div>
                   <div class="block">
@@ -103,7 +110,8 @@
                     </dl>
                     <dl class="dl-horizontal">
                       <dt>证件照片</dt>
-                      <dd>{{curObject.id_image}}</dd>
+                      <dd><img style="width: 100%;margin-top: 4px;" alt="" v-bind:src="curObject.id_image"></img>
+                      </dd>
                     </dl>
                     <dl class="dl-horizontal">
                       <dt>地点</dt>
@@ -136,7 +144,10 @@
                   <div class="block">
                     <dl class="dl-horizontal">
                       <dt>是否认证</dt>
-                      <dd>{{this.verifyToString(curObject.verify)}}</dd>
+                      <dd>
+                        {{this.verifyToString(curObject.verify)}}
+                        <a @click="handleVerify">更改</a>
+                      </dd>
                     </dl>
                   </div>
                   <div class="block">
@@ -150,7 +161,9 @@
                     </dl>
                     <dl class="dl-horizontal">
                       <dt>证件照片</dt>
-                      <dd>{{curObject.id_image}}</dd>
+                      <dd>
+                        <img alt="" v-bind:src="curObject.id_image"></img>
+                      </dd>
                     </dl>
                     <dl class="dl-horizontal">
                       <dt>地点</dt>
@@ -219,7 +232,38 @@
       back: function () {
         this.$router.replace('/user')
       },
-
+      handleVerify: function () {
+        this.$confirm('此操作将更改当前用户认证结果', '操作', {
+          confirmButtonText: '通过认证',
+          cancelButtonText: '拒绝认证',
+          type: 'warning'
+        }).then(() => {
+          this.updateVerify(3)
+        }).catch(() => {
+          this.updateVerify(2)
+        })
+      },
+      updateVerify: function (verify) {
+        if (this.curObject.verify === verify) {
+          return
+        }
+        var params = { 'id': this.curId, 'verify': verify }
+        API.userVerify(params,
+          (data) => {
+            if (!data) return
+            this.curObject.verify = verify
+          }
+        )
+      },
+      handleEditEnable: function (enable) {
+        var params = { 'id': this.curId, 'enable': enable }
+        API.userEnable(params,
+          (data) => {
+            if (!data) return
+            this.curObject.enable = enable
+          }
+        )
+      },
       fetchData: function () {
         var params = { 'id': this.curId, type: this.curType }
         API.userInfo(params,
@@ -236,7 +280,6 @@
         )
       }
     },
-
     beforeRouteLeave: function (to, from, next) {
       this.$store.dispatch('updateBreadcrumb', [])
       next()
@@ -250,22 +293,17 @@
     border-radius: 3px;
     margin-bottom: 10px;
   }
-
   .content-body {
     padding: 0px 10px 0px 10px
   }
-
   .block {
     margin-bottom: 20px;
   }
-
   dt {
     width: 60px;
   }
-
   dd {
     margin-left: 75px;
-    white-space: normal;
     word-wrap: break-word
   }
 </style>

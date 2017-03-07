@@ -86,6 +86,12 @@ export default {
   userInfo: function (params, callback) {
     this.startRequest('user/detail', params, callback)
   },
+  userVerify: function (params, callback) {
+    this.startRequest('user/verify', params, callback)
+  },
+  userEnable: function (params, callback) {
+    this.startRequest('user/enable', params, callback)
+  },
   // 课程管理
   courseList: function (params, callback) {
     this.startRequest('course/lists', params, callback)

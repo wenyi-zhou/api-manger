@@ -80,9 +80,3 @@
   }
 
 </script>
-
-<style>
-  image {
-    max-width: 100%!important
-  }
-</style>

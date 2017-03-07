@@ -22,6 +22,7 @@
     </div>
     <div class="card-body card-padding">
       <el-table :data="tableData" style="width: 100%" v-loading="isLoading" border>
+        <el-table-column prop="id" label="ID" width="70"></el-table-column>
         <el-table-column prop="order_number" label="订单编号" width="180"></el-table-column>
         <el-table-column prop="activity_name" label="活动名称" width="160"></el-table-column>
         <el-table-column prop="pay_time" label="下单时间" width="200"></el-table-column>

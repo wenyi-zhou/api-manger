@@ -42,6 +42,7 @@
             </div>
           </template>
         </el-table-column>
+        <el-table-column prop="id" label="ID" width="70"></el-table-column>
         <el-table-column prop="type_name" label="类别" width="110"></el-table-column>
         <el-table-column prop="title" label="标题" width="250"></el-table-column>
         <el-table-column prop="publish_time" label="发布时间" width="160"></el-table-column>

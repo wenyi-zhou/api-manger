@@ -24,7 +24,7 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column prop="id" label="ID编号" width="90"></el-table-column>
+        <el-table-column prop="id" label="ID" width="70"></el-table-column>
         <el-table-column prop="name" label="显示名称" width="180"></el-table-column>
         <el-table-column :formatter="typeFormatter" label="类别" width="100"></el-table-column>
         <el-table-column prop="start_time" label="有效时间开始" width="180"></el-table-column>

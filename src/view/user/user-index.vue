@@ -38,6 +38,7 @@
     </div>
     <div class="card-body card-padding">
       <el-table :data="tableData" style="width: 100%" v-loading="isLoading" border>
+        <el-table-column prop="id" label="ID" width="70"></el-table-column>
         <el-table-column prop="login_name" label="登录名" width="150"></el-table-column>
         <el-table-column prop="nickname" label="昵称" width="150"></el-table-column>
         <el-table-column prop="gender" label="性别" :formatter="genderFormatter" width="80"></el-table-column>
@@ -130,13 +131,3 @@
   }
 
 </script>
-
-<style>
-  .table-pagination {
-    text-align: right;
-    padding: 10px 0px;
-    background: #eef1f6;
-    border: 1px solid #dfe6ec;
-    border-top: none
-  }
-</style>

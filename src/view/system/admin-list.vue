@@ -35,6 +35,7 @@
             </div>
           </template>
         </el-table-column>
+        <el-table-column prop="id" label="ID" width="70"></el-table-column>
         <el-table-column prop="login_name" label="登录名" width="140"></el-table-column>
         <el-table-column prop="nickname" label="昵称" width="140"></el-table-column>
         <el-table-column prop="admin_id" label="管理员ID" width="100"></el-table-column>
@@ -43,6 +44,7 @@
         <el-table-column label="操作">
           <template scope="scope">
             <el-button size="small" type="primary" @click="handleEdit(scope.row)">编辑</el-button>
+            <el-button size="small" type="primary" @click="handldDelete(scope.row)">删除</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -77,8 +79,8 @@
         </el-form-item>
         <el-form-item label="是否启用">
           <el-select v-model="cruAdmin.enable">
-            <el-option label="启用" value="1"></el-option>
-            <el-option label="未启用" value="2"></el-option>
+            <el-option label="启用" :value="1"></el-option>
+            <el-option label="未启用" :value="2"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="备注">
@@ -155,6 +157,29 @@
             this.showDialog = false
           }
         )
+      },
+      handldDelete: function (selectData) {
+        this.$confirm('你将删除此管理员, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          API.adminDelete({ id: selectData.id },
+            (data) => {
+              if (!data) return
+              this.fetchData()
+              this.$message({
+                type: 'success',
+                message: '删除成功!'
+              })
+            }
+          )
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          })
+        })
       },
 
       fetchData: function () {

@@ -24,7 +24,7 @@
     </div>
     <div class="card-body card-padding">
       <el-table :data="tableData" style="width: 100%" v-loading="isLoading" border>
-        <el-table-column prop="id" label="ID" width="60"></el-table-column>
+        <el-table-column prop="id" label="ID" width="70"></el-table-column>
         <el-table-column prop="title" label="名称" width="140"></el-table-column>
         <el-table-column prop="subject_name" label="科目" width="80"></el-table-column>
         <el-table-column prop="grade_name" label="针对年级" width="100"></el-table-column>

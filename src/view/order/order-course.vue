@@ -12,8 +12,11 @@
           </el-select>
         </el-form-item>
         <el-form-item>
-          <el-date-picker type="daterange" range-separator="至" v-model="selectDate" placeholder="选择日期范围" @change="handleDateChange"
-            :picker-options="datePickerOption" :editable="false"></el-date-picker>
+          <el-date-picker type="daterange" range-separator="至" v-model="selectDate" placeholder="选择日期范围" :picker-options="datePickerOption"
+            :editable="false"></el-date-picker>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="text" @click="showDialog = true"><i class="zmdi zmdi-filter-list" />&nbsp;更多筛选</el-button>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="submitFilter">确定</el-button>
@@ -22,6 +25,7 @@
     </div>
     <div class="card-body card-padding">
       <el-table :data="tableData" style="width: 100%" v-loading="isLoading" border>
+        <el-table-column prop="id" label="ID" width="70"></el-table-column>
         <el-table-column prop="order_number" label="订单编号" width="180"></el-table-column>
         <el-table-column prop="course_name" label="活动名称" width="160"></el-table-column>
         <el-table-column prop="pay_time" label="下单时间" width="200"></el-table-column>
@@ -37,14 +41,29 @@
       <div class="table-pagination">
         <el-pagination :current-page="filterFrom.pnum" :page-sizes="[5, 10, 15, 20]" :page-size="filterFrom.records" layout="sizes, prev, pager, next, jumper,total"
           :total="totalRecords" @size-change="handleSizeChange" @current-change="handlePageChange">
-          </el-pagination>
+        </el-pagination>
       </div>
     </div>
+    <el-dialog title="更多筛选" v-model="showDialog" size="tiny">
+      <el-form ref="from" :model="filterFrom" label-width="80px">
+        <el-form-item label="用户Id">
+          <el-input v-model="filterFrom.uid"></el-input>
+        </el-form-item>
+        <el-form-item label="课程ID">
+          <el-input v-model="filterFrom.course_id"></el-input>
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click.stop="resetForm">重 置</el-button>
+        <el-button type="primary" @click.stop="submitFilter">确 定</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
 <script>
   import API from '../../api'
+  import utils from '../../utils'
 
   var filterFrom = {
     status: '',
@@ -52,13 +71,15 @@
     end_time: '',
     pnum: 1,
     records: 10,
-    orderType: 'course'
+    orderType: 'course',
+    uid: '',
+    course_id: ''
   }
 
   export default {
     data: function () {
       return {
-        searchKey: '',
+        showDialog: false,
         isLoading: false,
         tableData: [],
         totalRecords: 0,
@@ -83,18 +104,12 @@
         this.filterFrom.pnum = val
         this.fetchData()
       },
-      handleDateChange: function (val) {
-        if (val) {
-          var dates = val.split('至')
-          this.filterFrom.start_time = dates[0]
-          this.filterFrom.end_time = dates[1]
-        } else {
-          this.filterFrom.start_time = ''
-          this.filterFrom.end_time = ''
-        }
-      },
       submitFilter: function () {
-        if (!this.selectDate) {
+        this.showDialog = false
+        if (this.selectDate) {
+          this.filterFrom.start_time = utils.date.format(this.selectDate[0])
+          this.filterFrom.end_time = utils.date.format(this.selectDate[1])
+        } else {
           this.filterFrom.start_time = ''
           this.filterFrom.end_time = ''
         }
@@ -148,6 +163,10 @@
           case 2: return '等待支付'
           default: return '订单完成'
         }
+      },
+      resetForm: function () {
+        this.filterFrom.uid = ''
+        this.filterFrom.course_id = ''
       }
     }
   }

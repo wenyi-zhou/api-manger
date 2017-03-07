@@ -33,6 +33,7 @@
     </div>
     <div class="card-body card-padding">
       <el-table :data="tableData" style="width: 100%" v-loading="isLoading" border>
+        <el-table-column prop="id" label="ID" width="70"></el-table-column>
         <el-table-column prop="name" label="名称" width="140"></el-table-column>
         <el-table-column prop="start_time" label="活动时间" width="160"></el-table-column>
         <el-table-column prop="address" label="地点" width="200"></el-table-column>

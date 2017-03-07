@@ -247,7 +247,7 @@ export default {
     if (params.id && params.id > 0) {
       this.startRequest('admin/edit', params, callback)
     } else {
-      params.roles = ''
+      params.roles = '1'
       this.startRequest('admin/add', params, callback)
     }
   },

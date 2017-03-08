@@ -8,6 +8,11 @@ var routers = [
     name: 'main',
     component: resolve => require(['../view/main.vue'], resolve)
   },
+  {
+    path: 'profile',
+    name: 'profile',
+    component: resolve => require(['../view/system/profile-info.vue'], resolve)
+  },
   // 用户管理
   {
     path: 'user',

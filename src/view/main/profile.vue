@@ -9,7 +9,7 @@
     </a>
     <ul :style="{display:'inline'}" class="main-menu" v-show="hasProfileMenuOpend">
       <li>
-        <a><i class="zmdi zmdi-settings"></i>个人中心</a>
+        <a href="#/profile"><i class="zmdi zmdi-settings"></i>个人中心</a>
       </li>
       <li>
         <a @click="handleLogout"><i class="zmdi zmdi-time-restore"></i>退出</a>

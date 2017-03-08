@@ -1,6 +1,6 @@
 # wcjy-admin
 
-> wcjy-admin
+> api-manager
 
 ## Build Setup
 

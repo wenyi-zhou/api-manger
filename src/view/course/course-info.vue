@@ -9,7 +9,7 @@
       </el-form>
     </div>
     <div class="card-body card-padding">
-      <el-tabs>
+      <el-tabs active-name="base">
         <el-tab-pane label="基本信息" name="base">
           <info-base :cur-course="curCourse" />
         </el-tab-pane>
@@ -23,6 +23,7 @@
         </el-tab-pane>
       </el-tabs>
     </div>
+  </div>
 </template>
 
 <script>

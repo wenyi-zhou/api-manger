@@ -9,18 +9,18 @@
       </el-form>
     </div>
     <div class="card-body card-padding">
-      <el-tabs>
+      <el-tabs active-name="content">
         <el-tab-pane label="图文介绍" name="content">
           <div class="content">
             <div class="pull-left">
               <img class="title-img" alt="" :src="curLesson.image">
               <div>
                 <dl class="dl-horizontal">
-                  <dt>课时名称</dt>
+                  <dt>课时名称:</dt>
                   <dd>{{curLesson.title}}</dd>
                 </dl>
                 <dl class="dl-horizontal">
-                  <dt>上课时间</dt>
+                  <dt>上课时间:</dt>
                   <dd>{{curLesson.start_time}}</dd>
                 </dl>
               </div>
@@ -39,6 +39,7 @@
         </el-tab-pane>
       </el-tabs>
     </div>
+  </div>
 </template>
 
 <script>

@@ -42,12 +42,10 @@
 
 <script>
   import API from '../../api'
-
   var selectType = {
     id: '',
     name: ''
   }
-
   export default {
     data: function () {
       return {

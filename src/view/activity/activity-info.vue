@@ -10,7 +10,7 @@
       </el-form>
     </div>
     <div class="card-body card-padding">
-      <el-tabs>
+      <el-tabs active-name="content">
         <el-tab-pane label="图文介绍" name="content">
           <el-row :gutter="20">
             <el-col :span="5">
@@ -104,6 +104,7 @@
         </el-tab-pane>
       </el-tabs>
     </div>
+  </div>
 </template>
 
 <script>

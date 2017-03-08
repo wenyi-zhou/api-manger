@@ -107,11 +107,11 @@
       },
 
       handleAdd: function () {
-        this.$router.push('/news/edit/0')
+        this.$router.push('/news/list/edit/0')
       },
       // 编辑
       handleEdit: function (SelectData) {
-        this.$router.push('/news/info/' + SelectData.id)
+        this.$router.push('/news/list/info/' + SelectData.id)
       },
 
       fetchData: function () {

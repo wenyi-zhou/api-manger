@@ -50,8 +50,8 @@
           </div>
         </el-form-item>
       </el-form>
-
     </div>
+  </div>
 </template>
 
 <script>
@@ -145,7 +145,7 @@
             this.$refs.editor.setContent(this.curObject.content)
             var breadcrumbs = []
             breadcrumbs.push({
-              index: '/news/info/' + this.curId,
+              index: '/news/list/info/' + this.curId,
               name: data.title
             })
             breadcrumbs.push({

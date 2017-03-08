@@ -92,12 +92,12 @@ var routers = [
     component: resolve => require(['../view/news/news-list.vue'], resolve)
   },
   {
-    path: 'news/info/:id',
+    path: 'news/list/info/:id',
     name: 'news:info:id',
     component: resolve => require(['../view/news/news-info.vue'], resolve)
   },
   {
-    path: 'news/edit/:id',
+    path: 'news/list/edit/:id',
     name: 'news:edit:id',
     component: resolve => require(['../view/news/news-edit.vue'], resolve)
   },

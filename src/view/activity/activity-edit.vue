@@ -62,6 +62,7 @@
         </el-form-item>
       </el-form>
     </div>
+  </div>
 </template>
 
 <script>

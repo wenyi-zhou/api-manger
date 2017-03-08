@@ -10,7 +10,7 @@
       </el-form>
     </div>
     <div class="card-body card-padding">
-      <el-tabs>
+      <el-tabs active-name="content">
         <el-tab-pane label="图文介绍" name="content">
           <div class="content">
             <div class="pull-left">
@@ -50,6 +50,7 @@
         </el-tab-pane>
       </el-tabs>
     </div>
+  </div>
 </template>
 
 <script>
@@ -74,11 +75,11 @@
 
     methods: {
       back: function () {
-        this.$router.replace('/news')
+        this.$router.replace('/news/list')
       },
 
       handleEdit: function () {
-        this.$router.push('/news/edit/' + this.curId)
+        this.$router.push('/news/list/edit/' + this.curId)
       },
 
       fetchData: function () {

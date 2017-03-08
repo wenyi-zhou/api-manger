@@ -8,7 +8,7 @@
       </el-form>
     </div>
     <div class="card-body card-padding">
-      <el-tabs>
+      <el-tabs active-name="content">
         <el-tab-pane label="基本信息" name="content">
           <el-row :gutter="20">
             <el-col :span="4">
@@ -206,6 +206,7 @@
         </el-tab-pane>
       </el-tabs>
     </div>
+  </div>
 </template>
 
 <script>
@@ -293,17 +294,22 @@
     border-radius: 3px;
     margin-bottom: 10px;
   }
+  
   .content-body {
     padding: 0px 10px 0px 10px
   }
+  
   .block {
     margin-bottom: 20px;
   }
+  
   dt {
     width: 60px;
   }
+  
   dd {
     margin-left: 75px;
     word-wrap: break-word
   }
+
 </style>

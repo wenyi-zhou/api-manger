@@ -1,6 +1,6 @@
 # API-Manager
 
-> api-manager is API
+> api-manager
 
 ## Build Setup
 

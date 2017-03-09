@@ -1,4 +1,4 @@
-# wcjy-admin
+# API-Manager
 
 > api-manager is API
 

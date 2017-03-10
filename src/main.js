@@ -2,7 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import 'element-ui/lib/theme-default/index.css'
 import 'vueditor/dist/css/vueditor.min.css'
-import './assets/material-font/css/material-design-iconic-font.min.css'
+import './assets/font-awesome/css/font-awesome.min.css'
 import './assets/css/base.css'
 
 import Vue from 'vue'

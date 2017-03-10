@@ -3,20 +3,7 @@
     <BarHeader v-on:openMenu="openMenu" v-on:closeAside="closeAside"></BarHeader>
     <section id="main">
       <AsideMenu ref="menu"></AsideMenu>
-      <wy-breadcrumb>
-        <wy-breadcrumb-item :to="'/'">管理系统</wy-breadcrumb-item>
-        <wy-breadcrumb-item v-for="breadcrumb in routeMenus" :to="breadcrumb.index">
-          {{breadcrumb.name}}
-        </wy-breadcrumb-item>
-        <wy-breadcrumb-item v-for="breadcrumb in BreadcrumbData" :to="breadcrumb.index">
-          {{breadcrumb.name}}
-        </wy-breadcrumb-item>
-      </wy-breadcrumb>
-      <section id="content">
-        <div class="container">
-          <router-view></router-view>
-        </div>
-      </section>
+      <router-view></router-view>
     </section>
     <BarFooter></BarFooter>
   </div>
@@ -25,7 +12,7 @@
 <script>
   import { WyBreadcrumb, WyBreadcrumbItem } from '../components/breadcrumb'
 
-  import AsideChat from './main/aside-chat'
+  import SecondMenu from './main/second-menu'
   import AsideMenu from './main/aside-menu'
   import BarFooter from './main/bar-footer'
   import BarHeader from './main/bar-header'
@@ -33,7 +20,7 @@
   export default {
     name: 'app',
     components: {
-      AsideChat,
+      SecondMenu,
       AsideMenu,
       BarFooter,
       BarHeader,
@@ -68,28 +55,14 @@
 <style>
   #main {
     padding-bottom: 100px;
-    padding-top: 68px;
+    padding-top: 78px;
     position: relative;
     min-height: 100vh
   }
 
-  #content.content-alt {
-    max-width: 1200px;
-    margin: 0 auto
-  }
-
-  @media (min-width:1280px) {
-    #content:not(.content-alt) {
-      padding-left: 283px;
-      padding-right: 15px
-    }
-  }
-
-  @media (min-width:768px) and (max-width:1279px) {
-    #content {
-      padding-left: 15px;
-      padding-right: 15px
-    }
+  #content {
+    padding-left: 365px;
+    padding-right: 15px
   }
 
   .table-pagination {

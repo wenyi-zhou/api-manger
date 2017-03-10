@@ -1,33 +1,23 @@
 <template>
   <aside class="sidebar">
-    <main-menu defaultActive="api">
-      <menu-item index="api" name="接口">
-        <i class="fa fa-cubes"></i>
-      </menu-item>
-      <menu-item index="users" name="成员">
-        <i class="fa fa-users"></i>
-      </menu-item>
-      <menu-item index="setting" name="设置">
-        <i class="fa fa-cogs"></i>
-      </menu-item>
-      <menu-item index="log" name="日志">
-        <i class="fa fa-file-text"></i>
-      </menu-item>
-    </main-menu>
+    <wy-menu hasRouter="true" v-bind:defaultActive="activity_menu" @select="menuSelected">
+      <wy-menu-items v-for="menu in menu_list" :menu="menu"></wy-menu-items>
+    </wy-menu>
   </aside>
 </template>
 
 <script>
-  import { MainMenu, MenuItem } from '../../components/main-menu'
+  import { WyMenu, WyMenuItems } from '../../components/menu'
 
   export default {
     components: {
-      'main-menu': MainMenu,
-      'menu-item': MenuItem
+      'wy-menu': WyMenu,
+      'wy-menu-items': WyMenuItems
     },
 
     data: function () {
       return {
+        hasOpend: false,
         hasProfileMenuOpend: false
       }
     },
@@ -72,14 +62,14 @@
 
 <style scoped>
   .sidebar {
-    width: 70px;
+    width: 280px;
     position: fixed;
-    background: #333744;
+    background: #eaedf1;
     height: calc(100% - 60px);
     top: 60px;
+    left: 70px;
     z-index: 10;
-    overflow-y: auto;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, .1)
+    overflow-y: auto
   }
 
   @media print {

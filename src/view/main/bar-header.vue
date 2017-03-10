@@ -10,7 +10,7 @@
         </div>
       </li>
       <li class="hi-logo hidden-xs">
-        <a href="#">纬创教育-后台管理</a>
+        <a href="#"><i class="fa fa-paper-plane" style="margin-right: 10px"></i>API文档管理</a>
       </li>
     </ul>
   </header>

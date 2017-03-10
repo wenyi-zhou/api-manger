@@ -1,7 +1,3 @@
-# API-Manager
-
-> api-manager是一个管理RESTful API,可以生成文档与在线测试，支持导出PDF
-
 ## Build Setup
 
 ``` bash

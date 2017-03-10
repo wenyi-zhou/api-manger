@@ -7,10 +7,6 @@ html {
   font-size: 10px
 }
 
-html:not(.ie9) body {
-  overflow-y: scroll
-}
-
 html.ismobile * {
   cursor: pointer
 }

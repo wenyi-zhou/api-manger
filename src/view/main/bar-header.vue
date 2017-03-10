@@ -10,7 +10,7 @@
         </div>
       </li>
       <li class="hi-logo hidden-xs">
-        <a href="#">纬课教育-后台管理</a>
+        <a href="#">纬创教育-后台管理</a>
       </li>
     </ul>
   </header>
@@ -43,15 +43,15 @@
 <style scoped>
   #header {
     box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
-    min-height: 70px;
+    height: 60px;
     user-select: none;
     position: fixed;
     z-index: 11;
     width: 100%;
     left: 0;
     top: 0;
-    padding: 0 20px;
-    background-color: #2196F3;
+    padding: 0 15px;
+    background-color: #373d41;
     -moz-user-select: none;
     -ms-user-select: none;
     -webkit-touch-callout: none;
@@ -70,7 +70,7 @@
 
   .h-inner {
     list-style: none;
-    padding: 17px 0;
+    padding: 13px 0;
     margin-bottom: 0
   }
 

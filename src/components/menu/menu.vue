@@ -134,7 +134,8 @@
   .main-menu {
     list-style: none;
     padding-left: 0;
-    margin: 0px 0px
+    margin: 0px 0px;
+    background: #42485b
   }
 
   .main-menu a {
@@ -148,7 +149,7 @@
   .main-menu .active>a,
   .main-menu a.active,
   .main-menu a:hover {
-    color: #000;
+    color: #ffffff;
   }
 
   .main-menu>li>a {
@@ -156,7 +157,7 @@
     display: block;
     font-weight: 500;
     position: relative;
-    color: #4C4C4C
+    color: #ffffff
   }
 
   .main-menu>li>a>i {
@@ -171,6 +172,6 @@
 
   .main-menu>li.active>a,
   .main-menu>li>a:hover {
-    background-color: #f3f3f3
+    background-color: #00c1de
   }
 </style>

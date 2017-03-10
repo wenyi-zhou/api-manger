@@ -70,9 +70,9 @@
 
   .sidebar {
     position: fixed;
-    background: #fff;
-    height: calc(100% - 70px);
-    top: 70px;
+    background: #333744;
+    height: calc(100% - 60px);
+    top: 60px;
     transition: all;
     -webkit-transition-duration: .3s;
     transition-duration: .3s;

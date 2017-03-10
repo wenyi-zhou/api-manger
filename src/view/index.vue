@@ -67,8 +67,8 @@
 
 <style>
   #main {
-    padding-bottom: 110px;
-    padding-top: 83px;
+    padding-bottom: 100px;
+    padding-top: 68px;
     position: relative;
     min-height: 100vh
   }

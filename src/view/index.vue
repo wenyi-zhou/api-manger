@@ -3,7 +3,11 @@
     <BarHeader v-on:openMenu="openMenu" v-on:closeAside="closeAside"></BarHeader>
     <section id="main">
       <AsideMenu ref="menu"></AsideMenu>
-      <router-view></router-view>
+      <SecondMenu></SecondMenu>
+      <div id="content">
+        <router-view>
+        </router-view>
+      </div>
     </section>
     <BarFooter></BarFooter>
   </div>
